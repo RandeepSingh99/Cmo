@@ -2,6 +2,8 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {scaledValue} from '../../utils/designUtils';
 import liveImg from '../../../assets/images/liveImg.png';
+import moneyImg from '../../../assets/images/moneyImg.png';
+import drawerIcon from '../../../assets/images/drawerIcon.png';
 import {appColors} from '../../utils/constants/colors';
 import RoundButton from '../RoundButton';
 const Header = () => {
@@ -10,8 +12,8 @@ const Header = () => {
       <Text style={styles.headerTitleText}>CMO Rajasthan</Text>
       <View style={styles.imgsView}>
         <Image style={styles.actionButtonIcons} source={liveImg} />
-        <RoundButton/>
-        <RoundButton/>
+        <RoundButton img={moneyImg} />
+        <RoundButton img={drawerIcon} />
       </View>
     
     </View>
