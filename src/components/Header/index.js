@@ -15,7 +15,6 @@ const Header = () => {
         <RoundButton img={moneyImg} />
         <RoundButton img={drawerIcon} />
       </View>
-    
     </View>
   );
 };
@@ -30,6 +29,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: scaledValue(17.5),
     flexDirection: 'row',
     justifyContent: 'space-between',
+    backgroundColor: appColors.white,
   },
   imgsView: {flexDirection: 'row'},
   actionButtonIcons: {width: scaledValue(40), height: scaledValue(40)},
