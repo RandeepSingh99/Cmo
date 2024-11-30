@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     borderColor: appColors.gray,
     width: scaledValue(40),
     height: scaledValue(40),
-    marginLeft: scaledValue(2),
+    marginLeft: scaledValue(4),
     justifyContent:'center',alignItems:'center'
   },
 });
