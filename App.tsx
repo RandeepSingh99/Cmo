@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Splash from './src/screens/Splash';
 import { appRoutes } from './src/utils/constants/routeNames';
 import { appColors } from './src/utils/constants/colors';
+import Home from './src/screens/Home';
 
 
 const Stack = createNativeStackNavigator();
@@ -18,6 +19,7 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name={appRoutes.splash} component={Splash} />
+          <Stack.Screen name={appRoutes.home} component={Home} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>
