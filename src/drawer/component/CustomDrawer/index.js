@@ -1,7 +1,7 @@
-import {DrawerContentScrollView} from '@react-navigation/drawer';
 import {
   Image,
   ImageBackground,
+  SectionList,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -14,36 +14,70 @@ import xCircle from '../../../../assets/images/xCircle.png';
 import {scaledValue} from '../../../utils/designUtils';
 import {appColors} from '../../../utils/constants/colors';
 import DrawerItem from '../../../components/DrawerItem';
+import BulletDrawerItem from '../../../components/BulletDrawerItem';
+import {sections} from '../../../utils/constants';
+import {useState} from 'react';
 const CustomDrawerContent = props => {
+  const [expandedSections, setExpandedSections] = useState({});
+
+  const toggleSection = title => {
+    setExpandedSections(prevState => ({
+      ...prevState,
+      [title]: !prevState[title],
+    }));
+  };
   return (
-    <DrawerContentScrollView {...props}>
-      <ImageBackground style={styles.drawerHeader} source={bgLinear}>
-        <Image tintColor={appColors.white} style={styles.logo} source={logo} />
-        <TouchableOpacity
-          style={styles.crossTouchable}
-          onPress={() => props.navigation.closeDrawer()}>
-          <Image resizeMode="contain" style={styles.cross} source={xCircle} />
-        </TouchableOpacity>
-
-        <View>
-          <View style={styles.titleView}>
-            <Text style={styles.title}>CMO Rajasthan</Text>
-
+    <View {...props}>
+      <SectionList
+        showsVerticalScrollIndicator={false}
+        sections={sections}
+        keyExtractor={(item, index) => item + index}
+        ListHeaderComponent={() => (
+          <ImageBackground style={styles.drawerHeader} source={bgLinear}>
             <Image
-              resizeMode="contain"
               tintColor={appColors.white}
-              style={styles.share}
-              source={share}
+              style={styles.logo}
+              source={logo}
             />
-          </View>
-          <Text style={styles.lastAppUpdateTime}>
-             Last update : 04-Aug-2024, 9:31 PM
-          </Text>
-        </View>
-      </ImageBackground>
-      <View style={styles.spacer}/>
-      <DrawerItem/>
-    </DrawerContentScrollView>
+            <TouchableOpacity
+              style={styles.crossTouchable}
+              onPress={() => props.navigation.closeDrawer()}>
+              <Image
+                resizeMode="contain"
+                style={styles.cross}
+                source={xCircle}
+              />
+            </TouchableOpacity>
+            <View>
+              <View style={styles.titleView}>
+                <Text style={styles.title}>CMO Rajasthan</Text>
+                <Image
+                  resizeMode="contain"
+                  tintColor={appColors.white}
+                  style={styles.share}
+                  source={share}
+                />
+              </View>
+              <Text style={styles.lastAppUpdateTime}>
+                 Last update : 04-Aug-2024, 9:31 PM
+              </Text>
+            </View>
+          </ImageBackground>
+        )}
+        renderSectionHeader={({section}) => (
+          <DrawerItem
+            onPress={() => toggleSection(section.title)}
+            title={section.title}
+            showMinus={section.data.length > 0}
+          />
+        )}
+        renderItem={({item, section}) =>
+          expandedSections[section.title] && <BulletDrawerItem title={item} />
+        }
+        contentContainerStyle={styles.container}
+        stickySectionHeadersEnabled={false} // Optional, to disable sticky headers
+      />
+    </View>
   );
 };
 export default CustomDrawerContent;
@@ -52,7 +86,6 @@ const styles = StyleSheet.create({
   drawerHeader: {
     width: scaledValue(351),
     height: scaledValue(148),
-    position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
@@ -90,5 +123,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  spacer:{height:scaledValue(150)}
+  spacer: {height: scaledValue(150)},
 });
