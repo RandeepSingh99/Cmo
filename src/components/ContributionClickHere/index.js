@@ -5,15 +5,15 @@ import {appColors} from '../../utils/constants/colors';
 
 const ContributionClickHere = () => {
   return (
-    <View style={styles.ContributionClickHere}>
-      <Text style={styles.ContributionClickHereText}>
+    <View style={styles.contributionClickHere}>
+      <Text style={styles.contributionClickHereText}>
         Contribute to Disaster Relief and support to Rajasthan
       </Text>
-      <Text style={styles.ContributionClickHereDonateText}>
+      <Text style={styles.contributionClickHereDonateText}>
         Donate to Rajasthan Chief Minister Relief Fund
       </Text>
-      <View style={styles.ContributionClickHereButton}>
-        <Text style={styles.ContributionClickHereButtonText}>Click Here</Text>
+      <View style={styles.contributionClickHereButton}>
+        <Text style={styles.contributionClickHereButtonText}>Click Here</Text>
       </View>
     </View>
   );
@@ -22,7 +22,7 @@ const ContributionClickHere = () => {
 export default ContributionClickHere;
 
 const styles = StyleSheet.create({
-  ContributionClickHere: {
+  contributionClickHere: {
     height: scaledValue(196),
     width: scaledValue(351),
     margin: scaledValue(10),
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
   },
-  ContributionClickHereText: {
+  contributionClickHereText: {
     fontFamily: 'Roboto',
     fontWeight: '800',
     lineHeight: scaledValue(23),
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     color: appColors.darkBlue,
     textAlign: 'center',
   },
-  ContributionClickHereDonateText: {
+  contributionClickHereDonateText: {
     fontFamily: 'Roboto',
     fontWeight: '400',
     lineHeight: scaledValue(18),
@@ -49,17 +49,19 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingVertical: scaledValue(10),
   },
-  ContributionClickHereButton: {
+  contributionClickHereButton: {
     height: scaledValue(49),
     width: scaledValue(192),
     backgroundColor: appColors.blue,
     borderRadius: 100,
+    flexDirection:'row',
+    justifyContent:"center",
+   alignItems:'center'
   },
-  ContributionClickHereButtonText: {
+  contributionClickHereButtonText: {
     fontFamily: 'Inter',
     fontWeight: '600',
     color: appColors.white,
     fontSize: scaledValue(14),
-    lineHeight: scaledValue(21),
   },
 });
