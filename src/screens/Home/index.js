@@ -1,4 +1,4 @@
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, View ,ScrollView} from 'react-native';
 import React, { useState } from 'react';
 import Header from '../../components/Header';
 import banner from '../../../assets/images/banner.png';
@@ -6,11 +6,12 @@ import { scaledValue } from '../../utils/designUtils';
 import Chip from '../../components/Chip';
 import { filterChip } from '../../utils/constants';
 import ContextHeader from '../../components/ContextHeader';
-import ContextCart from '../../components/ContextCart';
+import ContextCart from '../../components/ContextCard';
+import ContributionClickHere from '../../components/ContributionClickHere';
 const Home = () => {
   const [selectedChip, setSelectedChip] = useState('All');
   return (
-    <View>
+    <ScrollView>
       <Header />
       <Image resizeMode="contain" style={styles.banner} source={banner} />
       <FlatList
@@ -19,7 +20,7 @@ const Home = () => {
         data={filterChip}
         keyExtractor={i => i}
         showsHorizontalScrollIndicator={false}
-  
+
         renderItem={({ item }) => (
           <Chip
             onPress={() => setSelectedChip(item)}
@@ -30,9 +31,9 @@ const Home = () => {
       />
       <ContextHeader />
       <ContextCart />
+      <ContributionClickHere />
 
-
-    </View>
+    </ScrollView>
   );
 };
 
