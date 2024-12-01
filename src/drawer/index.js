@@ -14,7 +14,8 @@ const Drawer = (props) => {
         headerShown: false,
         drawerStyle: {
           width: scaledValue(351),
-          borderRadius: 0,
+          borderTopLeftRadius: 0, 
+          borderBottomLeftRadius: 0, 
         },
         drawerPosition: 'right',
       }}>
