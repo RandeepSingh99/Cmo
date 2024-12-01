@@ -20,7 +20,7 @@ const Home = () => {
   const [selectedChip, setSelectedChip] = useState('All');
   return (
     <ScrollView showsHorizontalScrollIndicator={false} style={styles.scroll}>
-      <Header />
+      <Header title='CMO Rajasthan' />
       <Image resizeMode="contain" style={styles.banner} source={banner} />
       <FlatList
         contentContainerStyle={styles.flatList}

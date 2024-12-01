@@ -7,11 +7,11 @@ import drawerIcon from '../../../assets/images/drawerIcon.png';
 import {appColors} from '../../utils/constants/colors';
 import RoundButton from '../RoundButton';
 import {useNavigation} from '@react-navigation/native';
-const Header = () => {
+const Header = (props) => {
   const navigation = useNavigation();
   return (
     <View style={styles.header}>
-      <Text style={styles.headerTitleText}>CMO Rajasthan</Text>
+      <Text style={styles.headerTitleText}>{props.title}</Text>
       <View style={styles.imgsView}>
         <Image style={styles.actionButtonIcons} source={liveImg} />
         <RoundButton img={moneyImg} />
