@@ -5,6 +5,7 @@ import {scaledValue} from '../utils/designUtils';
 import CustomDrawerContent from './component/CustomDrawer';
 import KeyOfficials from '../screens/KeyOfficials';
 import Distribution from '../screens/Distribution';
+import StateGovernment from '../screens/StateGovernment';
 
 const DrawerStack = createDrawerNavigator();
 
@@ -29,6 +30,10 @@ const Drawer = props => {
       <DrawerStack.Screen
         name={appRoutes.distribution}
         component={Distribution}
+      />
+        <DrawerStack.Screen
+        name={appRoutes.stateGovernment}
+        component={StateGovernment}
       />
     </DrawerStack.Navigator>
   );

@@ -4,11 +4,12 @@ import {appColors} from '../../utils/constants/colors';
 import Header from '../../components/Header';
 import InfoCard from '../../components/InfoCard';
 import Spacer from '../../components/Spacer';
+import { appRoutes } from '../../utils/constants/routeNames';
 
 const KeyOfficials = () => {
   return (
     <View style={styles.keyOfficials}>
-      <Header title="Key Officials" />
+      <Header title={appRoutes.keyOfficials} />
       <Spacer height={8} />
       <FlatList
         showsVerticalScrollIndicator={false}

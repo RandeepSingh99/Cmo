@@ -5,4 +5,5 @@ export const appRoutes = {
   drawer: 'Drawer',
   keyOfficials: 'Key Officials',
   distribution: 'Distribution',
+  stateGovernment:'State Government'
 };

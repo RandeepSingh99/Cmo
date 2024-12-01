@@ -111,3 +111,11 @@ export const sections = [
     data: [],
   },
 ];
+export const stateGovt = {
+  governor: 'Governor',
+  chiefMinister: 'Chief Minister',
+  deputyChiefMinister: 'Deputy Chief Minister',
+  stateMinister: 'State Minister (Independent Charge)',
+  mla: 'MLA',
+  chiefSecretary: 'Chief Secretary',
+};
