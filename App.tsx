@@ -9,7 +9,6 @@ import { appRoutes } from './src/utils/constants/routeNames';
 import { appColors } from './src/utils/constants/colors';
 import Drawer from './src/drawer';
 
-
 const Stack = createNativeStackNavigator();
 
 const App = () => {

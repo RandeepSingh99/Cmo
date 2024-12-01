@@ -1,10 +1,14 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {scaledValue} from '../../utils/designUtils';
 import {appColors} from '../../utils/constants/colors';
 
 const BulletDrawerItem = props => {
-  return <Text style={styles.itemText}>• {props.title}</Text>;
+  return (
+    <TouchableOpacity onPress={props.onPress}>
+      <Text style={styles.itemText}>• {props.title}</Text>
+    </TouchableOpacity>
+  );
 };
 
 export default BulletDrawerItem;

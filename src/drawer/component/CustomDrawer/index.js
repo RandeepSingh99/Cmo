@@ -17,6 +17,7 @@ import DrawerItem from '../../../components/DrawerItem';
 import BulletDrawerItem from '../../../components/BulletDrawerItem';
 import {sections} from '../../../utils/constants';
 import {useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
 const CustomDrawerContent = props => {
   const [expandedSections, setExpandedSections] = useState({});
 
@@ -72,7 +73,12 @@ const CustomDrawerContent = props => {
           />
         )}
         renderItem={({item, section}) =>
-          expandedSections[section.title] && <BulletDrawerItem title={item} />
+          expandedSections[section.title] && (
+            <BulletDrawerItem
+              onPress={() =>{ props.navigation.navigate(item)}}
+              title={item}
+            />
+          )
         }
         contentContainerStyle={styles.container}
         stickySectionHeadersEnabled={false} // Optional, to disable sticky headers
