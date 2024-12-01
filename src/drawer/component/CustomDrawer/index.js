@@ -13,6 +13,7 @@ import logo from '../../../../assets/images/logo.png';
 import xCircle from '../../../../assets/images/xCircle.png';
 import {scaledValue} from '../../../utils/designUtils';
 import {appColors} from '../../../utils/constants/colors';
+import DrawerItem from '../../../components/DrawerItem';
 const CustomDrawerContent = props => {
   return (
     <DrawerContentScrollView {...props}>
@@ -40,6 +41,8 @@ const CustomDrawerContent = props => {
           </Text>
         </View>
       </ImageBackground>
+      <View style={styles.spacer}/>
+      <DrawerItem/>
     </DrawerContentScrollView>
   );
 };
@@ -87,4 +90,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  spacer:{height:scaledValue(150)}
 });

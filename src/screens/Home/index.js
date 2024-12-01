@@ -1,10 +1,12 @@
-import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
+import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
 import Header from '../../components/Header';
 import banner from '../../../assets/images/banner.png';
-import {scaledValue} from '../../utils/designUtils';
+import { scaledValue } from '../../utils/designUtils';
 import Chip from '../../components/Chip';
-import {filterChip} from '../../utils/constants';
+import { filterChip } from '../../utils/constants';
+import ContextHeader from '../../components/ContextHeader';
+import ContextCart from '../../components/ContextCart';
 const Home = () => {
   const [selectedChip, setSelectedChip] = useState('All');
   return (
@@ -17,7 +19,8 @@ const Home = () => {
         data={filterChip}
         keyExtractor={i => i}
         showsHorizontalScrollIndicator={false}
-        renderItem={({item}) => (
+  
+        renderItem={({ item }) => (
           <Chip
             onPress={() => setSelectedChip(item)}
             title={item}
@@ -25,6 +28,10 @@ const Home = () => {
           />
         )}
       />
+      <ContextHeader />
+      <ContextCart />
+
+
     </View>
   );
 };
@@ -32,6 +39,6 @@ const Home = () => {
 export default Home;
 
 const styles = StyleSheet.create({
-  banner: {width: scaledValue(375), height: scaledValue(177)},
-  flatList: {marginHorizontal: scaledValue(6)},
+  banner: { width: scaledValue(375), height: scaledValue(177) },
+  flatList: { marginHorizontal: scaledValue(6) },
 });
