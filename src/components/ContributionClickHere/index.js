@@ -1,7 +1,8 @@
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import {scaledValue} from '../../utils/designUtils';
-import {appColors} from '../../utils/constants/colors';
+import { scaledValue } from '../../utils/designUtils';
+import { appColors } from '../../utils/constants/colors';
+import ClickBlueButton from '../ClickBlueButton';
 
 const ContributionClickHere = () => {
   return (
@@ -12,9 +13,7 @@ const ContributionClickHere = () => {
       <Text style={styles.contributionClickHereDonateText}>
         Donate to Rajasthan Chief Minister Relief Fund
       </Text>
-      <View style={styles.contributionClickHereButton}>
-        <Text style={styles.contributionClickHereButtonText}>Click Here</Text>
-      </View>
+      <ClickBlueButton />
     </View>
   );
 };
@@ -26,9 +25,17 @@ const styles = StyleSheet.create({
     height: scaledValue(196),
     width: scaledValue(351),
     margin: scaledValue(10),
-    borderWidth: 2,
+    borderRadius: 4,
     flexDirection: 'column',
     alignItems: 'center',
+    backgroundColor: appColors.white,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    borderWidth: 1,
+    borderColor: appColors.border,
   },
   contributionClickHereText: {
     fontFamily: 'Roboto',
@@ -49,19 +56,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingVertical: scaledValue(10),
   },
-  contributionClickHereButton: {
-    height: scaledValue(49),
-    width: scaledValue(192),
-    backgroundColor: appColors.blue,
-    borderRadius: 100,
-    flexDirection:'row',
-    justifyContent:"center",
-   alignItems:'center'
-  },
-  contributionClickHereButtonText: {
-    fontFamily: 'Inter',
-    fontWeight: '600',
-    color: appColors.white,
-    fontSize: scaledValue(14),
-  },
+ 
 });

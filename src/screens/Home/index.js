@@ -6,16 +6,20 @@ import {
   View,
   ScrollView,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/Header';
 import banner from '../../../assets/images/banner.png';
-import {scaledValue} from '../../utils/designUtils';
+import { scaledValue } from '../../utils/designUtils';
 import Chip from '../../components/Chip';
-import {filterChip} from '../../utils/constants';
+import { filterChip } from '../../utils/constants';
 import ContextHeader from '../../components/ContextHeader';
 import ContextCart from '../../components/ContextCard';
 import ContributionClickHere from '../../components/ContributionClickHere';
-import {appColors} from '../../utils/constants/colors';
+import { appColors } from '../../utils/constants/colors';
+import ContextSmallCard from '../../components/ContextSmallCard';
+import MessageToChief from '../../components/MessageToChief';
+import CMSpeechesCard from '../../components/CMSpeechesCard';
+import Spacer from '../../components/Spacer';
 const Home = () => {
   const [selectedChip, setSelectedChip] = useState('All');
   return (
@@ -28,7 +32,7 @@ const Home = () => {
         data={filterChip}
         keyExtractor={i => i}
         showsHorizontalScrollIndicator={false}
-        renderItem={({item}) => (
+        renderItem={({ item }) => (
           <Chip
             onPress={() => setSelectedChip(item)}
             title={item}
@@ -42,10 +46,42 @@ const Home = () => {
         data={[{}, {}, {}]}
         keyExtractor={i => i}
         showsHorizontalScrollIndicator={false}
-        renderItem={({item}) => <ContextCart />}
+        renderItem={({ item }) => <ContextCart />}
       />
 
       <ContributionClickHere />
+      <ContextHeader />
+
+      <ContextSmallCard />
+      <FlatList
+        vertical
+        data={[{}, {}, {}]}
+        keyExtractor={i => i}
+        showsVerticalScrollIndicator={false}
+        renderItem={({ item }) =>  <ContextSmallCard />}
+      />
+
+      <ContextHeader />
+      <FlatList
+        horizontal
+        data={[{}, {}, {}]}
+        keyExtractor={i => i}
+        showsHorizontalScrollIndicator={false}
+        renderItem={({ item }) => <ContextCart />}
+      />
+
+      <MessageToChief />
+       <ContextHeader />
+       <FlatList
+        horizontal
+        data={[{}, {}, {}]}
+        keyExtractor={i => i}
+        showsHorizontalScrollIndicator={false}
+        renderItem={({ item }) => <ContextCart />}
+      />
+      <ContextHeader />
+      <CMSpeechesCard />
+      <Spacer height={12}/>
     </ScrollView>
   );
 };
@@ -53,7 +89,7 @@ const Home = () => {
 export default Home;
 
 const styles = StyleSheet.create({
-  banner: {width: scaledValue(375), height: scaledValue(177)},
-  flatList: {marginHorizontal: scaledValue(6)},
-  scroll: {backgroundColor: appColors.background},
+  banner: { width: scaledValue(375), height: scaledValue(177) },
+  flatList: { marginHorizontal: scaledValue(6) },
+  scroll: { backgroundColor: appColors.background },
 });

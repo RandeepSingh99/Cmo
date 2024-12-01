@@ -37,10 +37,17 @@ const styles = StyleSheet.create({
   contextCard: {
     height: scaledValue(219),
     width: scaledValue(200),
-    borderWidth: 0.5,
     padding: scaledValue(10),
     borderRadius: scaledValue(4),
     marginHorizontal: scaledValue(10),
+    backgroundColor: appColors.white,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    borderWidth: 1,
+    borderColor: appColors.border,
   },
   contextPhoto: {
     height: scaledValue(100),
