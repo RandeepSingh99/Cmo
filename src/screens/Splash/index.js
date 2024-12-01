@@ -1,5 +1,5 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import splash from '../../../assets/images/splash.png';
 import {scaledValue} from '../../utils/designUtils';
 import {useNavigation} from '@react-navigation/native';
@@ -9,11 +9,11 @@ const Splash = () => {
 
   useEffect(() => {
     const id = setTimeout(() => {
-      navigation.replace(appRoutes.home);
+      navigation.replace(appRoutes.drawer);
     }, 3000);
     return () => clearTimeout(id);
   }, []);
-  
+
   return (
     <View style={styles.splash}>
       <Image resizeMode="fit" style={styles.splashImg} source={splash} />

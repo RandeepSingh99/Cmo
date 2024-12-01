@@ -6,14 +6,16 @@ import moneyImg from '../../../assets/images/moneyImg.png';
 import drawerIcon from '../../../assets/images/drawerIcon.png';
 import {appColors} from '../../utils/constants/colors';
 import RoundButton from '../RoundButton';
+import {useNavigation} from '@react-navigation/native';
 const Header = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.header}>
       <Text style={styles.headerTitleText}>CMO Rajasthan</Text>
       <View style={styles.imgsView}>
         <Image style={styles.actionButtonIcons} source={liveImg} />
         <RoundButton img={moneyImg} />
-        <RoundButton img={drawerIcon} />
+        <RoundButton onPress={() => navigation.openDrawer()} img={drawerIcon} />
       </View>
     </View>
   );

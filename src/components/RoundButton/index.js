@@ -5,8 +5,12 @@ import {appColors} from '../../utils/constants/colors';
 
 const RoundButton = props => {
   return (
-    <TouchableOpacity style={styles.touchable}>
-      <Image resizeMode='contain' style={styles.actionButtonIcons} source={props.img} />
+    <TouchableOpacity onPress={props.onPress} style={styles.touchable}>
+      <Image
+        resizeMode="contain"
+        style={styles.actionButtonIcons}
+        source={props.img}
+      />
     </TouchableOpacity>
   );
 };
@@ -22,6 +26,7 @@ const styles = StyleSheet.create({
     width: scaledValue(40),
     height: scaledValue(40),
     marginLeft: scaledValue(4),
-    justifyContent:'center',alignItems:'center'
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
