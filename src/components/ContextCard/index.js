@@ -37,10 +37,10 @@ const styles = StyleSheet.create({
   contextCard: {
     height: scaledValue(219),
     width: scaledValue(200),
-    borderWidth: 0.5,
     padding: scaledValue(10),
     borderRadius: scaledValue(4),
     marginHorizontal: scaledValue(10),
+    backgroundColor: appColors.white,
   },
   contextPhoto: {
     height: scaledValue(100),
