@@ -6,5 +6,6 @@ export const appColors = {
   lightGray: '#7B7B7B',
   blue: '#1C0D73',
   background:'#ECEAFF',
-  border:'#DFDBFF'
+  border:'#DFDBFF',
+  darkPurple:'#484473'
 };

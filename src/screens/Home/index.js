@@ -13,7 +13,7 @@ import { scaledValue } from '../../utils/designUtils';
 import Chip from '../../components/Chip';
 import { filterChip } from '../../utils/constants';
 import ContextHeader from '../../components/ContextHeader';
-import ContextCart from '../../components/ContextCard';
+import NewsCard from '../../components/NewsCard';
 import ContributionClickHere from '../../components/ContributionClickHere';
 import { appColors } from '../../utils/constants/colors';
 import ContextSmallCard from '../../components/ContextSmallCard';
@@ -46,7 +46,7 @@ const Home = () => {
         data={[{}, {}, {}]}
         keyExtractor={i => i}
         showsHorizontalScrollIndicator={false}
-        renderItem={({ item }) => <ContextCart />}
+        renderItem={({ item }) => <NewsCard />}
       />
 
       <ContributionClickHere />
@@ -67,7 +67,7 @@ const Home = () => {
         data={[{}, {}, {}]}
         keyExtractor={i => i}
         showsHorizontalScrollIndicator={false}
-        renderItem={({ item }) => <ContextCart />}
+        renderItem={({ item }) => <NewsCard />}
       />
 
       <MessageToChief />
@@ -77,7 +77,7 @@ const Home = () => {
         data={[{}, {}, {}]}
         keyExtractor={i => i}
         showsHorizontalScrollIndicator={false}
-        renderItem={({ item }) => <ContextCart />}
+        renderItem={({ item }) => <NewsCard />}
       />
       <ContextHeader />
       <CMSpeechesCard />

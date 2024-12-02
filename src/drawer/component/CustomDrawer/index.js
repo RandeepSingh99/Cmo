@@ -24,11 +24,13 @@ const CustomDrawerContent = props => {
       ...prevState,
       [title]: !prevState[title],
     }));
+    handleNavigation(title);
   };
   const handleNavigation = screen => {
     if (
       screen === appRoutes.keyOfficials ||
-      screen === appRoutes.distribution
+      screen === appRoutes.distribution ||
+      screen === appRoutes.successStories
     ) {
       props.navigation.navigate(screen);
       return;
@@ -39,7 +41,9 @@ const CustomDrawerContent = props => {
       screen === stateGovt.chiefSecretary ||
       screen === stateGovt.deputyChiefMinister ||
       screen === stateGovt.mla ||
-      screen === stateGovt.stateMinister
+      screen === stateGovt.stateMinister ||
+      screen === stateGovt.stateMinisterIndependentCharge ||
+      screen === stateGovt.cabinetMinister
     ) {
       props.navigation.navigate(appRoutes.stateGovernment, screen);
       return;

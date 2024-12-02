@@ -5,7 +5,7 @@ import contextPhoto from '../../../assets/images/contextPhoto.png';
 import calenderIcon from '../../../assets/images/calenderIcon.png';
 import {appColors} from '../../utils/constants/colors';
 
-const ContextCard = () => {
+const NewsCard = () => {
   return (
     <View style={styles.contextCard}>
       <Image
@@ -31,7 +31,7 @@ const ContextCard = () => {
   );
 };
 
-export default ContextCard;
+export default NewsCard;
 
 const styles = StyleSheet.create({
   contextCard: {
@@ -41,12 +41,7 @@ const styles = StyleSheet.create({
     borderRadius: scaledValue(4),
     marginHorizontal: scaledValue(10),
     backgroundColor: appColors.white,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-    borderWidth: 1,
+    borderWidth: .5,
     borderColor: appColors.border,
   },
   contextPhoto: {
@@ -74,7 +69,6 @@ const styles = StyleSheet.create({
     height: scaledValue(15),
     width: scaledValue(15),
     margin: scaledValue(5),
-    color: appColors.gray,
   },
   contextCardDate: {
     height: scaledValue(20),

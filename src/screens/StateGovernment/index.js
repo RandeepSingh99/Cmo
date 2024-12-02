@@ -5,14 +5,18 @@ import Header from '../../components/Header';
 import {appRoutes} from '../../utils/constants/routeNames';
 import Spacer from '../../components/Spacer';
 import ListItem from '../../components/ListItem';
-import { sections } from '../../utils/constants';
+import {sections} from '../../utils/constants';
 
-const StateGovernment = () => {
+const StateGovernment = props => {
+  const {params} = props.route || '';
   return (
     <View style={styles.stateGovernment}>
       <Header title={appRoutes.stateGovernment} />
       <Spacer height={8} />
-      <FlatList data={sections[2].data} renderItem={({item}) => <ListItem title={item} />} />
+      <FlatList
+        data={sections[2].data}
+        renderItem={({item}) => <ListItem title={item} />}
+      />
       <Spacer height={8} />
     </View>
   );

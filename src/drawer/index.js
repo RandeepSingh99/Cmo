@@ -6,6 +6,7 @@ import CustomDrawerContent from './component/CustomDrawer';
 import KeyOfficials from '../screens/KeyOfficials';
 import Distribution from '../screens/Distribution';
 import StateGovernment from '../screens/StateGovernment';
+import SuccessStories from '../screens/SuccessStories';
 
 const DrawerStack = createDrawerNavigator();
 
@@ -31,9 +32,13 @@ const Drawer = props => {
         name={appRoutes.distribution}
         component={Distribution}
       />
-        <DrawerStack.Screen
+      <DrawerStack.Screen
         name={appRoutes.stateGovernment}
         component={StateGovernment}
+      />
+      <DrawerStack.Screen
+        name={appRoutes.successStories}
+        component={SuccessStories}
       />
     </DrawerStack.Navigator>
   );
