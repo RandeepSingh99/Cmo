@@ -9,6 +9,8 @@ import StateGovernment from '../screens/StateGovernment';
 import SuccessStories from '../screens/SuccessStories';
 import OurGovt from '../screens/OurGovt';
 import Events from '../screens/Events';
+import PhotoGallery from '../screens/PhotoGallery';
+import ListOfCm from '../screens/ListOfFormerCm';
 
 const DrawerStack = createDrawerNavigator();
 
@@ -44,6 +46,9 @@ const Drawer = props => {
       />
       <DrawerStack.Screen name={appRoutes.ourGovernment} component={OurGovt} />
       <DrawerStack.Screen name={appRoutes.events} component={Events} />
+      <DrawerStack.Screen name={appRoutes.gallery} component={PhotoGallery} />
+      <DrawerStack.Screen name={appRoutes.listOfCms} component={ListOfCm} />
+      
     </DrawerStack.Navigator>
   );
 };

@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
   contributionClickHereText: {
     fontFamily: 'Roboto',
     fontWeight: '800',
-    lineHeight: scaledValue(23),
     width: scaledValue(290),
     height: scaledValue(46),
     fontSize: scaledValue(16),
@@ -51,7 +50,6 @@ const styles = StyleSheet.create({
   contributionClickHereDonateText: {
     fontFamily: 'Roboto',
     fontWeight: '400',
-    lineHeight: scaledValue(18),
     fontSize: scaledValue(12),
     textAlign: 'center',
     paddingVertical: scaledValue(10),

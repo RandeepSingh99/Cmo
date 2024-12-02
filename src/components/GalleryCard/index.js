@@ -7,7 +7,7 @@ import {appColors} from '../../utils/constants/colors';
 import {useNavigation} from '@react-navigation/native';
 import {appRoutes} from '../../utils/constants/routeNames';
 
-const NewsCard = () => {
+const GalleryCard = () => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
@@ -36,22 +36,26 @@ const NewsCard = () => {
   );
 };
 
-export default NewsCard;
+export default GalleryCard;
 
 const styles = StyleSheet.create({
   contextCard: {
-    height: scaledValue(219),
-    width: scaledValue(200),
+    width: scaledValue(345),
     padding: scaledValue(10),
     borderRadius: scaledValue(4),
-    marginHorizontal: scaledValue(10),
     backgroundColor: appColors.white,
     borderWidth: 0.5,
     borderColor: appColors.border,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    marginVertical:scaledValue(8)
   },
   contextPhoto: {
-    height: scaledValue(100),
-    width: scaledValue(180),
+    height: scaledValue(199),
+    width: scaledValue(325),
     borderRadius: scaledValue(4),
   },
   outerContextCardText: {
@@ -62,7 +66,7 @@ const styles = StyleSheet.create({
   contextCardText: {
     fontFamily: 'Mukta',
     fontWeight: '700',
-    fontSize: scaledValue(14),
+    fontSize: scaledValue(16),
   },
   contextCardCalenderDate: {
     flexDirection: 'row',

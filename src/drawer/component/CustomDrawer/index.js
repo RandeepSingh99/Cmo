@@ -31,7 +31,10 @@ const CustomDrawerContent = props => {
       screen === appRoutes.keyOfficials ||
       screen === appRoutes.distribution ||
       screen === appRoutes.successStories||
-      screen === appRoutes.ourGovernment
+      screen === appRoutes.ourGovernment||
+      screen === appRoutes.gallery||
+      screen === appRoutes.listOfCms
+
 
     ) {
       props.navigation.navigate(screen);

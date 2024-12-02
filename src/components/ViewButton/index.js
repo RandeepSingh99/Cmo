@@ -30,6 +30,5 @@ const styles = StyleSheet.create({
         fontWeight: '800',
         justifyContent: 'center',
         fontFamily: 'Inter',
-        lineHeight: scaledValue(21)
     }
 })

@@ -9,4 +9,6 @@ export const appRoutes = {
   successStories: 'Success Stories',
   ourGovernment: 'Our Government',
   events: 'Events',
+  gallery: 'Photo Gallery',
+  listOfCms: 'List of former CMs',
 };
