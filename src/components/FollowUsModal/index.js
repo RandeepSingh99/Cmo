@@ -7,6 +7,10 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
+import followFaceBookIcon from '../../../assets/images/followFaceBookIcon.png';
+import followInstagramIcon from '../../../assets/images/followInstagramIcon.png';
+import followTwitterIcon from '../../../assets/images/followTwitterIcon.png';
+import followYoutubeIcon from '../../../assets/images/followYoutubeIcon.png';
 
 const SocialMediaModal = () => {
   return (
@@ -25,28 +29,16 @@ const SocialMediaModal = () => {
           </View>
           <View style={styles.iconContainer}>
             <TouchableOpacity style={styles.iconWrapper}>
-              <Image
-                source={{uri: 'https://via.placeholder.com/40?text=F'}}
-                style={styles.icon}
-              />
+              <Image source={followFaceBookIcon} style={styles.icon} />
             </TouchableOpacity>
             <TouchableOpacity style={styles.iconWrapper}>
-              <Image
-                source={{uri: 'https://via.placeholder.com/40?text=I'}}
-                style={styles.icon}
-              />
+              <Image source={followInstagramIcon} style={styles.icon} />
             </TouchableOpacity>
             <TouchableOpacity style={styles.iconWrapper}>
-              <Image
-                source={{uri: 'https://via.placeholder.com/40?text=X'}}
-                style={styles.icon}
-              />
+              <Image source={followTwitterIcon} style={styles.icon} />
             </TouchableOpacity>
             <TouchableOpacity style={styles.iconWrapper}>
-              <Image
-                source={{uri: 'https://via.placeholder.com/40?text=Y'}}
-                style={styles.icon}
-              />
+              <Image source={followYoutubeIcon} style={styles.icon} />
             </TouchableOpacity>
           </View>
         </View>

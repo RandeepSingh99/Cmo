@@ -24,5 +24,9 @@ const styles = StyleSheet.create({
     borderRadius: scaledValue(8),
     backgroundColor: appColors.white,
   },
-  text: {color: appColors.placeholderText,fontSize:scaledValue(14),fontWeight:'400'},
+  text: {
+    color: appColors.placeholderText,
+    fontSize: scaledValue(14),
+    fontWeight: '400',
+  },
 });
