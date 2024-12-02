@@ -10,7 +10,7 @@ import {scaledValue} from '../../utils/designUtils';
 const ListOfCm = () => {
   return (
     <View style={styles.container}>
-      <Header title={appRoutes.gallery} />
+      <Header title={appRoutes.listOfCms} />
       <Spacer height={scaledValue(12)} />
       <FlatList
         numColumns={2}

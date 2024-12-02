@@ -20,6 +20,7 @@ import ContextSmallCard from '../../components/ContextSmallCard';
 import MessageToChief from '../../components/MessageToChief';
 import CMSpeechesCard from '../../components/CMSpeechesCard';
 import Spacer from '../../components/Spacer';
+import SocialMediaModal from '../../components/FollowUsModal';
 const Home = () => {
   const [selectedChip, setSelectedChip] = useState('All');
   return (
@@ -82,6 +83,7 @@ const Home = () => {
       <ContextHeader />
       <CMSpeechesCard />
       <Spacer height={12}/>
+      <SocialMediaModal/>
     </ScrollView>
   );
 };
