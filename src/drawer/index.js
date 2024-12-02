@@ -13,6 +13,7 @@ import PhotoGallery from '../screens/PhotoGallery';
 import ListOfCm from '../screens/ListOfFormerCm';
 import WriteToCm from '../screens/WriteToCm';
 import FeedBack from '../screens/FeedBack';
+import CmReliefFund from '../screens/CMReliefFund';
 
 const DrawerStack = createDrawerNavigator();
 
@@ -52,6 +53,8 @@ const Drawer = props => {
       <DrawerStack.Screen name={appRoutes.listOfCms} component={ListOfCm} />
       <DrawerStack.Screen name={appRoutes.writeToCm} component={WriteToCm} />
       <DrawerStack.Screen name={appRoutes.feedBack} component={FeedBack} />
+      <DrawerStack.Screen name={appRoutes.cmReliefFund} component={CmReliefFund} />
+
       
     </DrawerStack.Navigator>
   );
