@@ -15,6 +15,10 @@ import {scaledValue} from '../../utils/designUtils';
 import Spacer from '../../components/Spacer';
 import calenderIcon from '../../../assets/images/calenderIcon.png';
 import NewsCard from '../../components/NewsCard';
+import downloadingIcon from '../../../assets/images/downloadingIcon.png';
+import instagramIcon from '../../../assets/images/instagramIcon.png';
+import twitterIcon from '../../../assets/images/twitterIcon.png';
+import facebookIcon from '../../../assets/images/facebookIcon.png';
 
 const Events = () => {
   return (
@@ -36,22 +40,10 @@ const Events = () => {
           </View>
 
           <View style={styles.socialView}>
-            <Image
-              source={{uri: 'https://via.placeholder.com/325'}}
-              style={styles.socialIcons}
-            />
-            <Image
-              source={{uri: 'https://via.placeholder.com/325'}}
-              style={styles.socialIcons}
-            />
-            <Image
-              source={{uri: 'https://via.placeholder.com/325'}}
-              style={styles.socialIcons}
-            />
-            <Image
-              source={{uri: 'https://via.placeholder.com/325'}}
-              style={styles.socialIcons}
-            />
+            <Image source={downloadingIcon} style={styles.socialIcons} />
+            <Image source={facebookIcon} style={styles.socialIcons} />
+            <Image source={instagramIcon} style={styles.socialIcons} />
+            <Image source={twitterIcon} style={styles.socialIcons} />
           </View>
         </View>
 

@@ -15,6 +15,10 @@ import {scaledValue} from '../../utils/designUtils';
 import Spacer from '../../components/Spacer';
 import calenderIcon from '../../../assets/images/calenderIcon.png';
 import NewsCard from '../../components/NewsCard';
+import downloadingIcon from '../../../assets/images/downloadingIcon.png';
+import facebookIcon from '../../../assets/images/facebookIcon.png';
+import instagramIcon from '../../../assets/images/instagramIcon.png';
+import twitterIcon from '../../../assets/images/twitterIcon.png';
 
 const SuccessStoryUI = () => {
   return (
@@ -36,22 +40,13 @@ const SuccessStoryUI = () => {
           </View>
 
           <View style={styles.socialView}>
+            <Image source={downloadingIcon} style={styles.socialIcons} />
             <Image
-              source={{uri: 'https://via.placeholder.com/325'}}
+              source={facebookIcon}
               style={styles.socialIcons}
             />
-            <Image
-              source={{uri: 'https://via.placeholder.com/325'}}
-              style={styles.socialIcons}
-            />
-            <Image
-              source={{uri: 'https://via.placeholder.com/325'}}
-              style={styles.socialIcons}
-            />
-            <Image
-              source={{uri: 'https://via.placeholder.com/325'}}
-              style={styles.socialIcons}
-            />
+            <Image source={instagramIcon} style={styles.socialIcons} />
+            <Image source={twitterIcon} style={styles.socialIcons} />
           </View>
         </View>
 
@@ -106,16 +101,13 @@ const SuccessStoryUI = () => {
           />
         </View>
       </View>
-      <Text
-        style={styles.storyTitle}>
-        Latest Success Stories
-      </Text>
+      <Text style={styles.storyTitle}>Latest Success Stories</Text>
       <FlatList
         horizontal
         data={[{}, {}, {}]}
         keyExtractor={i => i}
         showsHorizontalScrollIndicator={false}
-        renderItem={({ item }) => <NewsCard />}
+        renderItem={({item}) => <NewsCard />}
       />
       <Spacer height={scaledValue(12)} />
     </ScrollView>
@@ -224,13 +216,13 @@ const styles = StyleSheet.create({
     height: scaledValue(199),
     borderRadius: scaledValue(8),
   },
-  storyTitle:{
+  storyTitle: {
     marginLeft: scaledValue(14),
     marginVertical: scaledValue(16),
     color: appColors.darkPurple,
     fontSize: scaledValue(20),
     fontWeight: '600',
-  }
+  },
 });
 
 export default SuccessStoryUI;
