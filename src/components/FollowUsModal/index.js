@@ -7,10 +7,10 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
-import followFaceBookIcon from '../../../assets/images/followFaceBookIcon.png';
-import followInstagramIcon from '../../../assets/images/followInstagramIcon.png';
 import followTwitterIcon from '../../../assets/images/followTwitterIcon.png';
 import followYoutubeIcon from '../../../assets/images/followYoutubeIcon.png';
+import followInstagramIcon from '../../../assets/images/followInstagramIcon.png';
+import followFaceBookIcon from '../../../assets/images/followFb.png';
 
 const SocialMediaModal = () => {
   return (
@@ -31,10 +31,10 @@ const SocialMediaModal = () => {
             <TouchableOpacity style={styles.iconWrapper}>
               <Image source={followFaceBookIcon} style={styles.icon} />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.iconWrapper}>
+           <TouchableOpacity style={styles.iconWrapper}>
               <Image source={followInstagramIcon} style={styles.icon} />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.iconWrapper}>
+             <TouchableOpacity style={styles.iconWrapper}>
               <Image source={followTwitterIcon} style={styles.icon} />
             </TouchableOpacity>
             <TouchableOpacity style={styles.iconWrapper}>
