@@ -16,6 +16,7 @@ import {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {appRoutes} from '../../../utils/constants/routeNames';
 import Header from '../Header';
+import Spacer from '../../../components/Spacer';
 const CustomDrawerContent = props => {
   const [expandedSections, setExpandedSections] = useState({});
 
@@ -27,7 +28,6 @@ const CustomDrawerContent = props => {
     handleNavigation(title);
   };
   const handleNavigation = screen => {
-
     if (
       screen === stateGovt.governor ||
       screen === stateGovt.chiefMinister ||
@@ -44,14 +44,12 @@ const CustomDrawerContent = props => {
     if (
       screen === appRoutes.keyOfficials ||
       screen === appRoutes.distribution ||
-      screen === appRoutes.successStories||
-      screen === appRoutes.ourGovernment||
-      screen === appRoutes.gallery||
-      screen === appRoutes.listOfCms||
-      screen === appRoutes.writeToCm
-
-
-
+      screen === appRoutes.successStories ||
+      screen === appRoutes.ourGovernment ||
+      screen === appRoutes.gallery ||
+      screen === appRoutes.listOfCms ||
+      screen === appRoutes.writeToCm ||
+      screen === appRoutes.feedBack
     ) {
       props.navigation.navigate(screen);
       return;
@@ -85,6 +83,7 @@ const CustomDrawerContent = props => {
         contentContainerStyle={styles.container}
         stickySectionHeadersEnabled={false} // Optional, to disable sticky headers
       />
+      <Spacer height={scaledValue(12)} />
     </View>
   );
 };
