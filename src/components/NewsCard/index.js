@@ -1,13 +1,18 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {scaledValue} from '../../utils/designUtils';
 import contextPhoto from '../../../assets/images/contextPhoto.png';
 import calenderIcon from '../../../assets/images/calenderIcon.png';
 import {appColors} from '../../utils/constants/colors';
+import {useNavigation} from '@react-navigation/native';
+import {appRoutes} from '../../utils/constants/routeNames';
 
 const NewsCard = () => {
+  const navigation = useNavigation();
   return (
-    <View style={styles.contextCard}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate(appRoutes.events)}
+      style={styles.contextCard}>
       <Image
         resizeMode="cover"
         style={styles.contextPhoto}
@@ -27,7 +32,7 @@ const NewsCard = () => {
         />
         <Text style={styles.contextCardDate}>6 Aug 2024</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -41,7 +46,7 @@ const styles = StyleSheet.create({
     borderRadius: scaledValue(4),
     marginHorizontal: scaledValue(10),
     backgroundColor: appColors.white,
-    borderWidth: .5,
+    borderWidth: 0.5,
     borderColor: appColors.border,
   },
   contextPhoto: {

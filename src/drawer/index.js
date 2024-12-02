@@ -7,6 +7,8 @@ import KeyOfficials from '../screens/KeyOfficials';
 import Distribution from '../screens/Distribution';
 import StateGovernment from '../screens/StateGovernment';
 import SuccessStories from '../screens/SuccessStories';
+import OurGovt from '../screens/OurGovt';
+import Events from '../screens/Events';
 
 const DrawerStack = createDrawerNavigator();
 
@@ -40,6 +42,8 @@ const Drawer = props => {
         name={appRoutes.successStories}
         component={SuccessStories}
       />
+      <DrawerStack.Screen name={appRoutes.ourGovernment} component={OurGovt} />
+      <DrawerStack.Screen name={appRoutes.events} component={Events} />
     </DrawerStack.Navigator>
   );
 };

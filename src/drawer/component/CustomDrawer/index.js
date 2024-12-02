@@ -30,7 +30,9 @@ const CustomDrawerContent = props => {
     if (
       screen === appRoutes.keyOfficials ||
       screen === appRoutes.distribution ||
-      screen === appRoutes.successStories
+      screen === appRoutes.successStories||
+      screen === appRoutes.ourGovernment
+
     ) {
       props.navigation.navigate(screen);
       return;

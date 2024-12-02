@@ -10,13 +10,13 @@ const KeyOfficials = () => {
   return (
     <View style={styles.keyOfficials}>
       <Header title={appRoutes.keyOfficials} />
-      <Spacer height={8} />
+      <Spacer height={12} />
       <FlatList
         showsVerticalScrollIndicator={false}
         data={[{}, {}, {}, {}, {}]}
         renderItem={({}) => <InfoCard />}
       />
-      <Spacer height={8} />
+      <Spacer height={12} />
     </View>
   );
 };

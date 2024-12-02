@@ -12,12 +12,12 @@ const StateGovernment = props => {
   return (
     <View style={styles.stateGovernment}>
       <Header title={appRoutes.stateGovernment} />
-      <Spacer height={8} />
+      <Spacer height={12} />
       <FlatList
         data={sections[2].data}
         renderItem={({item}) => <ListItem title={item} />}
       />
-      <Spacer height={8} />
+      <Spacer height={12} />
     </View>
   );
 };
