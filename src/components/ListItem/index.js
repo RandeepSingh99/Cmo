@@ -2,13 +2,13 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import rightArrow from '../../../assets/images/chevronRight.png'; // Replace with your right arrow icon path
 import {scaledValue} from '../../utils/designUtils';
-import { appColors } from '../../utils/constants/colors';
+import {appColors} from '../../utils/constants/colors';
 
 const ListItem = ({title, onPress}) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <Text style={styles.title}>{title}</Text>
-      <Image resizeMode='contain' source={rightArrow} style={styles.icon} />
+      <Image resizeMode="contain" source={rightArrow} style={styles.icon} />
     </TouchableOpacity>
   );
 };
@@ -18,11 +18,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor:appColors.white,
+    backgroundColor: appColors.white,
     borderRadius: scaledValue(4),
-    width:scaledValue(345),
+    width: scaledValue(345),
     paddingHorizontal: scaledValue(14),
-    height:scaledValue(54),
+    height: scaledValue(54),
     marginHorizontal: scaledValue(16),
     marginVertical: scaledValue(6),
     shadowColor: '#000',

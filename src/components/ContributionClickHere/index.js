@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { scaledValue } from '../../utils/designUtils';
 import { appColors } from '../../utils/constants/colors';
-import ClickBlueButton from '../ClickBlueButton';
+import Button from '../Button';
 
 const ContributionClickHere = () => {
   return (
@@ -13,7 +13,7 @@ const ContributionClickHere = () => {
       <Text style={styles.contributionClickHereDonateText}>
         Donate to Rajasthan Chief Minister Relief Fund
       </Text>
-      <ClickBlueButton />
+      <Button />
     </View>
   );
 };

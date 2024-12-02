@@ -2,7 +2,7 @@ import {StyleSheet, Text, View, Image} from 'react-native';
 import React from 'react';
 import {scaledValue} from '../../utils/designUtils';
 import {appColors} from '../../utils/constants/colors';
-import ClickBlueButton from '../ClickBlueButton';
+import Button from '../Button';
 import msgToChief from '../../../assets/images/msgToChief.png';
 
 const MessageToChief = () => {
@@ -16,7 +16,7 @@ const MessageToChief = () => {
           Share Your Concerns with the Chief Minister
         </Text>
 
-        <ClickBlueButton />
+        <Button />
       </View>
       <View style={styles.OuterOfMsgImage}>
         <Image

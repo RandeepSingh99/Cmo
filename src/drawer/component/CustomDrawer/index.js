@@ -27,19 +27,7 @@ const CustomDrawerContent = props => {
     handleNavigation(title);
   };
   const handleNavigation = screen => {
-    if (
-      screen === appRoutes.keyOfficials ||
-      screen === appRoutes.distribution ||
-      screen === appRoutes.successStories||
-      screen === appRoutes.ourGovernment||
-      screen === appRoutes.gallery||
-      screen === appRoutes.listOfCms
 
-
-    ) {
-      props.navigation.navigate(screen);
-      return;
-    }
     if (
       screen === stateGovt.governor ||
       screen === stateGovt.chiefMinister ||
@@ -51,6 +39,21 @@ const CustomDrawerContent = props => {
       screen === stateGovt.cabinetMinister
     ) {
       props.navigation.navigate(appRoutes.stateGovernment, screen);
+      return;
+    }
+    if (
+      screen === appRoutes.keyOfficials ||
+      screen === appRoutes.distribution ||
+      screen === appRoutes.successStories||
+      screen === appRoutes.ourGovernment||
+      screen === appRoutes.gallery||
+      screen === appRoutes.listOfCms||
+      screen === appRoutes.writeToCm
+
+
+
+    ) {
+      props.navigation.navigate(screen);
       return;
     }
   };

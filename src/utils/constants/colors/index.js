@@ -3,9 +3,11 @@ export const appColors = {
   black: '#000',
   gray: 'gray',
   darkBlue: '#15104D',
+  secondaryDarkBlue:'#1508BB',
   lightGray: '#7B7B7B',
   blue: '#1C0D73',
   background:'#ECEAFF',
   border:'#DFDBFF',
-  darkPurple:'#484473'
+  darkPurple:'#484473',
+  inputBorder:'#C7C5DE'
 };

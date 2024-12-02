@@ -11,4 +11,5 @@ export const appRoutes = {
   events: 'Events',
   gallery: 'Photo Gallery',
   listOfCms: 'List of former CMs',
+  writeToCm: 'Write to CM',
 };
