@@ -15,8 +15,13 @@ const MessageToChief = () => {
         <Text style={styles.messageToChiefTexts}>
           Share Your Concerns with the Chief Minister
         </Text>
-
-        <Button />
+        <Button
+          color={appColors.blue}
+          width={192}
+          height={49}
+          title="Click Here"
+          titleColor={appColors.white}
+        />
       </View>
       <View style={styles.OuterOfMsgImage}>
         <Image

@@ -9,5 +9,8 @@ export const appColors = {
   background:'#ECEAFF',
   border:'#DFDBFF',
   darkPurple:'#484473',
-  inputBorder:'#C7C5DE'
+  inputBorder:'#C7C5DE',
+  placeholderText:'#8885AC',
+  grayDarkBlue:'#64618A',
+  danger:'#B20A0D'
 };

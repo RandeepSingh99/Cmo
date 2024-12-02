@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import { scaledValue } from '../../utils/designUtils';
-import { appColors } from '../../utils/constants/colors';
+import {scaledValue} from '../../utils/designUtils';
+import {appColors} from '../../utils/constants/colors';
 import Button from '../Button';
 
 const ContributionClickHere = () => {
@@ -13,7 +13,13 @@ const ContributionClickHere = () => {
       <Text style={styles.contributionClickHereDonateText}>
         Donate to Rajasthan Chief Minister Relief Fund
       </Text>
-      <Button />
+      <Button
+        color={appColors.blue}
+        width={192}
+        height={49}
+        title="Click Here"
+        titleColor={appColors.white}
+      />
     </View>
   );
 };
@@ -30,7 +36,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: appColors.white,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
@@ -54,5 +60,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingVertical: scaledValue(10),
   },
- 
 });

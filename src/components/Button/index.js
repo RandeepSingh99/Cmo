@@ -3,10 +3,20 @@ import React from 'react';
 import {scaledValue} from '../../utils/designUtils';
 import {appColors} from '../../utils/constants/colors';
 
-const Button = () => {
+const Button = props => {
   return (
-    <View style={styles.contributionClickHereButton}>
-      <Text style={styles.contributionClickHereButtonText}>Click Here</Text>
+    <View
+      style={[
+        styles.contributionClickHereButton,
+        {
+          height: scaledValue(props.height),
+          width: scaledValue(props.width),
+          backgroundColor: props.color,
+          borderWidth: props.mode === 'contained' ? .5 : 0,
+          borderColor:props.titleColor
+        },
+      ]}>
+      <Text style={[, {color: props.titleColor}]}>{props.title}</Text>
     </View>
   );
 };
@@ -15,9 +25,6 @@ export default Button;
 
 const styles = StyleSheet.create({
   contributionClickHereButton: {
-    height: scaledValue(49),
-    width: scaledValue(192),
-    backgroundColor: appColors.blue,
     borderRadius: 100,
     flexDirection: 'row',
     justifyContent: 'center',
@@ -26,7 +33,7 @@ const styles = StyleSheet.create({
   contributionClickHereButtonText: {
     fontFamily: 'Inter',
     fontWeight: '600',
-    color: appColors.white,
+
     fontSize: scaledValue(14),
   },
 });

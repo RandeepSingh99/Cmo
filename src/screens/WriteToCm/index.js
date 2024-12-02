@@ -5,13 +5,15 @@ import {
   TextInput,
   Text,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
-import {Button, Checkbox} from 'react-native-paper';
+import {Checkbox} from 'react-native-paper';
 import Header from '../../components/Header';
 import {appColors} from '../../utils/constants/colors';
 import {scaledValue} from '../../utils/designUtils';
 import Spacer from '../../components/Spacer';
-import { appRoutes } from '../../utils/constants/routeNames';
+import {appRoutes} from '../../utils/constants/routeNames';
+import Button from '../../components/Button';
 
 const WriteToCm = () => {
   const [mobileNumber, setMobileNumber] = useState('');
@@ -20,7 +22,7 @@ const WriteToCm = () => {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
-    <View style={styles.container}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <Header title={appRoutes.writeToCm} />
       <Spacer height={scaledValue(24)} />
       <View style={styles.paddingContainer}>
@@ -28,7 +30,7 @@ const WriteToCm = () => {
           <TextInput
             style={styles.input}
             placeholder="Mobile No*"
-            placeholderTextColor={appColors.inputBorder}
+            placeholderTextColor={appColors.placeholderText}
             value={mobileNumber}
             onChangeText={setMobileNumber}
             keyboardType="phone-pad"
@@ -41,7 +43,7 @@ const WriteToCm = () => {
           <TextInput
             style={styles.input}
             placeholder="Name*"
-            placeholderTextColor={appColors.inputBorder}
+            placeholderTextColor={appColors.placeholderText}
             value={name}
             onChangeText={setName}
           />
@@ -53,7 +55,7 @@ const WriteToCm = () => {
           placeholder="Description"
           value={description}
           onChangeText={setDescription}
-          placeholderTextColor={appColors.inputBorder}
+          placeholderTextColor={appColors.placeholderText}
           multiline={true}
         />
         <Spacer height={scaledValue(24)} />
@@ -65,7 +67,7 @@ const WriteToCm = () => {
             placeholder="upload document"
             value={mobileNumber}
             onChangeText={setMobileNumber}
-            placeholderTextColor={appColors.inputBorder}
+            placeholderTextColor={appColors.placeholderText}
           />
           <Text style={styles.verifyText}>CHOOSE FILE</Text>
         </View>
@@ -76,14 +78,33 @@ const WriteToCm = () => {
         </Text>
         <Spacer height={scaledValue(24)} />
         <View style={styles.checkboxContainer}>
-        <Checkbox
-          status={isChecked ? 'checked' : 'unchecked'}
-          onPress={() => setIsChecked(!isChecked)}
+          <Checkbox
+            status={isChecked ? 'checked' : 'unchecked'}
+            onPress={() => setIsChecked(!isChecked)}
+          />
+          <Text style={styles.checkboxText}>I'm not a robot</Text>
+        </View>
+        <Spacer height={scaledValue(24)} />
+
+        <Button
+          width={335}
+          height={49}
+          title="Submit"
+          color={appColors.blue}
+          titleColor={appColors.white}
         />
-        <Text style={styles.checkboxText}>I'm not a robot</Text>
+        <Spacer height={scaledValue(20)} />
+        <Button
+          width={335}
+          height={49}
+          title="Cancel"
+          color={appColors.white}
+          titleColor={appColors.danger}
+          mode='contained'
+        />
+        <Spacer height={scaledValue(24)} />
       </View>
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -122,34 +143,25 @@ const styles = StyleSheet.create({
   },
 
   fileUploadNote: {
-    fontSize: 12,
-    color: '#888',
-    marginBottom: 20,
+    fontSize: scaledValue(12),
+    color: appColors.grayDarkBlue,
+    fontWeight: '400',
   },
   checkboxContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 20,
+    borderColor: appColors.inputBorder,
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingVertical: scaledValue(8),
   },
   checkboxText: {
     fontSize: 16,
-    color: '#000',
+    color: appColors.black,
   },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-  },
-  submitButton: {
-    flex: 1,
-    backgroundColor: '#4A4AFC',
-    marginRight: 10,
-    borderRadius: 8,
-  },
-  cancelButton: {
-    flex: 1,
-    borderColor: '#4A4AFC',
-    borderWidth: 1,
-    borderRadius: 8,
   },
 });
 
