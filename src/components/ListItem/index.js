@@ -5,9 +5,20 @@ import {scaledValue} from '../../utils/designUtils';
 import {appColors} from '../../utils/constants/colors';
 import twitterIcon from '../../../assets/images/twitterIcon.png';
 import facebookIcon from '../../../assets/images/facebookIcon.png';
+import {appRoutes} from '../../utils/constants/routeNames';
 
 const ListItem = props => {
   const [expendable, setExpendable] = useState(false);
+
+  const renderProfileCard = () =>
+    props.title.includes('Governor') || props.title.includes('Chief');
+  const renderDetailCard = () =>
+    props.title.includes('Governor') || props.title === 'Chief Minister';
+  const renderDepartments = () =>
+    props.title === 'Deputy Chief Minister' ||
+    props.title === 'Cabinet Minister' ||
+    props.title.includes('State Minister');
+
   return (
     <View style={styles.cardView}>
       <Pressable
@@ -25,73 +36,85 @@ const ListItem = props => {
       </Pressable>
       {expendable && (
         <View>
-          <View style={styles.governorNameImage}>
-            <View style={styles.outerGovernorImage}>
-              <Image style={styles.governorImage} source={props.img} />
-            </View>
-            <View>
-              <Text style={styles.governorName}>Haribhau Kisanrao Bagade</Text>
-              <Text style={styles.governorPostName}>Governor of Rajasthan</Text>
-            </View>
-            <View style={styles.socialView}>
-              <Image source={facebookIcon} style={styles.socialIcons} />
-              <Image source={twitterIcon} style={styles.socialIcons} />
-            </View>
-          </View>
-          <View style={styles.governorDescription}>
-            <View style={styles.governorDescriptionDOB}>
-              <Text style={styles.governorDescriptionDateOfBirth}>
-                Date of Birth :{' '}
-              </Text>
-              <Text style={styles.governorDescriptionDOBName}>
-                17 August 1945
-              </Text>
-            </View>
-            <View style={styles.governorDescriptionHomeTown}>
-              <Text style={styles.governorDescriptionHT}>Home Town : </Text>
-              <Text style={styles.governorDescriptionHTName}>
-                Phulambri, Aurangabad, Maharashtra
-              </Text>
-            </View>
-            <View style={styles.governorDescriptionSocialMediaApp}>
-              <View style={styles.governorDescriptionSocialMedia}>
-                <Text style={styles.governorDescriptionSMT}>
-                  Social Media Twitter
+          {renderProfileCard() && (
+            <View style={styles.governorNameImage}>
+              <View style={styles.outerGovernorImage}>
+                <Image style={styles.governorImage} source={props.img} />
+              </View>
+              <View>
+                <Text style={styles.governorName}>
+                  Haribhau Kisanrao Bagade
                 </Text>
-                <Text style={styles.governorDescriptionSMTid}>
-                  @rajbhavanjaipur
+                <Text style={styles.governorPostName}>
+                  Governor of Rajasthan
                 </Text>
               </View>
-              <View style={styles.governorDescriptionSocialMedia}>
-                <Text style={styles.governorDescriptionSMT}>Facebook</Text>
-                <Text style={styles.governorDescriptionSMTid}>
-                  @RajBhavanJaipur
+              <View style={styles.socialView}>
+                <Image source={facebookIcon} style={styles.socialIcons} />
+                <Image source={twitterIcon} style={styles.socialIcons} />
+              </View>
+            </View>
+          )}
+          {renderDetailCard() && (
+            <View style={styles.governorDescription}>
+              <View style={styles.governorDescriptionDOB}>
+                <Text style={styles.governorDescriptionDateOfBirth}>
+                  Date of Birth :{' '}
+                </Text>
+                <Text style={styles.governorDescriptionDOBName}>
+                  17 August 1945
+                </Text>
+              </View>
+              <View style={styles.governorDescriptionHomeTown}>
+                <Text style={styles.governorDescriptionHT}>Home Town : </Text>
+                <Text style={styles.governorDescriptionHTName}>
+                  Phulambri, Aurangabad, Maharashtra
+                </Text>
+              </View>
+              <View style={styles.governorDescriptionSocialMediaApp}>
+                <View style={styles.governorDescriptionSocialMedia}>
+                  <Text style={styles.governorDescriptionSMT}>
+                    Social Media Twitter
+                  </Text>
+                  <Text style={styles.governorDescriptionSMTid}>
+                    @rajbhavanjaipur
+                  </Text>
+                </View>
+                <View style={styles.governorDescriptionSocialMedia}>
+                  <Text style={styles.governorDescriptionSMT}>Facebook</Text>
+                  <Text style={styles.governorDescriptionSMTid}>
+                    @RajBhavanJaipur
+                  </Text>
+                </View>
+              </View>
+              <View style={styles.governorDescriptionContactDetails}>
+                <Text style={styles.governorDescriptionCD}>
+                  Contacts Details
+                </Text>
+                <Text style={styles.governorDescriptionCDName}>
+                  Governor’s secretariat, raj bhawan jaipur epabx
+                  0141-2228716-19, 2228722, 2228611, 2228612 FAX No 0141-2221156
+                </Text>
+              </View>
+              <View style={styles.governorDescriptionExecutivePosition}>
+                <Text style={styles.governorDescriptionELP}>
+                  Executive & Legislative Positions
+                </Text>
+                <Text style={styles.governorDescriptionELPName}>
+                  Governor of Rajasthan from 31st July, 2024
+                </Text>
+              </View>
+              <View style={styles.governorDescriptionAtPresent}>
+                <Text style={styles.governorDescriptionAT}>At Present</Text>
+                <Text style={styles.governorDescriptionATName}>
+                  Assumed the office of the Governor of Rajasthan on 31st July,
+                  2024.
                 </Text>
               </View>
             </View>
-            <View style={styles.governorDescriptionContactDetails}>
-              <Text style={styles.governorDescriptionCD}>Contacts Details</Text>
-              <Text style={styles.governorDescriptionCDName}>
-                Governor’s secretariat, raj bhawan jaipur epabx 0141-2228716-19,
-                2228722, 2228611, 2228612 FAX No 0141-2221156
-              </Text>
-            </View>
-            <View style={styles.governorDescriptionExecutivePosition}>
-              <Text style={styles.governorDescriptionELP}>
-                Executive & Legislative Positions
-              </Text>
-              <Text style={styles.governorDescriptionELPName}>
-                Governor of Rajasthan from 31st July, 2024
-              </Text>
-            </View>
-            <View style={styles.governorDescriptionAtPresent}>
-              <Text style={styles.governorDescriptionAT}>At Present</Text>
-              <Text style={styles.governorDescriptionATName}>
-                Assumed the office of the Governor of Rajasthan on 31st July,
-                2024.
-              </Text>
-            </View>
-          </View>
+          )}
+
+          {renderDepartments() && <View></View>}
         </View>
       )}
     </View>
@@ -198,8 +221,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
-    borderBottomStartRadius:scaledValue(4),
-    borderBottomEndRadius:scaledValue(4),
+    borderBottomStartRadius: scaledValue(4),
+    borderBottomEndRadius: scaledValue(4),
   },
   governorDescriptionDOB: {
     flexDirection: 'row',

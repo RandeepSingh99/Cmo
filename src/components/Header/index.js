@@ -7,14 +7,18 @@ import drawerIcon from '../../../assets/images/drawerIcon.png';
 import {appColors} from '../../utils/constants/colors';
 import RoundButton from '../RoundButton';
 import {useNavigation} from '@react-navigation/native';
-const Header = (props) => {
+import {appRoutes} from '../../utils/constants/routeNames';
+const Header = props => {
   const navigation = useNavigation();
   return (
     <View style={styles.header}>
       <Text style={styles.headerTitleText}>{props.title}</Text>
       <View style={styles.imgsView}>
         <Image style={styles.actionButtonIcons} source={liveImg} />
-        <RoundButton img={moneyImg} />
+        <RoundButton
+          onPress={() => navigation.navigate(appRoutes.cmReliefFund)}
+          img={moneyImg}
+        />
         <RoundButton onPress={() => navigation.openDrawer()} img={drawerIcon} />
       </View>
     </View>
