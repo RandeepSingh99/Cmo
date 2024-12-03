@@ -6,26 +6,26 @@ import {
   View,
   ScrollView,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from '../../components/Header';
 import banner from '../../../assets/images/banner.png';
-import { scaledValue } from '../../utils/designUtils';
+import {scaledValue} from '../../utils/designUtils';
 import Chip from '../../components/Chip';
-import { filterChip } from '../../utils/constants';
+import {filterChip} from '../../utils/constants';
 import ContextHeader from '../../components/ContextHeader';
 import NewsCard from '../../components/NewsCard';
 import ContributionClickHere from '../../components/ContributionClickHere';
-import { appColors } from '../../utils/constants/colors';
+import {appColors} from '../../utils/constants/colors';
 import ContextSmallCard from '../../components/ContextSmallCard';
 import MessageToChief from '../../components/MessageToChief';
 import CMSpeechesCard from '../../components/CMSpeechesCard';
 import Spacer from '../../components/Spacer';
 import SocialMediaModal from '../../components/FollowUsModal';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchAchievementList } from '../../store/achievementsSlice';
-import { appRoutes } from '../../utils/constants/routeNames';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchAchievementList} from '../../store/achievementsSlice';
+import {appRoutes} from '../../utils/constants/routeNames';
 import ListItem from '../../components/ListItem';
-import governorImage from '../../../assets/images/governorImage.png';
+import { StretchOutY } from 'react-native-reanimated';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -63,11 +63,55 @@ const Home = () => {
       <Image
         resizeMode="fit"
         style={styles.banner}
-        source={{ uri: bannerData?.data[0]?.ImagePath }}
+        source={{uri: bannerData?.data[0]?.ImagePath}}
       />
-      <ListItem
       
-/>
+      <View style={styles.governorDescription}>
+        <View style={styles.governorDescriptionDOB}>
+          <Text style={styles.governorDescriptionDateOfBirth}>
+            Date of Birth :
+          </Text>
+          <Text style={styles.governorDescriptionDOBName}>17 August 1945</Text>
+        </View>
+        <View style={styles.governorDescriptionHomeTown}>
+          <Text style={styles.governorDescriptionHT}>
+            Home Town :
+          </Text>
+          <Text  style={styles.governorDescriptionHTName}>Phulambri, Aurangabad, Maharashtra</Text>
+        </View>
+        <View style={styles.governorDescriptionSocialMediaApp}>
+          <View style={styles.governorDescriptionSocialMedia}>
+            <Text style={styles.governorDescriptionSMT}>
+              Social Media Twitter
+            </Text>
+            <Text style={styles.governorDescriptionSMTid}>@rajbhavanjaipur</Text>
+          </View>
+          <View style={styles.governorDescriptionSocialMedia}>
+            <Text style={styles.governorDescriptionSMT}>
+              Facebook
+            </Text>
+            <Text style={styles.governorDescriptionSMTid}>@RajBhavanJaipur</Text>
+          </View>
+        </View>
+        <View style={styles.governorDescriptionContactDetails}>
+          <Text style={styles.governorDescriptionCD}>Contacts Details</Text>
+          <Text style={styles.governorDescriptionCDName}>
+            Governor’s secretariat, raj bhawan jaipur epabx 0141-2228716-19,
+            2228722, 2228611, 2228612 FAX No 0141-2221156
+          </Text>
+        </View>
+        <View style={styles.governorDescriptionExecutivePosition}>
+          <Text style={styles.governorDescriptionELP}>Executive & Legislative Positions</Text>
+          <Text  style={styles.governorDescriptionELPName}>Governor of Rajasthan from 31st July, 2024</Text>
+        </View>
+        <View style={styles.governorDescriptionAtPresent}>
+          <Text style={styles.governorDescriptionAT}>At Present</Text>
+          <Text style={styles.governorDescriptionATName}>
+            Assumed the office of the Governor of Rajasthan on 31st July, 2024.
+          </Text>
+        </View>
+      </View>
+
       {/* <FlatList
         contentContainerStyle={styles.flatList}
         horizontal
@@ -132,39 +176,119 @@ const Home = () => {
 export default Home;
 
 const styles = StyleSheet.create({
-  banner: { width: scaledValue(375), height: scaledValue(177) },
-  flatList: { marginHorizontal: scaledValue(6) },
-  scroll: { backgroundColor: appColors.background },
-  governorNameImage: {
-    height: scaledValue(276),
-    width: scaledValue(345),
-    color: appColors.darkWhite,
-    alignItems: 'center',
-    textAlign: 'center'
-  },
-  outerGovernorImage: {
-    height: scaledValue(155.13),
-    width: scaledValue(155.13),
-    borderRadius: scaledValue(100),
-  },
-  governorImage: {
-    height: scaledValue(155.13),
-    width: scaledValue(155.13),
+  banner: {width: scaledValue(375), height: scaledValue(177)},
+  flatList: {marginHorizontal: scaledValue(6)},
+  scroll: {backgroundColor: appColors.background},
+
+  governorDescription:{
+    height: scaledValue(376),
+   paddingTop:scaledValue(20),
     backgroundColor: appColors.white,
-    borderRadius: scaledValue(88),
-    borderWidth: scaledValue(5)
+  paddingHorizontal:scaledValue(20)
   },
-  governorName: {
-    color: appColors.black,
-    fontFamily: "Roboto",
-    fontSize: scaledValue(16),
-    fontWeight: 800,
+  governorDescriptionDOB:{
+    flexDirection:'row',
+    height:scaledValue(31),
+    width:scaledValue(311)
   },
-  governorPostName: {
-    color: appColors.gray,
-    fontFamily: "Roboto",
-    fontSize: scaledValue(14),
-    fontWeight: 600,
-    textAlign: 'center'
+  governorDescriptionDateOfBirth:{
+    color:appColors.black,
+    fontFamily:"Roboto",
+    fontSize:scaledValue(14),
+    fontWeight:800,
+  },
+  governorDescriptionDOBName:{
+    color:appColors.gray,
+    fontFamily:"Roboto",
+    fontSize:scaledValue(14),
+    fontWeight:600,
+  },
+  governorDescriptionHomeTown:{
+    flexDirection:'row',
+    height:scaledValue(31),
+    width:scaledValue(311)
+  },
+  governorDescriptionHT:{
+    color:appColors.black,
+    fontFamily:"Roboto",
+    fontSize:scaledValue(14),
+    fontWeight:800,
+  },
+  governorDescriptionHTName:{
+    color:appColors.gray,
+    fontFamily:"Roboto",
+    fontSize:scaledValue(14),
+    fontWeight:600,
+  },
+  governorDescriptionSocialMediaApp:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    height:scaledValue(31),
+    width:scaledValue(311)
+  },
+  governorDescriptionSMT:{
+    color:appColors.black,
+    fontFamily:"Roboto",
+    fontSize:scaledValue(14),
+    fontWeight:800,
+  },
+  governorDescriptionSMTid:{
+    color:appColors.gray,
+    fontFamily:"Roboto",
+    fontSize:scaledValue(14),
+    fontWeight:600,
+  },
+  governorDescriptionContactDetails:{
+    flexDirection:'column',
+    marginTop:scaledValue(10),
+    width:scaledValue(311),
+    
+  },
+  governorDescriptionCD:{
+    color:appColors.black,
+    fontFamily:"Roboto",
+    fontSize:scaledValue(14),
+    fontWeight:800,
+  },
+  governorDescriptionCDName:{
+    color:appColors.gray,
+    fontFamily:"Roboto",
+    fontSize:scaledValue(14),
+    fontWeight:600,
+  },
+  governorDescriptionExecutivePosition:{
+    marginTop:scaledValue(10),
+    width:scaledValue(311)
+  },
+  governorDescriptionELP:{
+    color:appColors.black,
+    fontFamily:"Roboto",
+    fontSize:scaledValue(14),
+    fontWeight:800,
+  },
+  governorDescriptionELPName:{
+    color:appColors.gray,
+    fontFamily:"Roboto",
+    fontSize:scaledValue(14),
+    fontWeight:600,
+  },
+  governorDescriptionAtPresent:{
+    marginTop:scaledValue(10),
+    width:scaledValue(311)
+  },
+  governorDescriptionAT:{
+    color:appColors.black,
+    fontFamily:"Roboto",
+    fontSize:scaledValue(14),
+    fontWeight:800,
+  },
+  governorDescriptionATName:{
+    color:appColors.gray,
+    fontFamily:"Roboto",
+    fontSize:scaledValue(14),
+    fontWeight:600,
   }
+
+
+  
 });
