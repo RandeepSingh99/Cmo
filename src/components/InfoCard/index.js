@@ -5,19 +5,19 @@ import { appColors } from '../../utils/constants/colors';
 import phoneIcon from '../../../assets/images/phn.png'; // Replace with your phone icon path
 import emailIcon from '../../../assets/images/mail.png'; // Replace with your phone icon path
 
-const InfoCard = () => {
+const InfoCard = (props) => {
   return (
     <View style={styles.card}>
-      <Text style={styles.name}>Shri Shikhar Agrawal</Text>
-      <Text style={styles.designation}>Additional Chief Secretary to CM</Text>
-      <View style={styles.infoRow}>
+      <Text style={styles.name}>{props.name}</Text>
+      <Text style={styles.designation}>{props.designation}</Text>
+     {props.phnNumber&& <View style={styles.infoRow}>
         <Image source={phoneIcon} style={styles.icon} />
-        <Text style={styles.infoText}>0141-2921023</Text>
-      </View>
-      <View style={styles.infoRow}>
+        <Text style={styles.infoText}>{props.phnNumber}</Text>
+      </View>}
+     {props.email&& <View style={styles.infoRow}>
         <Image source={emailIcon} style={styles.icon} />
-        <Text style={styles.infoText}>acs.cmo@rajasthan.gov.in</Text>
-      </View>
+        <Text style={styles.infoText}>{props.email}</Text>
+      </View>}
     </View>
   );
 };

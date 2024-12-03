@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://jankalyanfrontwebapi.rajasthan.gov.in/api/JankalyanHome';
