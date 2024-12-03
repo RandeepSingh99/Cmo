@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   fullImage: {
-    width: '90%',
+    width: '100%',
     height: '80%',
     resizeMode: 'contain',
   },

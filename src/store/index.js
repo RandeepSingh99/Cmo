@@ -4,6 +4,7 @@ import menuListReducer from './menuListSlice';
 import departmentContactSlice from './departmentContactSlice';
 import eventsSlice from './eventsSlice';
 import cmQuotesReducer from './cmQuotesSlice';
+import photoGalleryReducer from './photoGallerySlice';
 
 const store = configureStore({
   reducer: {
@@ -12,7 +13,7 @@ const store = configureStore({
     departmentContactDetails: departmentContactSlice,
     eventList: eventsSlice,
     cmQuotes: cmQuotesReducer,
-
+    photoGallery: photoGalleryReducer,
   },
 });
 
