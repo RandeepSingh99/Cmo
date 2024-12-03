@@ -114,7 +114,21 @@ const ListItem = props => {
             </View>
           )}
 
-          {renderDepartments() && <View></View>}
+          {renderDepartments() && (<View style={styles.outerDeputyChiefMinister}>
+            <View style={styles.innerDeputyChiefMinister}>
+            <Text style={styles.deputyChiefMinisterD}>Department</Text>
+         
+            <Text style={styles.deputyChiefMinisterDName}>• Finance Department</Text>
+            <Text style={styles.deputyChiefMinisterDName}>• Tourism Department</Text>
+            <Text style={styles.deputyChiefMinisterDName}>• Department of Art Literature Culture and Archeology</Text>
+            <Text style={styles.deputyChiefMinisterDName}>• PWD</Text>
+            <Text style={styles.deputyChiefMinisterDName}>• Women & Child Development Department</Text>          
+            <Text style={styles.deputyChiefMinisterDName}>• Child Empowerment Department</Text>
+           
+            <Text  style={styles.deputyChiefMinisterAC}>Assembly Constituency</Text>
+            <Text  style={styles.deputyChiefMinisterACC}>Vidhyadhar Nagar</Text>
+            </View>
+            </View>)}
         </View>
       )}
     </View>
@@ -326,6 +340,46 @@ const styles = StyleSheet.create({
     fontSize: scaledValue(14),
     fontWeight: '600',
   },
+  outerDeputyChiefMinister:{
+    height:scaledValue(276),
+    width:scaledValue(345),
+    backgroundColor:appColors.white,
+  },
+  deputyChiefMinisterD:{
+    fontFamily:'Roboto',
+    fontSize:scaledValue(14),
+    fontWeight:'800',
+    marginBottom:scaledValue(5),
+    color:appColors.black
+  },
+  innerDeputyChiefMinister:{
+    height:scaledValue(253),
+    width:scaledValue(320),
+    paddingHorizontal:scaledValue(20),
+    marginVertical:scaledValue(20)
+  },
+  deputyChiefMinisterDName:{
+   fontFamily:'Roboto',
+    width:scaledValue(320),
+    fontSize:scaledValue(14),
+    fontWeight:'600',
+    color:appColors.gray,
+    paddingVertical:scaledValue(2),
+    textAlign:'left',paddingLeft:scaledValue(8)
+  },
+  deputyChiefMinisterAC:{
+    fontFamily:'Roboto',
+    fontSize:scaledValue(14),
+    fontWeight:'800',
+    
+    color:appColors.black,
+    marginTop:scaledValue(8),
+    marginLeft:scaledValue(7)
+  },
+  deputyChiefMinisterACC:{
+    marginLeft:scaledValue(7),
+    color:appColors.gray,
+  }
 });
 
 export default ListItem;
