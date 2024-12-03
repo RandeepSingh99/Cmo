@@ -15,6 +15,7 @@ const StateGovernment = props => {
       <Header title={appRoutes.stateGovernment} />
       <Spacer height={12} />
       <FlatList
+        contentContainerStyle={(styles.flatList)}
         showsVerticalScrollIndicator={false}
         data={sections[2].data}
         renderItem={({item}) => <ListItem img={governorImage} title={item} />}
@@ -28,4 +29,5 @@ export default StateGovernment;
 
 const styles = StyleSheet.create({
   stateGovernment: {flex: 1, backgroundColor: appColors.background},
+  flatList: {alignItems: 'center'},
 });

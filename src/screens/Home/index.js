@@ -25,7 +25,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {fetchAchievementList} from '../../store/achievementsSlice';
 import {appRoutes} from '../../utils/constants/routeNames';
 import ListItem from '../../components/ListItem';
-import governorImage from '../../../assets/images/governorImage.png';
+import {StretchOutY} from 'react-native-reanimated';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -65,6 +65,9 @@ const Home = () => {
         style={styles.banner}
         source={{uri: bannerData?.data[0]?.ImagePath}}
       />
+
+     
+
       <FlatList
         contentContainerStyle={styles.flatList}
         horizontal
@@ -80,7 +83,7 @@ const Home = () => {
         )}
       />
       <ContextHeader />
-    <FlatList
+      <FlatList
         horizontal
         data={[{}, {}, {}]}
         keyExtractor={i => i}
@@ -121,7 +124,7 @@ const Home = () => {
       <ContextHeader />
       <CMSpeechesCard />
       <Spacer height={12} />
-      <SocialMediaModal /> 
+      <SocialMediaModal />
     </ScrollView>
   );
 };
@@ -133,4 +136,5 @@ const styles = StyleSheet.create({
   flatList: {marginHorizontal: scaledValue(6)},
   scroll: {backgroundColor: appColors.background},
 
+  
 });
