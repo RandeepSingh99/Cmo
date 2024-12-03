@@ -1,14 +1,24 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import rightArrow from '../../../assets/images/chevronRight.png'; // Replace with your right arrow icon path
-import {scaledValue} from '../../utils/designUtils';
-import {appColors} from '../../utils/constants/colors';
+import { scaledValue } from '../../utils/designUtils';
+import { appColors } from '../../utils/constants/colors';
 
-const ListItem = ({title, onPress}) => {
+const ListItem = ({ title, onPress }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <Text style={styles.title}>{title}</Text>
       <Image resizeMode="contain" source={rightArrow} style={styles.icon} />
+      <View style={styles.governorNameImage}>
+        <View style={styles.outerGovernorImage}>
+
+          <Image style={styles.governorImage} source={governorImage} />
+        </View>
+        <View>
+          <Text style={styles.governorName}>Haribhau Kisanrao Bagade</Text>
+          <Text style={styles.governorPostName}>Governor of Rajasthan</Text>
+        </View>
+      </View>
     </TouchableOpacity>
   );
 };
@@ -26,7 +36,7 @@ const styles = StyleSheet.create({
     marginHorizontal: scaledValue(16),
     marginVertical: scaledValue(6),
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
