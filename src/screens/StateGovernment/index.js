@@ -6,6 +6,7 @@ import {appRoutes} from '../../utils/constants/routeNames';
 import Spacer from '../../components/Spacer';
 import ListItem from '../../components/ListItem';
 import {sections} from '../../utils/constants';
+import governorImage from '../../../assets/images/governorImage.png';
 
 const StateGovernment = props => {
   const {params} = props.route || '';
@@ -14,8 +15,9 @@ const StateGovernment = props => {
       <Header title={appRoutes.stateGovernment} />
       <Spacer height={12} />
       <FlatList
+        showsVerticalScrollIndicator={false}
         data={sections[2].data}
-        renderItem={({item}) => <ListItem title={item} />}
+        renderItem={({item}) => <ListItem img={governorImage} title={item} />}
       />
       <Spacer height={12} />
     </View>

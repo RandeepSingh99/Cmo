@@ -6,24 +6,24 @@ import {
   View,
   ScrollView,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from '../../components/Header';
 import banner from '../../../assets/images/banner.png';
-import { scaledValue } from '../../utils/designUtils';
+import {scaledValue} from '../../utils/designUtils';
 import Chip from '../../components/Chip';
-import { filterChip } from '../../utils/constants';
+import {filterChip} from '../../utils/constants';
 import ContextHeader from '../../components/ContextHeader';
 import NewsCard from '../../components/NewsCard';
 import ContributionClickHere from '../../components/ContributionClickHere';
-import { appColors } from '../../utils/constants/colors';
+import {appColors} from '../../utils/constants/colors';
 import ContextSmallCard from '../../components/ContextSmallCard';
 import MessageToChief from '../../components/MessageToChief';
 import CMSpeechesCard from '../../components/CMSpeechesCard';
 import Spacer from '../../components/Spacer';
 import SocialMediaModal from '../../components/FollowUsModal';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchAchievementList } from '../../store/achievementsSlice';
-import { appRoutes } from '../../utils/constants/routeNames';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchAchievementList} from '../../store/achievementsSlice';
+import {appRoutes} from '../../utils/constants/routeNames';
 import ListItem from '../../components/ListItem';
 import governorImage from '../../../assets/images/governorImage.png';
 
@@ -63,12 +63,9 @@ const Home = () => {
       <Image
         resizeMode="fit"
         style={styles.banner}
-        source={{ uri: bannerData?.data[0]?.ImagePath }}
+        source={{uri: bannerData?.data[0]?.ImagePath}}
       />
-      <ListItem
-      
-/>
-      {/* <FlatList
+      <FlatList
         contentContainerStyle={styles.flatList}
         horizontal
         data={filterChip}
@@ -81,9 +78,9 @@ const Home = () => {
             selected={selectedChip}
           />
         )}
-      /> */}
+      />
       <ContextHeader />
-      {/* <FlatList
+    <FlatList
         horizontal
         data={[{}, {}, {}]}
         keyExtractor={i => i}
@@ -124,7 +121,7 @@ const Home = () => {
       <ContextHeader />
       <CMSpeechesCard />
       <Spacer height={12} />
-      <SocialMediaModal /> */}
+      <SocialMediaModal /> 
     </ScrollView>
   );
 };
@@ -132,39 +129,8 @@ const Home = () => {
 export default Home;
 
 const styles = StyleSheet.create({
-  banner: { width: scaledValue(375), height: scaledValue(177) },
-  flatList: { marginHorizontal: scaledValue(6) },
-  scroll: { backgroundColor: appColors.background },
-  governorNameImage: {
-    height: scaledValue(276),
-    width: scaledValue(345),
-    color: appColors.darkWhite,
-    alignItems: 'center',
-    textAlign: 'center'
-  },
-  outerGovernorImage: {
-    height: scaledValue(155.13),
-    width: scaledValue(155.13),
-    borderRadius: scaledValue(100),
-  },
-  governorImage: {
-    height: scaledValue(155.13),
-    width: scaledValue(155.13),
-    backgroundColor: appColors.white,
-    borderRadius: scaledValue(88),
-    borderWidth: scaledValue(5)
-  },
-  governorName: {
-    color: appColors.black,
-    fontFamily: "Roboto",
-    fontSize: scaledValue(16),
-    fontWeight: 800,
-  },
-  governorPostName: {
-    color: appColors.gray,
-    fontFamily: "Roboto",
-    fontSize: scaledValue(14),
-    fontWeight: 600,
-    textAlign: 'center'
-  }
+  banner: {width: scaledValue(375), height: scaledValue(177)},
+  flatList: {marginHorizontal: scaledValue(6)},
+  scroll: {backgroundColor: appColors.background},
+
 });
