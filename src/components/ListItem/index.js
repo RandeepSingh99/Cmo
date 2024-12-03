@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import {View, Text, StyleSheet, Pressable, Image} from 'react-native';
 import rightArrow from '../../../assets/images/chevronRight.png'; // Replace with your right arrow icon path
 import {scaledValue} from '../../utils/designUtils';
 import {appColors} from '../../utils/constants/colors';
@@ -10,15 +10,19 @@ const ListItem = props => {
   const [expendable, setExpendable] = useState(false);
   return (
     <View style={styles.cardView}>
-      <TouchableOpacity
+      <Pressable
         style={[
           styles.container,
           !expendable ? styles.allCornerRound : styles.upperCornerRound,
         ]}
         onPress={() => setExpendable(!expendable)}>
         <Text style={styles.title}>{props.title}</Text>
-        <Image resizeMode="contain" source={rightArrow} style={styles.icon} />
-      </TouchableOpacity>
+        <Image
+          resizeMode="contain"
+          source={rightArrow}
+          style={[styles.icon, expendable && styles.transformed]}
+        />
+      </Pressable>
       {expendable && (
         <View style={styles.governorNameImage}>
           <View style={styles.outerGovernorImage}>
@@ -73,6 +77,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
+  },
+  transformed: {
+    transform: [{rotate: '90deg'}], // Rotate the image by 45 degrees
   },
   outerGovernorImage: {
     height: scaledValue(155.13),
