@@ -9,107 +9,188 @@ import {
 import React from 'react';
 import Header from '../../components/Header';
 import Spacer from '../../components/Spacer';
-import { scaledValue } from '../../utils/designUtils';
-import { appColors } from '../../utils/constants/colors';
-import { appRoutes } from '../../utils/constants/routeNames';
+import {scaledValue} from '../../utils/designUtils';
+import {appColors} from '../../utils/constants/colors';
+import {appRoutes} from '../../utils/constants/routeNames';
 import Button from '../../components/Button';
 import dropDown from '../../../assets/images/dropDown.png';
+import medicalIcon from '../../../assets/images/medicalIcon.png';
 
 const CmReliefFund = () => {
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <Header title={appRoutes.cmReliefFund} />
       <Spacer height={scaledValue(24)} />
-      <Text style={styles.cmReliefFundText}>Individual/Institution Donation Form</Text>
       <View style={styles.paddingContainer}>
-        <View style={styles.inputWrapper}>
-          <TextInput
-            style={styles.input}
-            placeholder="Choose Payment Type*"
-            placeholderTextColor={appColors.placeholderText}
-            value={''}
-            onChangeText={() => { }}
+        <View style={styles.cmReliefFundDonateForm}>
+          <View style={styles.outerCmReliefFundText}>
+            <Text style={styles.cmReliefFundText}>
+              Individual/Institution Donation Form
+            </Text>
+          </View>
+          <Spacer height={scaledValue(24)} />
+          <View style={styles.inputWrapper}>
+            <TextInput
+              style={styles.input}
+              placeholder="Choose Payment Type*"
+              placeholderTextColor={appColors.placeholderText}
+              value={''}
+              onChangeText={() => {}}
+            />
+            <Image source={dropDown} style={styles.dropDown} />
+          </View>
+          <Spacer height={scaledValue(24)} />
+          <View style={styles.inputWrapper}>
+            <TextInput
+              style={styles.input}
+              placeholder="Donor Type*"
+              placeholderTextColor={appColors.placeholderText}
+              value={''}
+              onChangeText={() => {}}
+            />
+            <Image source={dropDown} style={styles.dropDown} />
+          </View>
+          <Spacer height={scaledValue(24)} />
+          <View style={styles.inputWrapper}>
+            <TextInput
+              style={styles.input}
+              placeholder="Name*"
+              placeholderTextColor={appColors.placeholderText}
+              value={''}
+              onChangeText={() => {}}
+            />
+          </View>
+          <Spacer height={scaledValue(24)} />
+          <View style={styles.inputWrapper}>
+            <TextInput
+              style={styles.input}
+              placeholder="Email ID*"
+              placeholderTextColor={appColors.placeholderText}
+              value={''}
+              onChangeText={() => {}}
+            />
+          </View>
+          <Spacer height={scaledValue(24)} />
+          <View style={styles.inputWrapper}>
+            <TextInput
+              style={styles.input}
+              placeholder="PAN No."
+              placeholderTextColor={appColors.placeholderText}
+              value={''}
+              onChangeText={() => {}}
+            />
+          </View>
+          <Spacer height={scaledValue(24)} />
+          <View style={styles.inputWrapper}>
+            <TextInput
+              style={styles.input}
+              placeholder="Mobile No.*"
+              placeholderTextColor={appColors.placeholderText}
+              value={''}
+              onChangeText={() => {}}
+            />
+          </View>
+          <Spacer height={scaledValue(24)} />
+          <View style={styles.inputWrapper}>
+            <TextInput
+              style={styles.input}
+              placeholder="Amount*"
+              placeholderTextColor={appColors.placeholderText}
+              value={''}
+              onChangeText={() => {}}
+            />
+          </View>
+          <Spacer height={scaledValue(24)} />
+          <Button
+            width={335}
+            height={49}
+            title="Proceed"
+            color={appColors.blue}
+            titleColor={appColors.white}
           />
-          <Image source={dropDown} style={styles.dropDown} />
+          <Spacer height={scaledValue(24)} />
         </View>
         <Spacer height={scaledValue(24)} />
-        <View style={styles.inputWrapper}>
-          <TextInput
-            style={styles.input}
-            placeholder="Donor Type*"
-            placeholderTextColor={appColors.placeholderText}
-            value={''}
-            onChangeText={() => { }}
-          />
-          <Image source={dropDown} style={styles.dropDown} />
+        <View style={styles.offlinePaymentDetail}>
+          <Text style={styles.offlinePaymentDetailHText}>
+            Offline Payment Detail
+          </Text>
+          <View style={styles.outerOfflinePaymentDetailText}>
+            <View style={styles.offlinePaymentDetailText}>
+              <Text style={styles.offlinePaymentDetailNameText}>Name - </Text>
+              <Text style={styles.offlinePaymentDetailNameTextDetail}>
+                Rajasthan Chief Minister Relief Fund
+              </Text>
+            </View>
+            <View style={styles.offlinePaymentDetailText}>
+              <Text style={styles.offlinePaymentDetailNameText}>
+                Account No.-{' '}
+              </Text>
+              <Text style={styles.offlinePaymentDetailNameTextDetail}>
+                51088903513
+              </Text>
+            </View>
+            <View style={styles.offlinePaymentDetailText}>
+              <Text style={styles.offlinePaymentDetailNameText}>
+                Type of Account:{' '}
+              </Text>
+              <Text style={styles.offlinePaymentDetailNameTextDetail}>
+                Saving Account
+              </Text>
+            </View>
+            <View style={styles.offlinePaymentDetailText}>
+              <Text style={styles.offlinePaymentDetailNameText}>
+                IFSC Code -{' '}
+              </Text>
+              <Text style={styles.offlinePaymentDetailNameTextDetail}>
+                {' '}
+                SBIN0031031
+              </Text>
+            </View>
+            <View style={styles.offlinePaymentDetailText}>
+              <Text style={styles.offlinePaymentDetailNameText}>
+                Branch Name -{' '}
+              </Text>
+              <Text style={styles.offlinePaymentDetailNameTextDetail}>
+                State Bank of India Secretariat Jaipur.
+              </Text>
+            </View>
+            <View style={styles.offlinePaymentDetailText}>
+              <Text style={styles.offlinePaymentDetailNameText}>UPI Id - </Text>
+              <Text style={styles.offlinePaymentDetailNameTextDetail}>
+                51088903513@SBI
+              </Text>
+            </View>
+          </View>
         </View>
-        <Spacer height={scaledValue(24)} />
-        <View style={styles.inputWrapper}>
-          <TextInput
-            style={styles.input}
-            placeholder="Name*"
-            placeholderTextColor={appColors.placeholderText}
-            value={''}
-            onChangeText={() => { }}
-          />
-        </View>
-        <Spacer height={scaledValue(24)} />
-        <View style={styles.inputWrapper}>
-          <TextInput
-            style={styles.input}
-            placeholder="Email ID*"
-            placeholderTextColor={appColors.placeholderText}
-            value={''}
-            onChangeText={() => { }}
-          />
-        </View>
-        <Spacer height={scaledValue(24)} />
-        <View style={styles.inputWrapper}>
-          <TextInput
-            style={styles.input}
-            placeholder="PAN No."
-            placeholderTextColor={appColors.placeholderText}
-            value={''}
-            onChangeText={() => { }}
-          />
-        </View>
-        <Spacer height={scaledValue(24)} />
-        <View style={styles.inputWrapper}>
-          <TextInput
-            style={styles.input}
-            placeholder="Mobile No.*"
-            placeholderTextColor={appColors.placeholderText}
-            value={''}
-            onChangeText={() => { }}
-          />
-        </View>
-        <Spacer height={scaledValue(24)} />
-        <View style={styles.inputWrapper}>
-          <TextInput
-            style={styles.input}
-            placeholder="Amount*"
-            placeholderTextColor={appColors.placeholderText}
-            value={''}
-            onChangeText={() => { }}
-          />
-        </View>
-        <Spacer height={scaledValue(24)} />
-        <Button
-          width={335}
-          height={49}
-          title="Submit"
-          color={appColors.blue}
-          titleColor={appColors.white}
-        />
       </View>
     </ScrollView>
   );
 };
 const styles = StyleSheet.create({
-  paddingContainer: { flex: 1, paddingHorizontal: scaledValue(16) },
+  paddingContainer: {
+    flex: 1,
+    backgroundColor: appColors.background,
+    paddingHorizontal: scaledValue(16),
+  },
+  cmReliefFundDonateForm: {
+    paddingHorizontal: scaledValue(16),
+    backgroundColor: appColors.white,
+  },
+  outerCmReliefFundText: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   cmReliefFundText: {
-    fontSize:scaledValue(20),
-  fontWeight:600,
+    fontSize: scaledValue(20),
+    fontWeight: 800,
+    fontFamily: 'Roboto',
+    color: appColors.blue,
+    width: scaledValue(272),
+    lineHeight: scaledValue(31),
+    textAlign: 'center',
+    marginTop: scaledValue(20),
   },
   container: {
     flex: 1,
@@ -130,35 +211,71 @@ const styles = StyleSheet.create({
     color: appColors.black,
     backgroundColor: appColors.white,
   },
-  textArea: {
-    height: 80,
-    textAlignVertical: 'top',
-  },
-
-  fileUploadNote: {
-    fontSize: scaledValue(12),
-    color: appColors.grayDarkBlue,
-    fontWeight: '400',
-  },
-  checkboxContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderColor: appColors.inputBorder,
-    borderWidth: 1,
-    borderRadius: 8,
-    paddingVertical: scaledValue(8),
-  },
-  checkboxText: {
-    fontSize: 16,
-    color: appColors.black,
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
+  
   dropDown: {
     height: scaledValue(6.17),
     width: scaledValue(10),
+    position: 'absolute',
+    right: scaledValue(8),
+  },
+  offlinePaymentDetail: {
+    height: scaledValue(230),
+    width: scaledValue(345),
+    backgroundColor: appColors.white,
+    paddingHorizontal: scaledValue(16),
+    paddingVertical: scaledValue(7),
+  },
+  offlinePaymentDetailHText: {
+    fontFamily: 'Roboto',
+    fontSize: scaledValue(20),
+    fontWeight: 800,
+    width: scaledValue(331),
+    color: appColors.blue,
+  
+  },
+  rajasthanCmReliefFund: {
+    height: scaledValue(480),
+    width: scaledValue(345),
+    backgroundColor: appColors.white,
+  },
+  rajasthanCmReliefFundCard: {
+    width: scaledValue(150),
+    height: scaledValue(189.31),
+    backgroundColor: appColors.lightPurple,
+  },
+  medicalIcon: {
+    width: scaledValue(20),
+    height: scaledValue(20),
+  },
+  rajasthanCmReliefFundCardText: {
+    fontSize: scaledValue(20),
+    fontFamily: 'Roboto',
+    fontWeight: 600,
+    color: appColors.blue,
+    width: scaledValue(324),
+    height: scaledValue(41),
+  },
+  outerOfflinePaymentDetailText: {
+    width: scaledValue(310),
+    height: scaledValue(180),
+    paddingVertical: scaledValue(16),
+  },
+  offlinePaymentDetailNameText: {
+    color: appColors.darkPurple,
+    fontFamily: 'Roboto',
+    fontSize: scaledValue(13),
+    fontWeight: 800,
+    paddingVertical: scaledValue(6),
+  },
+  offlinePaymentDetailNameTextDetail: {
+    color: appColors.gray,
+    fontFamily: 'Roboto',
+    fontSize: scaledValue(13),
+    fontWeight: 600,
+    paddingVertical: scaledValue(6),
+  },
+  offlinePaymentDetailText: {
+    flexDirection: 'row',
   },
 });
 
