@@ -1,22 +1,20 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {scaledValue} from '../../utils/designUtils';
 import {appColors} from '../../utils/constants/colors';
-import contextSmallImg from '../../../assets/images/contextSmallImg.png';
 import calenderIcon from '../../../assets/images/calenderIcon.png';
 
-const ContextSmallCard = () => {
+const QuotesCard = props => {
   return (
-    <View style={styles.OuterContextSmallCard}>
+    <TouchableOpacity onPress={props.onPress} style={styles.outerContextSmallCard}>
       <Image
         resizeMode="contain"
         style={styles.contextSmallCardCalenderIcon}
-        source={contextSmallImg}
+        source={{uri: props.img}}
       />
-
       <View style={styles.outerContextSmallCardTextDate}>
-        <Text style={styles.ContextSmallCardText}>
-          तापीय परियोजना एवं दूसरी अक्षय ऊर्जा परियोजना
+        <Text numberOfLines={2} style={styles.contextSmallCardText}>
+          {props.title}
         </Text>
         <View style={styles.contextCardCalenderDate}>
           <Image
@@ -24,17 +22,17 @@ const ContextSmallCard = () => {
             style={styles.contextCardCalenderIcon}
             source={calenderIcon}
           />
-          <Text style={styles.contextCardDate}>6 Aug 2024</Text>
+          <Text style={styles.contextCardDate}>{props.date}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
-export default ContextSmallCard;
+export default QuotesCard;
 
 const styles = StyleSheet.create({
-  OuterContextSmallCard: {
+  outerContextSmallCard: {
     width: scaledValue(351),
     height: scaledValue(102),
     backgroundColor: appColors.white,
@@ -44,41 +42,42 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: scaledValue(5),
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
     borderWidth: 1,
     borderColor: appColors.border,
+    paddingHorizontal: scaledValue(9),
   },
   contextSmallCardCalenderIcon: {
     height: scaledValue(80),
     width: scaledValue(80),
     borderRadius: 4,
+    marginRight: scaledValue(12),
   },
   outerContextSmallCardTextDate: {
     marginVertical: scaledValue(10),
+    height: scaledValue(70),
+
   },
-  ContextSmallCardText: {
+  contextSmallCardText: {
     fontSize: scaledValue(14),
     fontFamily: 'Mukta',
-    fontWeight: 700,
-    height: scaledValue(40),
-    width: scaledValue(221.45),
+    fontWeight: '700',
+    width: scaledValue(230),
   },
   contextCardCalenderDate: {
     flexDirection: 'row',
     alignItems: 'center',
-    height: scaledValue(30),
+    marginTop:scaledValue(8),
   },
   contextCardCalenderIcon: {
     height: scaledValue(15),
     width: scaledValue(15),
-    margin: scaledValue(5),
-    color: appColors.gray,
+    marginRight: scaledValue(7),
   },
   contextCardDate: {
-    height: scaledValue(20),
     width: scaledValue(151.04),
     alignItems: 'center',
     fontFamily: 'Roboto',

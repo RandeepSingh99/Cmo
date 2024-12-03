@@ -16,7 +16,7 @@ import ContextHeader from '../../components/ContextHeader';
 import NewsCard from '../../components/NewsCard';
 import ContributionClickHere from '../../components/ContributionClickHere';
 import {appColors} from '../../utils/constants/colors';
-import ContextSmallCard from '../../components/ContextSmallCard';
+import QuotesCard from '../../components/QuotesCard';
 import MessageToChief from '../../components/MessageToChief';
 import CMSpeechesCard from '../../components/CMSpeechesCard';
 import Spacer from '../../components/Spacer';
@@ -26,14 +26,25 @@ import {fetchAchievementList} from '../../store/achievementsSlice';
 import {appRoutes} from '../../utils/constants/routeNames';
 import ListItem from '../../components/ListItem';
 import {StretchOutY} from 'react-native-reanimated';
+import {fetchEvents} from '../../store/eventsSlice';
+import {fetchCMQuotes} from '../../store/cmQuotesSlice';
+import {useNavigation} from '@react-navigation/native';
+import SingleImageViewer from '../../components/SingleImageViewer';
 
 const Home = () => {
   const dispatch = useDispatch();
+  const navigation = useNavigation();
   const [selectedChip, setSelectedChip] = useState('All');
+  const [imageViewer, setImageViewer] = useState(false);
+  const [selectedImage, setSelectedImage] = useState('');
   const bannerData = useSelector(state => state.achievements);
+  const data = useSelector(state => state.eventList);
+  const quotes = useSelector(state => state.cmQuotes.quotes);
 
   const loadData = () => {
     dispatch(fetchAchievementList());
+    dispatch(fetchEvents());
+    dispatch(fetchCMQuotes());
   };
 
   useEffect(() => {
@@ -43,7 +54,7 @@ const Home = () => {
   return (
     <ScrollView showsHorizontalScrollIndicator={false} style={styles.scroll}>
       <Header title="CMO Rajasthan" />
-      <Text
+      {/* <Text
         style={{
           position: 'absolute',
           color: appColors.white,
@@ -59,16 +70,14 @@ const Home = () => {
           fontWeight: '400',
         }}>
         Des
-      </Text>
+      </Text> */}
       <Image
         resizeMode="fit"
         style={styles.banner}
         source={{uri: bannerData?.data[0]?.ImagePath}}
       />
 
-     
-
-      <FlatList
+      {/* <FlatList
         contentContainerStyle={styles.flatList}
         horizontal
         data={filterChip}
@@ -85,28 +94,39 @@ const Home = () => {
       <ContextHeader />
       <FlatList
         horizontal
-        data={[{}, {}, {}]}
+        data={[]}
         keyExtractor={i => i}
         showsHorizontalScrollIndicator={false}
         renderItem={({item}) => <NewsCard />}
-      />
+      /> */}
 
       <ContributionClickHere />
-      <ContextHeader />
-
-      <ContextSmallCard />
+      <ContextHeader
+        onPress={() => navigation.navigate(appRoutes.cmQuotes, quotes)}
+        title="Latest Quotes"
+      />
       <FlatList
-        vertical
-        data={[{}, {}, {}]}
-        keyExtractor={i => i}
+        data={quotes.slice(0, 3)}
+        keyExtractor={i => i.ImagePath}
+        initialNumToRender={3}
         showsVerticalScrollIndicator={false}
-        renderItem={({item}) => <ContextSmallCard />}
+        renderItem={({item}) => (
+          <QuotesCard
+            onPress={() => {
+              setSelectedImage(item.ImagePath);
+              setImageViewer(true);
+            }}
+            title={item.Achievement}
+            img={item.ThumbnailImagePath}
+            date={item.AchievementDateHindi}
+          />
+        )}
       />
 
       <ContextHeader />
-      <FlatList
+      {/* <FlatList
         horizontal
-        data={[{}, {}, {}]}
+        data={[]}
         keyExtractor={i => i}
         showsHorizontalScrollIndicator={false}
         renderItem={({item}) => <NewsCard />}
@@ -116,7 +136,7 @@ const Home = () => {
       <ContextHeader />
       <FlatList
         horizontal
-        data={[{}, {}, {}]}
+        data={[]}
         keyExtractor={i => i}
         showsHorizontalScrollIndicator={false}
         renderItem={({item}) => <NewsCard />}
@@ -124,7 +144,12 @@ const Home = () => {
       <ContextHeader />
       <CMSpeechesCard />
       <Spacer height={12} />
-      <SocialMediaModal />
+      <SocialMediaModal /> */}
+      <SingleImageViewer
+        visible={imageViewer}
+        selectedImage={selectedImage}
+        closeModal={() => setImageViewer(false)}
+      />
     </ScrollView>
   );
 };
@@ -135,6 +160,4 @@ const styles = StyleSheet.create({
   banner: {width: scaledValue(375), height: scaledValue(177)},
   flatList: {marginHorizontal: scaledValue(6)},
   scroll: {backgroundColor: appColors.background},
-
-  
 });
