@@ -12,5 +12,6 @@ export const appColors = {
   inputBorder:'#C7C5DE',
   placeholderText:'#8885AC',
   grayDarkBlue:'#64618A',
-  danger:'#B20A0D'
+  danger:'#B20A0D',
+  lightPurple:"#F0E4F7"
 };
