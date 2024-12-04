@@ -13,5 +13,7 @@ export const appRoutes = {
   listOfCms: 'List of former CMs',
   writeToCm: 'Write to CM',
   feedBack:'Feedback & Suggestion',
-  cmReliefFund:'CM Relief Fund'
+  cmReliefFund:'CM Relief Fund',
+  cmQuotes:'CM Quotes',
+  pressRelease:'Press Release'
 };
