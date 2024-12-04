@@ -1,14 +1,15 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import logo from '../../../assets/images/logo.png'
-import { scaledValue } from '../../utils/designUtils';
-const OurGovtCard = () => {
+import {scaledValue} from '../../utils/designUtils';
+const OurGovtCard = props => {
+
+
   return (
-    <TouchableOpacity style={styles.card}>
+    <TouchableOpacity onPress={props.onPress} style={styles.card}>
       <View style={styles.iconContainer}>
-        <Image source={logo} style={styles.icon} />
+        <Image source={props.img} style={styles.icon} />
       </View>
-      <Text style={styles.cardText}>Rajasthan Sampark</Text>
+      <Text style={styles.cardText}>{props.title}</Text>
     </TouchableOpacity>
   );
 };
@@ -28,8 +29,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
-    justifyContent:'center',
-    alignItems:'center'
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   iconContainer: {
     width: 60,

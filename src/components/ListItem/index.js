@@ -125,7 +125,45 @@ const ListItem = props => {
               </View>
             </View>
           )}
+          {renderSmallGovProfileCard() && (
+            <View style={styles.outerCabinetMinister}>
+              <View style={styles.cabinetMinisterImage}>
+                <Image
+                  style={styles.cabinetMinisterI}
+                  source={cabinetMinisterI}
+                />
+              </View>
+              <View style={styles.outerCabinetMinisterText}>
+                <View>
+                  <Text style={styles.cabinetMinisterText}>
+                    Shri Kirodi Lal
+                  </Text>
+                  <Text style={styles.cabinetMinisterTextName}>
+                    Cabinet Minister
+                  </Text>
+                </View>
+                {
+                  <View style={styles.cabinetMinisterPhoneNo}>
+                    <Image style={styles.phoneCall} source={phoneCall} />
+                    <Text style={styles.cabinetMinisterPhoneNoName}>
+                      0141-2921023
+                    </Text>
+                  </View>
+                }
 
+                {
+                  <View>
+                    <Text style={styles.cabinetMinisterAssemblyC}>
+                      Assembly Constituency
+                    </Text>
+                    <Text style={styles.cabinetMinisterAC}>
+                      Vidhyadhar Nagar
+                    </Text>
+                  </View>
+                }
+              </View>
+            </View>
+          )}
           {renderDepartments() && (
             <View style={styles.outerDeputyChiefMinister}>
               <View style={styles.innerDeputyChiefMinister}>
@@ -154,36 +192,6 @@ const ListItem = props => {
                 <Text style={styles.deputyChiefMinisterACC}>
                   Vidhyadhar Nagar
                 </Text>
-              </View>
-            </View>
-          )}
-
-          {renderSmallGovProfileCard() && (
-            <View style={styles.outerCabinetMinister}>
-              <View style={styles.cabinetMinisterImage}>
-                <Image
-                  style={styles.cabinetMinisterI}
-                  source={cabinetMinisterI}
-                />
-              </View>
-              <View style={styles.outerCabinetMinisterText}>
-                <View>
-                  <Text style={styles.cabinetMinisterText}>
-                    Shri Kirodi Lal
-                  </Text>
-                  <Text style={styles.cabinetMinisterTextName}>
-                    Cabinet Minister
-                  </Text>
-                </View>
-                <View style={styles.cabinetMinisterPhoneNo}>
-                    <Image style={styles.phoneCall} source={phoneCall} />
-                    <Text style={styles.cabinetMinisterPhoneNoName}>
-                      0141-2921023
-                    </Text>
-                  
-                  {/* <Text style={styles.cabinetMinisterAssemblyC}>Assembly Constituency</Text>
-                    <Text style={styles.cabinetMinisterAC}>Vidhyadhar Nagar</Text> */}
-                </View>
               </View>
             </View>
           )}
@@ -402,6 +410,13 @@ const styles = StyleSheet.create({
     height: scaledValue(276),
     width: scaledValue(345),
     backgroundColor: appColors.white,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    borderBottomRightRadius: scaledValue(4),
+    borderBottomLeftRadius: scaledValue(4),
   },
   deputyChiefMinisterD: {
     fontFamily: 'Roboto',
@@ -444,10 +459,13 @@ const styles = StyleSheet.create({
     width: scaledValue(345),
     backgroundColor: appColors.white,
     flexDirection: 'row',
-    borderRadius: scaledValue(5),
-    borderWidth: scaledValue(1),
     borderColor: appColors.border,
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
   cabinetMinisterImage: {
     height: scaledValue(85.05),
@@ -493,6 +511,7 @@ const styles = StyleSheet.create({
     fontSize: scaledValue(14),
     fontWeight: '800',
     color: appColors.black,
+    marginTop: scaledValue(6),
   },
   cabinetMinisterAC: {
     color: appColors.gray,

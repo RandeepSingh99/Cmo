@@ -10,6 +10,7 @@ import awardsReducer from './awardsSlice';
 import megaEventsReducer from './megaEventsSlice';
 import successStoriesReducer from './successStoriesSlice';
 import cmSpeechesReducer from './cmSpeechesSlice';
+import importantLinksReducer from './importantLinksSlice';
 
 const store = configureStore({
   reducer: {
@@ -24,6 +25,7 @@ const store = configureStore({
     megaEvents: megaEventsReducer,
     successStories: successStoriesReducer,
     cmSpeeches: cmSpeechesReducer,
+    importantLinks: importantLinksReducer,
   },
 });
 
