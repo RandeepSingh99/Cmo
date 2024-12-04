@@ -6,7 +6,7 @@ import ViewButton from '../ViewButton';
 
 const ContextHeader = (props) => {
   return (
-    <View style={styles.contextHeader}>
+    <View ref={props.ref} style={styles.contextHeader}>
       <View style={styles.contextText}>
         <Text style={styles.contextText}>{props.title}</Text>
       </View>

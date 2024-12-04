@@ -38,6 +38,11 @@ import {fetchCMSpeeches} from '../../store/cmSpeechesSlice';
 
 const Home = () => {
   const dispatch = useDispatch();
+  const scrollViewRef = useRef(null);
+  const megaEventsRef = useRef(null);
+  const cmQuotesRef = useRef(null);
+  const successStoriesRef = useRef(null);
+  const pressReleaseRef = useRef(null);
   const navigation = useNavigation();
   const [selectedChip, setSelectedChip] = useState('All');
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -71,8 +76,75 @@ const Home = () => {
     loadData();
   }, []);
 
+  const onChipPress = item => {
+    setSelectedChip(item);
+    if (item === 'Event') {
+      megaEventsRef.current.measureLayout(
+        scrollViewRef.current,
+        (x, y) => {
+          scrollViewRef.current.scrollTo({x: 0, y, animated: true});
+        },
+        error => {
+          console.error('Measurement error:', error);
+        },
+      );
+      return;
+    }
+    if (item === 'Quotes') {
+      cmQuotesRef.current.measureLayout(
+        scrollViewRef.current,
+        (x, y) => {
+          scrollViewRef.current.scrollTo({x: 0, y, animated: true});
+        },
+        error => {
+          console.error('Measurement error:', error);
+        },
+      );
+      return;
+    }
+    if (item === 'Success Stories') {
+      successStoriesRef.current.measureLayout(
+        scrollViewRef.current,
+        (x, y) => {
+          scrollViewRef.current.scrollTo({x: 0, y, animated: true});
+        },
+        error => {
+          console.error('Measurement error:', error);
+        },
+      );
+      return;
+    }
+    if (item === 'Success Stories') {
+      successStoriesRef.current.measureLayout(
+        scrollViewRef.current,
+        (x, y) => {
+          scrollViewRef.current.scrollTo({x: 0, y, animated: true});
+        },
+        error => {
+          console.error('Measurement error:', error);
+        },
+      );
+      return;
+    }
+    if (item === 'Press Releases' || item === 'Speeches') {
+      pressReleaseRef.current.measureLayout(
+        scrollViewRef.current,
+        (x, y) => {
+          scrollViewRef.current.scrollTo({x: 0, y, animated: true});
+        },
+        error => {
+          console.error('Measurement error:', error);
+        },
+      );
+      return;
+    }
+  };
+
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={styles.scroll}>
+    <ScrollView
+      ref={scrollViewRef}
+      showsVerticalScrollIndicator={false}
+      style={styles.scroll}>
       <Header title="CMO Rajasthan" />
       {/* <Text
         style={{
@@ -96,7 +168,6 @@ const Home = () => {
         style={styles.banner}
         source={{uri: bannerData?.data[0]?.ImagePath}}
       />
-
       <FlatList
         contentContainerStyle={styles.flatList}
         horizontal
@@ -105,12 +176,13 @@ const Home = () => {
         showsHorizontalScrollIndicator={false}
         renderItem={({item}) => (
           <Chip
-            onPress={() => setSelectedChip(item)}
+            onPress={() => onChipPress(item)}
             title={item}
             selected={selectedChip}
           />
         )}
       />
+      <View ref={megaEventsRef} />
       <ContextHeader
         onPress={() => navigation.navigate(appRoutes.megaEvents)}
         title="Latest Events"
@@ -128,8 +200,8 @@ const Home = () => {
           />
         )}
       />
-
       <ContributionClickHere />
+      <View ref={cmQuotesRef} />
       <ContextHeader
         onPress={() => navigation.navigate(appRoutes.cmQuotes)}
         title="Latest Quotes"
@@ -152,6 +224,7 @@ const Home = () => {
         )}
       />
 
+      <View ref={successStoriesRef} />
       <ContextHeader
         title={appRoutes.successStories}
         onPress={() => navigation.navigate(appRoutes.successStories)}
@@ -169,8 +242,8 @@ const Home = () => {
           />
         )}
       />
-
       <MessageToChief />
+      <View ref={pressReleaseRef} />
       <ContextHeader
         onPress={() => navigation.navigate(appRoutes.pressRelease)}
         title={appRoutes.pressRelease}
@@ -189,6 +262,7 @@ const Home = () => {
         )}
       />
       <ContextHeader
+        ref={cmSpeeches}
         onPress={() => navigation.navigate(appRoutes.cmSpeeches)}
         title={appRoutes.cmSpeeches}
       />
