@@ -21,7 +21,7 @@ const Splash = () => {
     <View style={styles.splash}>
       <Image style={styles.splashImage} source={splashImage} />
       <Text style={styles.splashText}>CMO Rajasthan</Text>
-      <Image style={styles.splashBImage} source={splashBImage} />
+      <Image resizeMode='contain' style={styles.splashBImage} source={splashBImage} />
     </View>
   );
 };
@@ -33,18 +33,17 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: appColors.white,
+    backgroundColor: appColors.background,
   },
   splashImage: {
     height: scaledValue(101),
     width: scaledValue(65),
-    marginVertical: scaledValue(20),
+    marginBottom: scaledValue(20),
   },
   splashText: {
     fontFamily: 'Inter',
     fontSize: scaledValue(34),
     fontWeight: '800',
-    width: scaledValue(240),
   },
   splashBImage: {
     height: scaledValue(238),
