@@ -11,12 +11,22 @@ const ListItem = props => {
   const [expendable, setExpendable] = useState(false);
 
   const renderProfileCard = () =>
-    props.title.includes('Governor') || props.title.includes('Chief');
+    props.title === 'Governor' ||
+    props.title === 'Chief Minister' ||
+    props.title === 'Deputy Chief Minister';
+
   const renderDetailCard = () =>
     props.title.includes('Governor') || props.title === 'Chief Minister';
+
   const renderDepartments = () =>
     props.title === 'Deputy Chief Minister' ||
     props.title === 'Cabinet Minister' ||
+    props.title.includes('State Minister');
+
+  const renderSmallGovProfileCard = () =>
+    props.title === 'Cabinet Minister' ||
+    props.title === 'MLA' ||
+    props.title === 'Chief Secretary' ||
     props.title.includes('State Minister');
 
   return (
@@ -114,21 +124,39 @@ const ListItem = props => {
             </View>
           )}
 
-          {renderDepartments() && (<View style={styles.outerDeputyChiefMinister}>
-            <View style={styles.innerDeputyChiefMinister}>
-            <Text style={styles.deputyChiefMinisterD}>Department</Text>
-         
-            <Text style={styles.deputyChiefMinisterDName}>• Finance Department</Text>
-            <Text style={styles.deputyChiefMinisterDName}>• Tourism Department</Text>
-            <Text style={styles.deputyChiefMinisterDName}>• Department of Art Literature Culture and Archeology</Text>
-            <Text style={styles.deputyChiefMinisterDName}>• PWD</Text>
-            <Text style={styles.deputyChiefMinisterDName}>• Women & Child Development Department</Text>          
-            <Text style={styles.deputyChiefMinisterDName}>• Child Empowerment Department</Text>
-           
-            <Text  style={styles.deputyChiefMinisterAC}>Assembly Constituency</Text>
-            <Text  style={styles.deputyChiefMinisterACC}>Vidhyadhar Nagar</Text>
+          {renderDepartments() && (
+            <View style={styles.outerDeputyChiefMinister}>
+              <View style={styles.innerDeputyChiefMinister}>
+                <Text style={styles.deputyChiefMinisterD}>Department</Text>
+
+                <Text style={styles.deputyChiefMinisterDName}>
+                  • Finance Department
+                </Text>
+                <Text style={styles.deputyChiefMinisterDName}>
+                  • Tourism Department
+                </Text>
+                <Text style={styles.deputyChiefMinisterDName}>
+                  • Department of Art Literature Culture and Archeology
+                </Text>
+                <Text style={styles.deputyChiefMinisterDName}>• PWD</Text>
+                <Text style={styles.deputyChiefMinisterDName}>
+                  • Women & Child Development Department
+                </Text>
+                <Text style={styles.deputyChiefMinisterDName}>
+                  • Child Empowerment Department
+                </Text>
+
+                <Text style={styles.deputyChiefMinisterAC}>
+                  Assembly Constituency
+                </Text>
+                <Text style={styles.deputyChiefMinisterACC}>
+                  Vidhyadhar Nagar
+                </Text>
+              </View>
             </View>
-            </View>)}
+          )}
+
+          {renderSmallGovProfileCard() && <View></View>}
         </View>
       )}
     </View>
@@ -340,46 +368,47 @@ const styles = StyleSheet.create({
     fontSize: scaledValue(14),
     fontWeight: '600',
   },
-  outerDeputyChiefMinister:{
-    height:scaledValue(276),
-    width:scaledValue(345),
-    backgroundColor:appColors.white,
+  outerDeputyChiefMinister: {
+    height: scaledValue(276),
+    width: scaledValue(345),
+    backgroundColor: appColors.white,
   },
-  deputyChiefMinisterD:{
-    fontFamily:'Roboto',
-    fontSize:scaledValue(14),
-    fontWeight:'800',
-    marginBottom:scaledValue(5),
-    color:appColors.black
+  deputyChiefMinisterD: {
+    fontFamily: 'Roboto',
+    fontSize: scaledValue(14),
+    fontWeight: '800',
+    marginBottom: scaledValue(5),
+    color: appColors.black,
   },
-  innerDeputyChiefMinister:{
-    height:scaledValue(253),
-    width:scaledValue(320),
-    paddingHorizontal:scaledValue(20),
-    marginVertical:scaledValue(20)
+  innerDeputyChiefMinister: {
+    height: scaledValue(253),
+    width: scaledValue(320),
+    paddingHorizontal: scaledValue(20),
+    marginVertical: scaledValue(20),
   },
-  deputyChiefMinisterDName:{
-   fontFamily:'Roboto',
-    width:scaledValue(320),
-    fontSize:scaledValue(14),
-    fontWeight:'600',
-    color:appColors.gray,
-    paddingVertical:scaledValue(2),
-    textAlign:'left',paddingLeft:scaledValue(8)
+  deputyChiefMinisterDName: {
+    fontFamily: 'Roboto',
+    width: scaledValue(320),
+    fontSize: scaledValue(14),
+    fontWeight: '600',
+    color: appColors.gray,
+    paddingVertical: scaledValue(2),
+    textAlign: 'left',
+    paddingLeft: scaledValue(8),
   },
-  deputyChiefMinisterAC:{
-    fontFamily:'Roboto',
-    fontSize:scaledValue(14),
-    fontWeight:'800',
-    
-    color:appColors.black,
-    marginTop:scaledValue(8),
-    marginLeft:scaledValue(7)
+  deputyChiefMinisterAC: {
+    fontFamily: 'Roboto',
+    fontSize: scaledValue(14),
+    fontWeight: '800',
+
+    color: appColors.black,
+    marginTop: scaledValue(8),
+    marginLeft: scaledValue(7),
   },
-  deputyChiefMinisterACC:{
-    marginLeft:scaledValue(7),
-    color:appColors.gray,
-  }
+  deputyChiefMinisterACC: {
+    marginLeft: scaledValue(7),
+    color: appColors.gray,
+  },
 });
 
 export default ListItem;
