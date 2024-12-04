@@ -68,7 +68,12 @@ const CustomDrawerContent = props => {
         sections={sections}
         keyExtractor={(item, index) => item + index}
         ListHeaderComponent={() => (
-          <Header onPress={() => props.navigation.closeDrawer()} />
+          <Header
+            onPress={() => {
+              props.navigation.closeDrawer();
+              props.navigation.navigate(appRoutes.home);
+            }}
+          />
         )}
         renderSectionHeader={({section}) => (
           <DrawerItem

@@ -41,7 +41,7 @@ const Home = () => {
   const [imageViewer, setImageViewer] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
   const bannerData = useSelector(state => state.achievements);
-  // const data = useSelector(state => state.eventList);
+  // const upComingEventList = useSelector(state => state.eventList);
   const quotes = useSelector(state => state.cmQuotes.quotes);
   const pressRelease = useSelector(state => state.pressRelease.pressRelease);
   const megaEvents = useSelector(state => state.megaEvents.megaEvents);
@@ -98,7 +98,10 @@ const Home = () => {
           />
         )}
       />
-      <ContextHeader title="Latest Events" />
+      <ContextHeader
+        onPress={() => navigation.navigate(appRoutes.megaEvents)}
+      
+      title="Latest Events"  />
       <FlatList
         horizontal
         data={megaEvents}
@@ -115,7 +118,7 @@ const Home = () => {
 
       <ContributionClickHere />
       <ContextHeader
-        onPress={() => navigation.navigate(appRoutes.cmQuotes, quotes)}
+        onPress={() => navigation.navigate(appRoutes.cmQuotes)}
         title="Latest Quotes"
       />
       <FlatList
@@ -160,8 +163,8 @@ const Home = () => {
           />
         )}
       />
-      <ContextHeader />
-      <CMSpeechesCard title="CM Speeches" />
+      <ContextHeader title="CM Speeches"/>
+      <CMSpeechesCard  />
       <Spacer height={12} />
       <SocialMediaModal />
       <SingleImageViewer

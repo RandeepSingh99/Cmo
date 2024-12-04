@@ -1,12 +1,12 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const BASE_URL =
   'https://jankalyanfrontwebapi.rajasthan.gov.in/PublicPortal/DepartmentWebsite';
-
+  
 export const fetchPhotoGallery = createAsyncThunk(
   'photoGallery/fetch',
-  async (_, { rejectWithValue }) => {
+  async (_, {rejectWithValue}) => {
     try {
       const response = await axios.post(
         `${BASE_URL}/GetDIPRPressReleaseByFilter`,
@@ -31,13 +31,13 @@ export const fetchPhotoGallery = createAsyncThunk(
           IsBase64File: false,
           VIPCategoryCode: '96',
           VIPPersonCode: 47,
-        }
+        },
       );
       return response.data.Data.Data;
     } catch (error) {
       return rejectWithValue(error.response?.data || 'Something went wrong');
     }
-  }
+  },
 );
 
 const photoGallerySlice = createSlice({
@@ -48,9 +48,9 @@ const photoGallerySlice = createSlice({
     error: null,
   },
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(fetchPhotoGallery.pending, (state) => {
+      .addCase(fetchPhotoGallery.pending, state => {
         state.status = 'loading';
       })
       .addCase(fetchPhotoGallery.fulfilled, (state, action) => {

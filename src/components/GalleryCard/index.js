@@ -5,6 +5,7 @@ import calenderIcon from '../../../assets/images/calenderIcon.png';
 import {appColors} from '../../utils/constants/colors';
 import {useNavigation} from '@react-navigation/native';
 import {appRoutes} from '../../utils/constants/routeNames';
+import { pressReleaseImageUri } from '../../utils/constants/uri';
 
 const GalleryCard = props => {
   return (
@@ -12,7 +13,7 @@ const GalleryCard = props => {
       <Image
         resizeMode="cover"
         style={styles.contextPhoto}
-        source={{uri: props.img}}
+        source={{uri: props.img || pressReleaseImageUri}}
       />
       <View style={styles.outerContextCardText}>
         <Text numberOfLines={2} style={styles.contextCardText}>{props.title}</Text>

@@ -3,7 +3,7 @@ import React from 'react';
 import {scaledValue} from '../../utils/designUtils';
 import calenderIcon from '../../../assets/images/calenderIcon.png';
 import {appColors} from '../../utils/constants/colors';
-import { pressReleaseImageUri } from '../../utils/constants/uri';
+import {pressReleaseImageUri} from '../../utils/constants/uri';
 
 const NewsCard = props => {
   return (
@@ -11,7 +11,7 @@ const NewsCard = props => {
       <Image
         resizeMode="cover"
         style={styles.contextPhoto}
-        source={{uri: props.img||pressReleaseImageUri}}
+        source={{uri: props.img || pressReleaseImageUri}}
       />
       <View style={styles.outerContextCardText}>
         <Text numberOfLines={3} style={styles.contextCardText}>
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     height: scaledValue(100),
     width: scaledValue(180),
     borderRadius: scaledValue(4),
-    marginTop:scaledValue(8)
+    marginTop: scaledValue(8),
   },
   outerContextCardText: {
     width: scaledValue(181),
