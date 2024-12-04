@@ -4,6 +4,9 @@ import splash from '../../../assets/images/splash.png';
 import {scaledValue} from '../../utils/designUtils';
 import {useNavigation} from '@react-navigation/native';
 import {appRoutes} from '../../utils/constants/routeNames';
+import splashImage from '../../../assets/images/splashImage.png';
+import splashBImage from '../../../assets/images/splashBImage.png';
+import {appColors} from '../../utils/constants/colors';
 const Splash = () => {
   const navigation = useNavigation();
 
@@ -16,7 +19,9 @@ const Splash = () => {
 
   return (
     <View style={styles.splash}>
-      <Image resizeMode="fit" style={styles.splashImg} source={splash} />
+      <Image style={styles.splashImage} source={splashImage} />
+      <Text style={styles.splashText}>CMO Rajasthan</Text>
+      <Image style={styles.splashBImage} source={splashBImage} />
     </View>
   );
 };
@@ -24,6 +29,27 @@ const Splash = () => {
 export default Splash;
 
 const styles = StyleSheet.create({
-  splash: {flex: 1},
-  splashImg: {width: scaledValue(375), height: '100%'},
+  splash: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: appColors.white,
+  },
+  splashImage: {
+    height: scaledValue(101),
+    width: scaledValue(65),
+    marginVertical: scaledValue(20),
+  },
+  splashText: {
+    fontFamily: 'Inter',
+    fontSize: scaledValue(34),
+    fontWeight: '800',
+    width: scaledValue(240),
+  },
+  splashBImage: {
+    height: scaledValue(238),
+    bottom: 0,
+    width: scaledValue(374),
+    position: 'absolute',
+  },
 });
