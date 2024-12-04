@@ -15,6 +15,8 @@ export const appColors = {
   danger: '#B20A0D',
   lightPurple: "#F0E4F7",
   darkWhite: '#F6F5FF',
-  lightPink:"#EEECFF"
+  lightPink:"#EEECFF",
+  unActiveDot:'#FFCC00',
+  activeDot:'#FF4A02',
 
 };

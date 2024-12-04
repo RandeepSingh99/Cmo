@@ -7,7 +7,7 @@ import Spacer from '../../components/Spacer';
 import ListItem from '../../components/ListItem';
 import {sections} from '../../utils/constants';
 import governorImage from '../../../assets/images/governorImage.png';
-import { scaledValue } from '../../utils/designUtils';
+import {scaledValue} from '../../utils/designUtils';
 
 const StateGovernment = props => {
   const {params} = props.route || '';
@@ -15,7 +15,7 @@ const StateGovernment = props => {
     <View style={styles.stateGovernment}>
       <Header title={appRoutes.stateGovernment} />
       <FlatList
-        contentContainerStyle={(styles.flatList)}
+        contentContainerStyle={styles.flatList}
         showsVerticalScrollIndicator={false}
         data={sections[2].data}
         renderItem={({item}) => <ListItem img={governorImage} title={item} />}
@@ -29,5 +29,5 @@ export default StateGovernment;
 
 const styles = StyleSheet.create({
   stateGovernment: {flex: 1, backgroundColor: appColors.background},
-  flatList: {alignItems: 'center',marginTop:scaledValue(12)},
+  flatList: {alignItems: 'center', marginTop: scaledValue(12)},
 });

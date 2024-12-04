@@ -13,10 +13,11 @@ export const appRoutes = {
   gallery: 'Photo Gallery',
   listOfCms: 'List of former CMs',
   writeToCm: 'Write to CM',
+  cmSpeeches: 'CM Speeches',
   feedBack: 'Feedback & Suggestion',
   cmReliefFund: 'CM Relief Fund',
   cmQuotes: 'CM Quotes',
   pressRelease: 'Press Releases',
   awards: 'Awards',
-  megaEvents:'Mega Events'
+  megaEvents: 'Mega Events',
 };

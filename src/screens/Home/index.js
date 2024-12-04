@@ -5,8 +5,9 @@ import {
   Text,
   View,
   ScrollView,
+  Linking,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Header from '../../components/Header';
 import banner from '../../../assets/images/banner.png';
 import {scaledValue} from '../../utils/designUtils';
@@ -25,7 +26,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {fetchAchievementList} from '../../store/achievementsSlice';
 import {appRoutes} from '../../utils/constants/routeNames';
 import ListItem from '../../components/ListItem';
-import {StretchOutY} from 'react-native-reanimated';
 import {fetchEvents} from '../../store/eventsSlice';
 import {fetchCMQuotes} from '../../store/cmQuotesSlice';
 import {useNavigation} from '@react-navigation/native';
@@ -34,11 +34,13 @@ import {fetchPressReleases} from '../../store/pressReleaseSlice';
 import QuoteCard from '../../components/QuoteCard';
 import {fetchMegaEvents} from '../../store/megaEventsSlice';
 import {fetchSuccessStories} from '../../store/successStoriesSlice';
+import {fetchCMSpeeches} from '../../store/cmSpeechesSlice';
 
 const Home = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const [selectedChip, setSelectedChip] = useState('All');
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [imageViewer, setImageViewer] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
   const bannerData = useSelector(state => state.achievements);
@@ -47,7 +49,14 @@ const Home = () => {
   const pressRelease = useSelector(state => state.pressRelease.pressRelease);
   const megaEvents = useSelector(state => state.megaEvents.megaEvents);
   const successStories = useSelector(state => state.successStories.stories);
+  const cmSpeeches = useSelector(state => state.cmSpeeches.videos);
 
+  const onViewableItemsChanged = useRef(({viewableItems}) => {
+    if (viewableItems.length > 0) {
+      setCurrentIndex(viewableItems[0].index);
+    }
+  }).current;
+  const viewConfig = useRef({viewAreaCoveragePercentThreshold: 50}).current;
   const loadData = () => {
     dispatch(fetchAchievementList());
     dispatch(fetchEvents());
@@ -55,6 +64,7 @@ const Home = () => {
     dispatch(fetchPressReleases());
     dispatch(fetchMegaEvents());
     dispatch(fetchSuccessStories());
+    dispatch(fetchCMSpeeches());
   };
 
   useEffect(() => {
@@ -142,9 +152,9 @@ const Home = () => {
         )}
       />
 
-      <ContextHeader title={appRoutes.successStories}
+      <ContextHeader
+        title={appRoutes.successStories}
         onPress={() => navigation.navigate(appRoutes.successStories)}
-      
       />
       <FlatList
         horizontal
@@ -178,9 +188,41 @@ const Home = () => {
           />
         )}
       />
-      <ContextHeader title="CM Speeches" />
-      <CMSpeechesCard />
+      <ContextHeader
+        onPress={() => navigation.navigate(appRoutes.cmSpeeches)}
+        title={appRoutes.cmSpeeches}
+      />
+      <FlatList
+        data={cmSpeeches.slice(0, 4)}
+        horizontal
+        onViewableItemsChanged={onViewableItemsChanged}
+        viewabilityConfig={viewConfig}
+        showsHorizontalScrollIndicator={false}
+        pagingEnabled={true}
+        renderItem={({item}) => (
+          <CMSpeechesCard
+            onPress={() => Linking.openURL(item.YoutubeURL)}
+            title={item.Achievement}
+            img={item.ImagePath}
+          />
+        )}
+      />
       <Spacer height={12} />
+      <View style={styles.paginationContainer}>
+        {cmSpeeches.slice(0, 4).map((_, index) => {
+          return (
+            <View
+              key={index}
+              style={[
+                styles.dot,
+                index === currentIndex ? styles.activeDot : styles.unActiveDot,
+              ]}
+            />
+          );
+        })}
+      </View>
+      <Spacer height={24} />
+
       <SocialMediaModal />
       <SingleImageViewer
         visible={imageViewer}
@@ -197,4 +239,24 @@ const styles = StyleSheet.create({
   banner: {width: scaledValue(375), height: scaledValue(177)},
   flatList: {marginHorizontal: scaledValue(6)},
   scroll: {backgroundColor: appColors.background},
+  paginationContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  dot: {
+    borderRadius: 5,
+    marginHorizontal: scaledValue(4),
+  },
+  activeDot: {
+    backgroundColor: appColors.activeDot,
+    width: scaledValue(9),
+    height: scaledValue(9),
+  },
+  unActiveDot: {
+    backgroundColor: appColors.unActiveDot,
+    width: scaledValue(7),
+    height: scaledValue(7),
+  },
 });

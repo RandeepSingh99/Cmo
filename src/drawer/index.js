@@ -19,6 +19,7 @@ import PressRelease from '../screens/PressRelease';
 import MegaEvents from '../screens/MegaEvents';
 import DetailPage from '../screens/DetailPage';
 import SuccessStories from '../screens/SuccessStories';
+import CmSpeeches from '../screens/CmSpeeches';
 
 const DrawerStack = createDrawerNavigator();
 
@@ -70,6 +71,7 @@ const Drawer = props => {
       <DrawerStack.Screen name={appRoutes.cmQuotes} component={CmQuotes} />
       <DrawerStack.Screen name={appRoutes.pressRelease} component={PressRelease} />
       <DrawerStack.Screen name={appRoutes.megaEvents} component={MegaEvents} />
+      <DrawerStack.Screen name={appRoutes.cmSpeeches} component={CmSpeeches} />
     </DrawerStack.Navigator>
   );
 };
