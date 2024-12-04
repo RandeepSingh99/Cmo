@@ -10,7 +10,7 @@ import {scaledValue} from '../../utils/designUtils';
 const OurGovt = () => {
   return (
     <View style={styles.ourGovt}>
-      <Header title={appRoutes.stateGovernment} />
+      <Header title={appRoutes.ourGovernment} />
       <Spacer height={scaledValue(12)} />
 
       <FlatList

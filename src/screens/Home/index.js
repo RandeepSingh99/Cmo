@@ -72,7 +72,7 @@ const Home = () => {
   }, []);
 
   return (
-    <ScrollView showsHorizontalScrollIndicator={false} style={styles.scroll}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.scroll}>
       <Header title="CMO Rajasthan" />
       {/* <Text
         style={{

@@ -6,7 +6,6 @@ import {appColors} from '../../utils/constants/colors';
 import {useSelector} from 'react-redux';
 import CMSpeechesCard from '../../components/CMSpeechesCard';
 import {scaledValue} from '../../utils/designUtils';
-import Spacer from '../../components/Spacer';
 
 const CmSpeeches = () => {
   const cmSpeeches = useSelector(state => state.cmSpeeches.videos);
