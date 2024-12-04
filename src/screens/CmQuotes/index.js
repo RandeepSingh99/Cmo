@@ -6,6 +6,7 @@ import {appColors} from '../../utils/constants/colors';
 import QuotesCard from '../../components/QuotesCard';
 import SingleImageViewer from '../../components/SingleImageViewer';
 import {useSelector} from 'react-redux';
+import QuoteCard from '../../components/QuoteCard';
 
 const CmQuotes = () => {
   const quotes = useSelector(state => state.cmQuotes.quotes);
@@ -21,7 +22,7 @@ const CmQuotes = () => {
         maxToRenderPerBatch={4}
         showsVerticalScrollIndicator={false}
         renderItem={({item}) => (
-          <QuotesCard
+          <QuoteCard
             onPress={() => {
               setSelectedImage(item.ImagePath);
               setImageViewer(true);
