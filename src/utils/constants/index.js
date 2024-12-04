@@ -135,5 +135,169 @@ export const linkingStrings = {
   infoAndPublic: 'Information',
   acb: 'ACB',
   terms: 'Terms',
-  followUs:'Follow Us'
+  followUs: 'Follow Us',
+};
+export const govData = {
+  Governor: [
+    {
+      name: 'Haribhau Kisanrao Bagade',
+      post: 'Governor of Rajasthan',
+      dob: '17 August 1945', // Removed the invisible character
+      homeTown: 'Phulambri, Aurangabad, Maharashtra',
+      social: {
+        fb: '@RajBhavanJaipur',
+        twitter: '@rajbhavanjaipur',
+      },
+      exec: 'Governor of Rajasthan from 31st July, 2024',
+      atPresent:
+        'Assumed the office of the Governor of Rajasthan on 31st July, 2024.',
+      contact:
+        'Governor’s secretariat, Raj Bhawan Jaipur EPABX: 0141-2228716-19, 2228722, 2228611, 2228612; FAX No: 0141-2221156',
+    },
+  ],
+  'Chief Minister': [
+    {
+      name: 'Sh. Bhajan Lal Sharma',
+      post: 'Hon ble Chief Minister',
+      dob: '15 December 1966', // Removed the invisible character
+      homeTown: 'Bharatpur',
+      social: {
+        fb: '@CMORajasthan',
+        twitter: '@CMORajasthan',
+      },
+      qualification: 'MA Political Science',
+      fathersName: 'Kishan Swaroop Sharma',
+      mothersName: 'Gomti Devi',
+      description:
+        'Shri Bhajanlal Sharma, the current Chief Minister of Rajasthan, is a luminary in Indian politics, noted for his pragmatic leadership and deep-seated values rooted in Indian cultural ',
+    },
+  ],
+  'Deputy Chief Minister': [
+    {
+      name: 'Smt. Diya Kumari',
+      post: 'Deputy Chief Minister',
+      department: [
+        'Finance Department',
+        'Tourism Department',
+        'Department of Art Literature Culture and Archeology',
+        'PWD',
+        'Women & Child Development Department',
+        'Child Empowerment Department',
+      ],
+      assembly: 'Vidhyadhar Nagar',
+    },
+    {
+      name: 'Dr. Prem Chand Bairwa',
+      post: 'Deputy Chief Minister',
+      department: [
+        'Technical Education Department',
+        'Higher Education Department',
+        'Ayurveda Yoga and Naturopathy Unani Siddha and Homeopathy (AYUSH) Department',
+        'Transport and Road Safety Department',
+      ],
+      assembly: 'Vidhyadhar Nagar',
+    },
+  ],
+  'Cabinet Minister': [
+    {
+      name: 'Shri Kirodi Lal',
+      phnNumber: '0141-2921023',
+      post: 'Cabinet Minister',
+      department: [
+        'Agriculture and Horticulture Department',
+        'Rural Development Department',
+        'Disaster Management, Relief and Civil ',
+        'Defense Department',
+        'Public Prosecution Redressal Department',
+      ],
+      assembly: 'Sawai Madhopur',
+    },
+    {
+      name: 'Shri Madan Dilawar',
+      phnNumber: ' 01412921244',
+      post: 'Cabinet Minister',
+      department: [
+        'School Education Department',
+        'Panchayati Raj Department',
+        'Sanskrit Education Department',
+      ],
+      assembly: 'Ramganj Mandi (SC)',
+    },
+    {
+      name: 'Col. Rajyavardhan Rathore',
+      phnNumber: '01412921415',
+      post: 'Cabinet Minister',
+      department: [
+        'Department of Industries and Commerce',
+        'Department of Information Technology and Communications',
+        'Department of Youth Affairs and Sports',
+        'Department of Skills Planning and Entrepreneurship',
+        'Department of Soldier Welfare',
+      ],
+      assembly: 'Jhotwara',
+    },
+  ],
+  'State Minister (Independent Charge)': [
+    {
+      name: 'Shri Sanjay Sharma',
+      phnNumber: '01412921415',
+      post: 'Cabinet Minister',
+      department: [
+        'Medical and Health Department',
+        'Medical and Health Services (ESI)',
+      ],
+      assembly: 'Jhotwara',
+    },
+    {
+      name: 'Shri Gautam Kumar',
+      phnNumber: '01412921415',
+      post: 'Cabinet Minister',
+      department: [
+        'School Education Department',
+        'Panchayati Raj Department',
+        'Sanskrit Education Department',
+      ],
+      assembly: 'Ramganj Mandi (SC)',
+    },
+  ],
+  'State Minister': [
+    {
+      name: 'Shri Ota Ram Dewasi',
+      phnNumber: '01412921415',
+      post: 'Cabinet Minister',
+      department: [
+        'Medical and Health Department',
+        'Medical and Health Services (ESI)',
+      ],
+      assembly: 'Jhotwara',
+    },
+    {
+      name: 'Dr. Manju Baghmar',
+      phnNumber: '01412921415',
+      post: 'Cabinet Minister',
+      department: [
+        'School Education Department',
+        'Panchayati Raj Department',
+        'Sanskrit Education Department',
+      ],
+      assembly: 'Ramganj Mandi (SC)',
+    },
+  ],
+  MLA: [
+    {
+      name: 'Sh. Bhajan Lal Sharma',
+      post: 'Hon ble Chief Minister',
+      assembly: 'Sanganer',
+    },
+    {
+      name: 'Smt Diya Kumari',
+      post: 'Hon ble Chief Minister',
+      assembly: 'Vidhadhar Nagar',
+    },
+    {
+      name: 'Dr. Premchand Bairwa',
+      post: 'Hon ble Chief Minister',
+      assembly: ' Dudu (SC)',
+    },
+  ],
 };

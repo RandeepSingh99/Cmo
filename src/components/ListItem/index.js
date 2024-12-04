@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, Pressable, Image} from 'react-native';
+import {View, Text, StyleSheet, Pressable, Image, FlatList} from 'react-native';
 import rightArrow from '../../../assets/images/chevronRight.png'; // Replace with your right arrow icon path
 import {scaledValue} from '../../utils/designUtils';
 import {appColors} from '../../utils/constants/colors';
@@ -8,6 +8,7 @@ import facebookIcon from '../../../assets/images/facebookIcon.png';
 import {appRoutes} from '../../utils/constants/routeNames';
 import cabinetMinisterI from '../../../assets/images/cabinetMinisterI.png';
 import phoneCall from '../../../assets/images/phoneCall.png';
+import {govData} from '../../utils/constants';
 
 const ListItem = props => {
   const [expendable, setExpendable] = useState(false);
@@ -30,7 +31,6 @@ const ListItem = props => {
     props.title === 'MLA' ||
     props.title === 'Chief Secretary' ||
     props.title.includes('State Minister');
-
   return (
     <View style={styles.cardView}>
       <Pressable
@@ -46,157 +46,176 @@ const ListItem = props => {
           style={[styles.icon, expendable && styles.transformed]}
         />
       </Pressable>
-      {expendable && (
-        <View>
-          {renderProfileCard() && (
-            <View style={styles.governorNameImage}>
-              <View style={styles.outerGovernorImage}>
-                <Image style={styles.governorImage} source={props.img} />
-              </View>
+      <FlatList
+        data={govData[props.title]}
+        renderItem={({item}) => (
+          <>
+            {expendable && (
               <View>
-                <Text style={styles.governorName}>
-                  Haribhau Kisanrao Bagade
-                </Text>
-                <Text style={styles.governorPostName}>
-                  Governor of Rajasthan
-                </Text>
-              </View>
-              <View style={styles.socialView}>
-                <Image source={facebookIcon} style={styles.socialIcons} />
-                <Image source={twitterIcon} style={styles.socialIcons} />
-              </View>
-            </View>
-          )}
-          {renderDetailCard() && (
-            <View style={styles.governorDescription}>
-              <View style={styles.governorDescriptionDOB}>
-                <Text style={styles.governorDescriptionDateOfBirth}>
-                  Date of Birth :{' '}
-                </Text>
-                <Text style={styles.governorDescriptionDOBName}>
-                  17 August 1945
-                </Text>
-              </View>
-              <View style={styles.governorDescriptionHomeTown}>
-                <Text style={styles.governorDescriptionHT}>Home Town : </Text>
-                <Text style={styles.governorDescriptionHTName}>
-                  Phulambri, Aurangabad, Maharashtra
-                </Text>
-              </View>
-              <View style={styles.governorDescriptionSocialMediaApp}>
-                <View style={styles.governorDescriptionSocialMedia}>
-                  <Text style={styles.governorDescriptionSMT}>
-                    Social Media Twitter
-                  </Text>
-                  <Text style={styles.governorDescriptionSMTid}>
-                    @rajbhavanjaipur
-                  </Text>
-                </View>
-                <View style={styles.governorDescriptionSocialMedia}>
-                  <Text style={styles.governorDescriptionSMT}>Facebook</Text>
-                  <Text style={styles.governorDescriptionSMTid}>
-                    @RajBhavanJaipur
-                  </Text>
-                </View>
-              </View>
-              <View style={styles.governorDescriptionContactDetails}>
-                <Text style={styles.governorDescriptionCD}>
-                  Contacts Details
-                </Text>
-                <Text style={styles.governorDescriptionCDName}>
-                  Governor’s secretariat, raj bhawan jaipur epabx
-                  0141-2228716-19, 2228722, 2228611, 2228612 FAX No 0141-2221156
-                </Text>
-              </View>
-              <View style={styles.governorDescriptionExecutivePosition}>
-                <Text style={styles.governorDescriptionELP}>
-                  Executive & Legislative Positions
-                </Text>
-                <Text style={styles.governorDescriptionELPName}>
-                  Governor of Rajasthan from 31st July, 2024
-                </Text>
-              </View>
-              <View style={styles.governorDescriptionAtPresent}>
-                <Text style={styles.governorDescriptionAT}>At Present</Text>
-                <Text style={styles.governorDescriptionATName}>
-                  Assumed the office of the Governor of Rajasthan on 31st July,
-                  2024.
-                </Text>
-              </View>
-            </View>
-          )}
-          {renderSmallGovProfileCard() && (
-            <View style={styles.outerCabinetMinister}>
-              <View style={styles.cabinetMinisterImage}>
-                <Image
-                  style={styles.cabinetMinisterI}
-                  source={cabinetMinisterI}
-                />
-              </View>
-              <View style={styles.outerCabinetMinisterText}>
-                <View>
-                  <Text style={styles.cabinetMinisterText}>
-                    Shri Kirodi Lal
-                  </Text>
-                  <Text style={styles.cabinetMinisterTextName}>
-                    Cabinet Minister
-                  </Text>
-                </View>
-                {
-                  <View style={styles.cabinetMinisterPhoneNo}>
-                    <Image style={styles.phoneCall} source={phoneCall} />
-                    <Text style={styles.cabinetMinisterPhoneNoName}>
-                      0141-2921023
-                    </Text>
+                {renderProfileCard() && (
+                  <View style={styles.governorNameImage}>
+                    <View style={styles.outerGovernorImage}>
+                      <Image style={styles.governorImage} source={props.img} />
+                    </View>
+                    <View>
+                      <Text style={styles.governorName}>{item.name}</Text>
+                      <Text style={styles.governorPostName}>{item.post}</Text>
+                    </View>
+                    <View style={styles.socialView}>
+                      <Image source={facebookIcon} style={styles.socialIcons} />
+                      <Image source={twitterIcon} style={styles.socialIcons} />
+                    </View>
                   </View>
-                }
-
-                {
-                  <View>
-                    <Text style={styles.cabinetMinisterAssemblyC}>
-                      Assembly Constituency
-                    </Text>
-                    <Text style={styles.cabinetMinisterAC}>
-                      Vidhyadhar Nagar
-                    </Text>
+                )}
+                {renderDetailCard() && (
+                  <View style={styles.governorDescription}>
+                    <View style={styles.governorDescriptionDOB}>
+                      <Text style={styles.governorDescriptionDateOfBirth}>
+                        Date of Birth :{' '}
+                      </Text>
+                      <Text style={styles.governorDescriptionDOBName}>
+                        {item.dob}
+                      </Text>
+                    </View>
+                    <View style={styles.governorDescriptionHomeTown}>
+                      <Text style={styles.governorDescriptionHT}>
+                        Home Town :{' '}
+                      </Text>
+                      <Text style={styles.governorDescriptionHTName}>
+                        {item.homeTown}
+                      </Text>
+                    </View>
+                    <View style={styles.governorDescriptionSocialMediaApp}>
+                      {item.social.twitter && (
+                        <View>
+                          <Text style={styles.governorDescriptionSMT}>
+                            Social Media Twitter
+                          </Text>
+                          <Text style={styles.governorDescriptionSMTid}>
+                            {item.social.twitter}
+                          </Text>
+                        </View>
+                      )}
+                      {item.social.fb && (
+                        <View>
+                          <Text style={styles.governorDescriptionSMT}>
+                            Facebook
+                          </Text>
+                          <Text style={styles.governorDescriptionSMTid}>
+                            {item.social.fb}
+                          </Text>
+                        </View>
+                      )}
+                    </View>
+                    {item.contact && (
+                      <View style={styles.governorDescriptionContactDetails}>
+                        <Text style={styles.governorDescriptionCD}>
+                          Contacts Details
+                        </Text>
+                        <Text style={styles.governorDescriptionCDName}>
+                          {item.contact}
+                        </Text>
+                      </View>
+                    )}
+                    {item.exec && (
+                      <View style={styles.governorDescriptionExecutivePosition}>
+                        <Text style={styles.governorDescriptionELP}>
+                          Executive & Legislative Positions
+                        </Text>
+                        <Text style={styles.governorDescriptionELPName}>
+                          {item.exec}
+                        </Text>
+                      </View>
+                    )}
+                    {item.atPresent && (
+                      <View style={styles.governorDescriptionAtPresent}>
+                        <Text style={styles.governorDescriptionAT}>
+                          At Present
+                        </Text>
+                        <Text style={styles.governorDescriptionATName}>
+                          {item.atPresent}
+                        </Text>
+                      </View>
+                    )}
                   </View>
-                }
-              </View>
-            </View>
-          )}
-          {renderDepartments() && (
-            <View style={styles.outerDeputyChiefMinister}>
-              <View style={styles.innerDeputyChiefMinister}>
-                <Text style={styles.deputyChiefMinisterD}>Department</Text>
+                )}
+                {renderSmallGovProfileCard() && (
+                  <View style={styles.outerCabinetMinister}>
+                    <View style={styles.cabinetMinisterImage}>
+                      <Image
+                        style={styles.cabinetMinisterI}
+                        source={cabinetMinisterI}
+                      />
+                    </View>
+                    <View style={styles.outerCabinetMinisterText}>
+                      <View>
+                        <Text style={styles.cabinetMinisterText}>
+                          Shri Kirodi Lal
+                        </Text>
+                        <Text style={styles.cabinetMinisterTextName}>
+                          Cabinet Minister
+                        </Text>
+                      </View>
+                      {
+                        <View style={styles.cabinetMinisterPhoneNo}>
+                          <Image style={styles.phoneCall} source={phoneCall} />
+                          <Text style={styles.cabinetMinisterPhoneNoName}>
+                            0141-2921023
+                          </Text>
+                        </View>
+                      }
 
-                <Text style={styles.deputyChiefMinisterDName}>
-                  • Finance Department
-                </Text>
-                <Text style={styles.deputyChiefMinisterDName}>
-                  • Tourism Department
-                </Text>
-                <Text style={styles.deputyChiefMinisterDName}>
-                  • Department of Art Literature Culture and Archeology
-                </Text>
-                <Text style={styles.deputyChiefMinisterDName}>• PWD</Text>
-                <Text style={styles.deputyChiefMinisterDName}>
-                  • Women & Child Development Department
-                </Text>
-                <Text style={styles.deputyChiefMinisterDName}>
-                  • Child Empowerment Department
-                </Text>
+                      {
+                        <View>
+                          <Text style={styles.cabinetMinisterAssemblyC}>
+                            Assembly Constituency
+                          </Text>
+                          <Text style={styles.cabinetMinisterAC}>
+                            Vidhyadhar Nagar
+                          </Text>
+                        </View>
+                      }
+                    </View>
+                  </View>
+                )}
+                {renderDepartments() && (
+                  <View style={styles.outerDeputyChiefMinister}>
+                    <View style={styles.innerDeputyChiefMinister}>
+                      <Text style={styles.deputyChiefMinisterD}>
+                        Department
+                      </Text>
 
-                <Text style={styles.deputyChiefMinisterAC}>
-                  Assembly Constituency
-                </Text>
-                <Text style={styles.deputyChiefMinisterACC}>
-                  Vidhyadhar Nagar
-                </Text>
+                      <Text style={styles.deputyChiefMinisterDName}>
+                        • Finance Department
+                      </Text>
+                      <Text style={styles.deputyChiefMinisterDName}>
+                        • Tourism Department
+                      </Text>
+                      <Text style={styles.deputyChiefMinisterDName}>
+                        • Department of Art Literature Culture and Archeology
+                      </Text>
+                      <Text style={styles.deputyChiefMinisterDName}>• PWD</Text>
+                      <Text style={styles.deputyChiefMinisterDName}>
+                        • Women & Child Development Department
+                      </Text>
+                      <Text style={styles.deputyChiefMinisterDName}>
+                        • Child Empowerment Department
+                      </Text>
+
+                      <Text style={styles.deputyChiefMinisterAC}>
+                        Assembly Constituency
+                      </Text>
+                      <Text style={styles.deputyChiefMinisterACC}>
+                        Vidhyadhar Nagar
+                      </Text>
+                    </View>
+                  </View>
+                )}
               </View>
-            </View>
-          )}
-        </View>
-      )}
+            )}
+          </>
+        )}
+      />
     </View>
   );
 };
