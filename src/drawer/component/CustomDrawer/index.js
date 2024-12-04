@@ -52,6 +52,8 @@ const CustomDrawerContent = props => {
       screen === appRoutes.feedBack ||
       screen === appRoutes.cmQuotes ||
       screen === appRoutes.awards ||
+      screen === appRoutes.pressRelease ||
+      screen === appRoutes.megaEvents ||
       screen === appRoutes.cmReliefFund
     ) {
       props.navigation.navigate(screen);

@@ -32,6 +32,7 @@ import {useNavigation} from '@react-navigation/native';
 import SingleImageViewer from '../../components/SingleImageViewer';
 import {fetchPressReleases} from '../../store/pressReleaseSlice';
 import QuoteCard from '../../components/QuoteCard';
+import {fetchMegaEvents} from '../../store/megaEventsSlice';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -43,12 +44,14 @@ const Home = () => {
   // const data = useSelector(state => state.eventList);
   const quotes = useSelector(state => state.cmQuotes.quotes);
   const pressRelease = useSelector(state => state.pressRelease.pressRelease);
+  const megaEvents = useSelector(state => state.megaEvents.megaEvents);
 
   const loadData = () => {
     dispatch(fetchAchievementList());
     dispatch(fetchEvents());
     dispatch(fetchCMQuotes());
     dispatch(fetchPressReleases());
+    dispatch(fetchMegaEvents());
   };
 
   useEffect(() => {
@@ -81,7 +84,7 @@ const Home = () => {
         source={{uri: bannerData?.data[0]?.ImagePath}}
       />
 
-      {/* <FlatList
+      <FlatList
         contentContainerStyle={styles.flatList}
         horizontal
         data={filterChip}
@@ -95,14 +98,20 @@ const Home = () => {
           />
         )}
       />
-      <ContextHeader />
+      <ContextHeader title="Latest Events" />
       <FlatList
         horizontal
-        data={[]}
-        keyExtractor={i => i}
+        data={megaEvents}
+        keyExtractor={i => i.Description}
         showsHorizontalScrollIndicator={false}
-        renderItem={({item}) => <NewsCard />}
-      /> */}
+        renderItem={({item}) => (
+          <NewsCard
+            title={item.Description}
+            img={item.HomePageImageUrl}
+            date={item.PressReleaseDateHindi}
+          />
+        )}
+      />
 
       <ContributionClickHere />
       <ContextHeader
@@ -152,7 +161,7 @@ const Home = () => {
         )}
       />
       <ContextHeader />
-      <CMSpeechesCard />
+      <CMSpeechesCard title="CM Speeches" />
       <Spacer height={12} />
       <SocialMediaModal />
       <SingleImageViewer

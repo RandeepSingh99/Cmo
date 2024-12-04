@@ -15,6 +15,7 @@ export const appRoutes = {
   feedBack: 'Feedback & Suggestion',
   cmReliefFund: 'CM Relief Fund',
   cmQuotes: 'CM Quotes',
-  pressRelease: 'Press Release',
+  pressRelease: 'Press Releases',
   awards: 'Awards',
+  megaEvents:'Mega Events'
 };

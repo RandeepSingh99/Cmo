@@ -16,6 +16,8 @@ import FeedBack from '../screens/FeedBack';
 import CmReliefFund from '../screens/CMReliefFund';
 import CmQuotes from '../screens/CmQuotes';
 import Awards from '../screens/Awards';
+import PressRelease from '../screens/PressRelease';
+import MegaEvents from '../screens/MegaEvents';
 
 const DrawerStack = createDrawerNavigator();
 
@@ -61,6 +63,8 @@ const Drawer = props => {
         component={CmReliefFund}
       />
       <DrawerStack.Screen name={appRoutes.cmQuotes} component={CmQuotes} />
+      <DrawerStack.Screen name={appRoutes.pressRelease} component={PressRelease} />
+      <DrawerStack.Screen name={appRoutes.megaEvents} component={MegaEvents} />
     </DrawerStack.Navigator>
   );
 };

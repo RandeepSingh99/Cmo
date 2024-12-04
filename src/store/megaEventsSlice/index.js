@@ -4,8 +4,8 @@ import axios from 'axios';
 const BASE_URL =
   'https://jankalyanfrontwebapi.rajasthan.gov.in/PublicPortal/DepartmentWebsite';
 
-export const fetchPressReleases = createAsyncThunk(
-  'pressRelease/fetch',
+export const fetchMegaEvents = createAsyncThunk(
+  'megaEvents/fetch',
   async (_, {rejectWithValue}) => {
     try {
       const response = await axios.post(`${BASE_URL}/GetPressReleaseByFilter`, {
@@ -23,36 +23,43 @@ export const fetchPressReleases = createAsyncThunk(
         DepartmentCode: 980,
         CategoryCode: 36,
         IsBase64File: false,
+        VIPCategoryCode: '96',
+        VIPPersonCode: 47,
+        SubCat_GECatTypeCode: 31183,
+        PressReleaseLevelCode: 30204,
+        CMOPRCategoryCode: 31128,
       });
       return response.data.Data.Data;
     } catch (error) {
-      return rejectWithValue(error.response?.data || 'Something went wrong');
+      return rejectWithValue(
+        error.response?.data || 'Failed to fetch mega events',
+      );
     }
   },
 );
 
-const pressReleaseSlice = createSlice({
-  name: 'pressRelease',
+const megaEventsSlice = createSlice({
+  name: 'megaEvents',
   initialState: {
-    pressRelease: [],
+    megaEvents: [],
     status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
     error: null,
   },
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(fetchPressReleases.pending, state => {
+      .addCase(fetchMegaEvents.pending, state => {
         state.status = 'loading';
       })
-      .addCase(fetchPressReleases.fulfilled, (state, action) => {
+      .addCase(fetchMegaEvents.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.pressRelease = action.payload;
+        state.megaEvents = action.payload;
       })
-      .addCase(fetchPressReleases.rejected, (state, action) => {
+      .addCase(fetchMegaEvents.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.payload;
       });
   },
 });
 
-export default pressReleaseSlice.reducer;
+export default megaEventsSlice.reducer;
