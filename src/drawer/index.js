@@ -4,7 +4,6 @@ import {appRoutes} from '../utils/constants/routeNames';
 import {scaledValue} from '../utils/designUtils';
 import CustomDrawerContent from './component/CustomDrawer';
 import KeyOfficials from '../screens/KeyOfficials';
-import Distribution from '../screens/Distribution';
 import StateGovernment from '../screens/StateGovernment';
 import OurGovt from '../screens/OurGovt';
 import Events from '../screens/Events';
@@ -40,10 +39,6 @@ const Drawer = props => {
       <DrawerStack.Screen
         name={appRoutes.keyOfficials}
         component={KeyOfficials}
-      />
-      <DrawerStack.Screen
-        name={appRoutes.distribution}
-        component={Distribution}
       />
       <DrawerStack.Screen
         name={appRoutes.stateGovernment}

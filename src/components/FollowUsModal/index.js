@@ -6,21 +6,28 @@ import {
   TouchableOpacity,
   StyleSheet,
   Image,
+  Linking,
 } from 'react-native';
 import followTwitterIcon from '../../../assets/images/followTwitterIcon.png';
 import followYoutubeIcon from '../../../assets/images/followYoutubeIcon.png';
 import followInstagramIcon from '../../../assets/images/followInstagramIcon.png';
 import followFaceBookIcon from '../../../assets/images/followFb.png';
+import {useDispatch, useSelector} from 'react-redux';
+import {setFollowUsModal} from '../../store/uiSlice';
 
 const SocialMediaModal = () => {
+  const dispatch = useDispatch();
+  const followUsModal = useSelector(state => state.ui.followUsModal);
+
   return (
     <Modal
-      visible={false}
+      visible={followUsModal}
       transparent
       animationType="slide"
-      //   onRequestClose={}
-    >
-      <View style={styles.overlay}>
+      onRequestClose={() => dispatch(setFollowUsModal(false))}>
+      <TouchableOpacity
+        onPress={() => dispatch(setFollowUsModal(false))}
+        style={styles.overlay}>
         <View style={styles.modalContainer}>
           <View style={styles.header}>
             <View style={styles.line} />
@@ -28,21 +35,41 @@ const SocialMediaModal = () => {
             <View style={styles.line} />
           </View>
           <View style={styles.iconContainer}>
-            <TouchableOpacity style={styles.iconWrapper}>
+            <TouchableOpacity
+              onPress={() => {
+                dispatch(setFollowUsModal(false));
+                Linking.openURL('https://www.facebook.com/RajCMO/');
+              }}
+              style={styles.iconWrapper}>
               <Image source={followFaceBookIcon} style={styles.icon} />
             </TouchableOpacity>
-           <TouchableOpacity style={styles.iconWrapper}>
+            <TouchableOpacity
+              onPress={() => {
+                dispatch(setFollowUsModal(false));
+                Linking.openURL('https://www.instagram.com/rajcmo/');
+              }}
+              style={styles.iconWrapper}>
               <Image source={followInstagramIcon} style={styles.icon} />
             </TouchableOpacity>
-             <TouchableOpacity style={styles.iconWrapper}>
+            <TouchableOpacity
+              onPress={() => {
+                dispatch(setFollowUsModal(false));
+                Linking.openURL('https://x.com/RajCMO');
+              }}
+              style={styles.iconWrapper}>
               <Image source={followTwitterIcon} style={styles.icon} />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.iconWrapper}>
+            <TouchableOpacity
+              onPress={() => {
+                dispatch(setFollowUsModal(false));
+                Linking.openURL('https://www.youtube.com/@cmoraj');
+              }}
+              style={styles.iconWrapper}>
               <Image source={followYoutubeIcon} style={styles.icon} />
             </TouchableOpacity>
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
     </Modal>
   );
 };

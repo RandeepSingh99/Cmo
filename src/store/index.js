@@ -11,6 +11,7 @@ import megaEventsReducer from './megaEventsSlice';
 import successStoriesReducer from './successStoriesSlice';
 import cmSpeechesReducer from './cmSpeechesSlice';
 import importantLinksReducer from './importantLinksSlice';
+import uiSlice from './uiSlice';
 
 const store = configureStore({
   reducer: {
@@ -26,6 +27,7 @@ const store = configureStore({
     successStories: successStoriesReducer,
     cmSpeeches: cmSpeechesReducer,
     importantLinks: importantLinksReducer,
+    ui: uiSlice,
   },
 });
 

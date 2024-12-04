@@ -1,6 +1,7 @@
 import {
   Image,
   ImageBackground,
+  Linking,
   SectionList,
   StyleSheet,
   Text,
@@ -11,13 +12,28 @@ import {scaledValue} from '../../../utils/designUtils';
 import {appColors} from '../../../utils/constants/colors';
 import DrawerItem from '../../../components/DrawerItem';
 import BulletDrawerItem from '../../../components/BulletDrawerItem';
-import {sections, stateGovt} from '../../../utils/constants';
+import {linkingStrings, sections, stateGovt} from '../../../utils/constants';
 import {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {appRoutes} from '../../../utils/constants/routeNames';
 import Header from '../Header';
 import Spacer from '../../../components/Spacer';
+import {
+  acb,
+  budget,
+  distribution,
+  dopWebsite,
+  excise,
+  generalAdministrationDepartment,
+  homeDepartment,
+  infoAndPublic,
+  planningDepartment,
+  terms,
+} from '../../../utils/constants/uri';
+import {setFollowUsModal} from '../../../store/uiSlice';
+import {useDispatch} from 'react-redux';
 const CustomDrawerContent = props => {
+  const dispatch = useDispatch();
   const [expandedSections, setExpandedSections] = useState({});
 
   const toggleSection = title => {
@@ -41,9 +57,54 @@ const CustomDrawerContent = props => {
       props.navigation.navigate(appRoutes.stateGovernment, screen);
       return;
     }
+    if (screen === linkingStrings.followUs) {
+      props.navigation.closeDrawer()
+      props.navigation.navigate(appRoutes.home)
+      dispatch(setFollowUsModal(true));
+      return;
+    }
+    if (screen === linkingStrings.distribution) {
+      Linking.openURL(distribution);
+      return;
+    }
+    if (screen.includes(linkingStrings.budget)) {
+      Linking.openURL(budget);
+      return;
+    }
+    if (screen.includes(linkingStrings.doP)) {
+      Linking.openURL(dopWebsite);
+      return;
+    }
+    if (screen.includes(linkingStrings.excise)) {
+      Linking.openURL(excise);
+      return;
+    }
+    if (screen.includes(linkingStrings.homeDepartment)) {
+      Linking.openURL(homeDepartment);
+      return;
+    }
+    if (screen.includes(linkingStrings.planningDepartment)) {
+      Linking.openURL(planningDepartment);
+      return;
+    }
+    if (screen.includes(linkingStrings.generalAdministrationDepartment)) {
+      Linking.openURL(generalAdministrationDepartment);
+      return;
+    }
+    if (screen.includes(linkingStrings.infoAndPublic)) {
+      Linking.openURL(infoAndPublic);
+      return;
+    }
+    if (screen.includes(linkingStrings.acb)) {
+      Linking.openURL(acb);
+      return;
+    }
+    if (screen.includes(linkingStrings.terms)) {
+      Linking.openURL(terms);
+      return;
+    }
     if (
       screen === appRoutes.keyOfficials ||
-      screen === appRoutes.distribution ||
       screen === appRoutes.successStories ||
       screen === appRoutes.ourGovernment ||
       screen === appRoutes.gallery ||

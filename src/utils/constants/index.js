@@ -51,7 +51,7 @@ export const sections = [
       'Home Department',
       'Planning Department',
       'General Administration Department',
-      "Policy Making Cell: CM's Secretariat",
+      // "Policy Making Cell: CM's Secretariat",
       'Information and Public Relations Department',
       'Anti Corruption Bureau (ACB)',
     ],
@@ -122,4 +122,18 @@ export const stateGovt = {
   mla: 'MLA',
   chiefSecretary: 'Chief Secretary',
   cabinetMinister: 'Cabinet Minister',
+};
+
+export const linkingStrings = {
+  distribution: 'Distribution',
+  budget: 'Budget',
+  doP: 'DoP',
+  excise: 'Excise',
+  homeDepartment: 'Home Department',
+  planningDepartment: 'Planning Department',
+  generalAdministrationDepartment: 'General Administration Department',
+  infoAndPublic: 'Information',
+  acb: 'ACB',
+  terms: 'Terms',
+  followUs:'Follow Us'
 };

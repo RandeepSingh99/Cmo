@@ -222,13 +222,12 @@ const Home = () => {
         })}
       </View>
       <Spacer height={24} />
-
-      <SocialMediaModal />
       <SingleImageViewer
         visible={imageViewer}
         selectedImage={selectedImage}
         closeModal={() => setImageViewer(false)}
       />
+      <SocialMediaModal />
     </ScrollView>
   );
 };
