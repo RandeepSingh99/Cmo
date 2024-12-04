@@ -31,6 +31,7 @@ import {fetchCMQuotes} from '../../store/cmQuotesSlice';
 import {useNavigation} from '@react-navigation/native';
 import SingleImageViewer from '../../components/SingleImageViewer';
 import {fetchPressReleases} from '../../store/pressReleaseSlice';
+import QuoteCard from '../../components/QuoteCard';
 
 const Home = () => {
   const dispatch = useDispatch();
