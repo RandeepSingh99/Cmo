@@ -6,6 +6,8 @@ import {appColors} from '../../utils/constants/colors';
 import twitterIcon from '../../../assets/images/twitterIcon.png';
 import facebookIcon from '../../../assets/images/facebookIcon.png';
 import {appRoutes} from '../../utils/constants/routeNames';
+import cabinetMinisterI from '../../../assets/images/cabinetMinisterI.png';
+import phoneCall from '../../../assets/images/phoneCall.png';
 
 const ListItem = props => {
   const [expendable, setExpendable] = useState(false);
@@ -156,7 +158,35 @@ const ListItem = props => {
             </View>
           )}
 
-          {renderSmallGovProfileCard() && <View></View>}
+          {renderSmallGovProfileCard() && (
+            <View style={styles.outerCabinetMinister}>
+              <View style={styles.cabinetMinisterImage}>
+                <Image
+                  style={styles.cabinetMinisterI}
+                  source={cabinetMinisterI}
+                />
+              </View>
+              <View style={styles.outerCabinetMinisterText}>
+                <View>
+                  <Text style={styles.cabinetMinisterText}>
+                    Shri Kirodi Lal
+                  </Text>
+                  <Text style={styles.cabinetMinisterTextName}>
+                    Cabinet Minister
+                  </Text>
+                </View>
+                <View style={styles.cabinetMinisterPhoneNo}>
+                    <Image style={styles.phoneCall} source={phoneCall} />
+                    <Text style={styles.cabinetMinisterPhoneNoName}>
+                      0141-2921023
+                    </Text>
+                  
+                  {/* <Text style={styles.cabinetMinisterAssemblyC}>Assembly Constituency</Text>
+                    <Text style={styles.cabinetMinisterAC}>Vidhyadhar Nagar</Text> */}
+                </View>
+              </View>
+            </View>
+          )}
         </View>
       )}
     </View>
@@ -408,6 +438,70 @@ const styles = StyleSheet.create({
   deputyChiefMinisterACC: {
     marginLeft: scaledValue(7),
     color: appColors.gray,
+  },
+  outerCabinetMinister: {
+    height: scaledValue(122),
+    width: scaledValue(345),
+    backgroundColor: appColors.white,
+    flexDirection: 'row',
+    borderRadius: scaledValue(5),
+    borderWidth: scaledValue(1),
+    borderColor: appColors.border,
+    alignItems: 'center',
+  },
+  cabinetMinisterImage: {
+    height: scaledValue(85.05),
+    width: scaledValue(84),
+    borderRadius: scaledValue(100),
+    marginHorizontal: scaledValue(13),
+  },
+  cabinetMinisterI: {
+    height: scaledValue(85.05),
+    width: scaledValue(84),
+    backgroundColor: appColors.white,
+    borderRadius: scaledValue(88),
+    borderWidth: scaledValue(5),
+    borderColor: appColors.border,
+  },
+  outerCabinetMinisterText: {
+    width: scaledValue(203),
+  },
+  cabinetMinisterText: {
+    color: appColors.black,
+    fontFamily: 'Roboto',
+    fontSize: scaledValue(14),
+    fontWeight: '800',
+  },
+  cabinetMinisterTextName: {
+    color: appColors.gray,
+    fontFamily: 'Roboto',
+    fontSize: scaledValue(14),
+    fontWeight: '600',
+  },
+  cabinetMinisterPhoneNo: {
+    flexDirection: 'row',
+  },
+  cabinetMinisterPhoneNoName: {
+    marginVertical: scaledValue(10),
+    color: appColors.black,
+    fontFamily: 'Roboto',
+    fontSize: scaledValue(14),
+    fontWeight: '700',
+  },
+  cabinetMinisterAssemblyC: {
+    fontFamily: 'Roboto',
+    fontSize: scaledValue(14),
+    fontWeight: '800',
+    color: appColors.black,
+  },
+  cabinetMinisterAC: {
+    color: appColors.gray,
+  },
+  phoneCall: {
+    height: scaledValue(18),
+    width: scaledValue(18),
+    marginVertical: scaledValue(10),
+    marginRight: scaledValue(10),
   },
 });
 
