@@ -6,6 +6,7 @@ import eventsSlice from './eventsSlice';
 import cmQuotesReducer from './cmQuotesSlice';
 import photoGalleryReducer from './photoGallerySlice';
 import pressReleaseReducer from './pressReleaseSlice';
+import awardsReducer from './awardsSlice';
 
 const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
     cmQuotes: cmQuotesReducer,
     photoGallery: photoGalleryReducer,
     pressRelease: pressReleaseReducer,
+    awards: awardsReducer,
 
   },
 });

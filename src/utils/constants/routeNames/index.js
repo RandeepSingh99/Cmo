@@ -12,8 +12,9 @@ export const appRoutes = {
   gallery: 'Photo Gallery',
   listOfCms: 'List of former CMs',
   writeToCm: 'Write to CM',
-  feedBack:'Feedback & Suggestion',
-  cmReliefFund:'CM Relief Fund',
-  cmQuotes:'CM Quotes',
-  pressRelease:'Press Release'
+  feedBack: 'Feedback & Suggestion',
+  cmReliefFund: 'CM Relief Fund',
+  cmQuotes: 'CM Quotes',
+  pressRelease: 'Press Release',
+  awards: 'Awards',
 };

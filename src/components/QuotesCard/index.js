@@ -8,7 +8,7 @@ const QuotesCard = props => {
   return (
     <TouchableOpacity onPress={props.onPress} style={styles.outerContextSmallCard}>
       <Image
-        resizeMode="contain"
+        resizeMode="fit"
         style={styles.contextSmallCardCalenderIcon}
         source={{uri: props.img}}
       />

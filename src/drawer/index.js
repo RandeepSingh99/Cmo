@@ -15,6 +15,7 @@ import WriteToCm from '../screens/WriteToCm';
 import FeedBack from '../screens/FeedBack';
 import CmReliefFund from '../screens/CMReliefFund';
 import CmQuotes from '../screens/CmQuotes';
+import Awards from '../screens/Awards';
 
 const DrawerStack = createDrawerNavigator();
 
@@ -54,6 +55,7 @@ const Drawer = props => {
       <DrawerStack.Screen name={appRoutes.listOfCms} component={ListOfCm} />
       <DrawerStack.Screen name={appRoutes.writeToCm} component={WriteToCm} />
       <DrawerStack.Screen name={appRoutes.feedBack} component={FeedBack} />
+      <DrawerStack.Screen name={appRoutes.awards} component={Awards} />
       <DrawerStack.Screen
         name={appRoutes.cmReliefFund}
         component={CmReliefFund}
