@@ -14,5 +14,6 @@ export const appRoutes = {
   writeToCm: 'Write to CM',
   feedBack:'Feedback & Suggestion',
   cmReliefFund:'CM Relief Fund',
-  cmQuotes:'CM Quotes'
+  cmQuotes:'CM Quotes',
+  pressRelease:'Press Release'
 };

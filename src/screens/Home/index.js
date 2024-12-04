@@ -30,6 +30,7 @@ import {fetchEvents} from '../../store/eventsSlice';
 import {fetchCMQuotes} from '../../store/cmQuotesSlice';
 import {useNavigation} from '@react-navigation/native';
 import SingleImageViewer from '../../components/SingleImageViewer';
+import {fetchPressReleases} from '../../store/pressReleaseSlice';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -38,13 +39,15 @@ const Home = () => {
   const [imageViewer, setImageViewer] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
   const bannerData = useSelector(state => state.achievements);
-  const data = useSelector(state => state.eventList);
+  // const data = useSelector(state => state.eventList);
   const quotes = useSelector(state => state.cmQuotes.quotes);
+  const pressRelease = useSelector(state => state.pressRelease.pressRelease);
 
   const loadData = () => {
     dispatch(fetchAchievementList());
     dispatch(fetchEvents());
     dispatch(fetchCMQuotes());
+    dispatch(fetchPressReleases());
   };
 
   useEffect(() => {
@@ -130,21 +133,27 @@ const Home = () => {
         keyExtractor={i => i}
         showsHorizontalScrollIndicator={false}
         renderItem={({item}) => <NewsCard />}
-      />
+      />*/}
 
       <MessageToChief />
-      <ContextHeader />
+      <ContextHeader title={appRoutes.pressRelease} />
       <FlatList
         horizontal
-        data={[]}
-        keyExtractor={i => i}
+        data={pressRelease}
+        keyExtractor={i => i.Description}
         showsHorizontalScrollIndicator={false}
-        renderItem={({item}) => <NewsCard />}
+        renderItem={({item}) => (
+          <NewsCard
+            title={item.Description}
+            img={item.HomePageImageUrl}
+            date={item.PressReleaseDateHindi}
+          />
+        )}
       />
       <ContextHeader />
       <CMSpeechesCard />
       <Spacer height={12} />
-      <SocialMediaModal /> */}
+      <SocialMediaModal />
       <SingleImageViewer
         visible={imageViewer}
         selectedImage={selectedImage}
