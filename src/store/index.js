@@ -8,6 +8,7 @@ import photoGalleryReducer from './photoGallerySlice';
 import pressReleaseReducer from './pressReleaseSlice';
 import awardsReducer from './awardsSlice';
 import megaEventsReducer from './megaEventsSlice';
+import successStoriesReducer from './successStoriesSlice';
 
 const store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ const store = configureStore({
     pressRelease: pressReleaseReducer,
     awards: awardsReducer,
     megaEvents: megaEventsReducer,
+    successStories: successStoriesReducer,
   },
 });
 

@@ -33,6 +33,7 @@ import SingleImageViewer from '../../components/SingleImageViewer';
 import {fetchPressReleases} from '../../store/pressReleaseSlice';
 import QuoteCard from '../../components/QuoteCard';
 import {fetchMegaEvents} from '../../store/megaEventsSlice';
+import {fetchSuccessStories} from '../../store/successStoriesSlice';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ const Home = () => {
   const quotes = useSelector(state => state.cmQuotes.quotes);
   const pressRelease = useSelector(state => state.pressRelease.pressRelease);
   const megaEvents = useSelector(state => state.megaEvents.megaEvents);
+  const successStories = useSelector(state => state.successStories.stories);
 
   const loadData = () => {
     dispatch(fetchAchievementList());
@@ -52,6 +54,7 @@ const Home = () => {
     dispatch(fetchCMQuotes());
     dispatch(fetchPressReleases());
     dispatch(fetchMegaEvents());
+    dispatch(fetchSuccessStories());
   };
 
   useEffect(() => {
@@ -100,8 +103,8 @@ const Home = () => {
       />
       <ContextHeader
         onPress={() => navigation.navigate(appRoutes.megaEvents)}
-      
-      title="Latest Events"  />
+        title="Latest Events"
+      />
       <FlatList
         horizontal
         data={megaEvents}
@@ -139,17 +142,29 @@ const Home = () => {
         )}
       />
 
-      <ContextHeader />
-      {/* <FlatList
+      <ContextHeader title={appRoutes.successStories}
+        onPress={() => navigation.navigate(appRoutes.successStories)}
+      
+      />
+      <FlatList
         horizontal
-        data={[]}
-        keyExtractor={i => i}
+        data={successStories}
+        keyExtractor={i => i.Description}
         showsHorizontalScrollIndicator={false}
-        renderItem={({item}) => <NewsCard />}
-      />*/}
+        renderItem={({item}) => (
+          <NewsCard
+            title={item.Description}
+            img={item.HomePageImageUrl}
+            date={item.PressReleaseDateHindi}
+          />
+        )}
+      />
 
       <MessageToChief />
-      <ContextHeader title={appRoutes.pressRelease} />
+      <ContextHeader
+        onPress={() => navigation.navigate(appRoutes.pressRelease)}
+        title={appRoutes.pressRelease}
+      />
       <FlatList
         horizontal
         data={pressRelease}
@@ -163,8 +178,8 @@ const Home = () => {
           />
         )}
       />
-      <ContextHeader title="CM Speeches"/>
-      <CMSpeechesCard  />
+      <ContextHeader title="CM Speeches" />
+      <CMSpeechesCard />
       <Spacer height={12} />
       <SocialMediaModal />
       <SingleImageViewer

@@ -7,6 +7,7 @@ export const appRoutes = {
   distribution: 'Distribution',
   stateGovernment: 'State Government',
   successStories: 'Success Stories',
+  detail: 'Detail',
   ourGovernment: 'Our Government',
   events: 'Events',
   gallery: 'Photo Gallery',

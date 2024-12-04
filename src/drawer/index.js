@@ -6,7 +6,6 @@ import CustomDrawerContent from './component/CustomDrawer';
 import KeyOfficials from '../screens/KeyOfficials';
 import Distribution from '../screens/Distribution';
 import StateGovernment from '../screens/StateGovernment';
-import SuccessStories from '../screens/SuccessStories';
 import OurGovt from '../screens/OurGovt';
 import Events from '../screens/Events';
 import PhotoGallery from '../screens/PhotoGallery';
@@ -18,6 +17,8 @@ import CmQuotes from '../screens/CmQuotes';
 import Awards from '../screens/Awards';
 import PressRelease from '../screens/PressRelease';
 import MegaEvents from '../screens/MegaEvents';
+import DetailPage from '../screens/DetailPage';
+import SuccessStories from '../screens/SuccessStories';
 
 const DrawerStack = createDrawerNavigator();
 
@@ -46,10 +47,14 @@ const Drawer = props => {
       <DrawerStack.Screen
         name={appRoutes.stateGovernment}
         component={StateGovernment}
-      />
+      /> 
       <DrawerStack.Screen
-        name={appRoutes.successStories}
-        component={SuccessStories}
+      name={appRoutes.successStories}
+      component={SuccessStories}
+    />
+      <DrawerStack.Screen
+        name={appRoutes.detail}
+        component={DetailPage}
       />
       <DrawerStack.Screen name={appRoutes.ourGovernment} component={OurGovt} />
       <DrawerStack.Screen name={appRoutes.events} component={Events} />
