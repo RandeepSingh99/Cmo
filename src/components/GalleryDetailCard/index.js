@@ -40,28 +40,28 @@ const GalleryDetailCard = (props) => {
       <View style={styles.contextSC}>
         <View style={styles.contextSmallCards}>
           <Image
-            resizeMode="contain"
+            resizeMode="fit"
             style={styles.contextSmallCardsImage}
             source={{uri: props.img}}
           />
         </View>
         <View style={styles.contextSmallCards}>
           <Image
-            resizeMode="contain"
+            resizeMode="fit"
             style={styles.contextSmallCardsImage}
             source={{uri: props.img}}
           />
         </View>
         <View style={styles.contextSmallCards}>
           <Image
-            resizeMode="contain"
+            resizeMode="fit"
             style={styles.contextSmallCardsImage}
             source={{uri: props.img}}
           />
         </View>
         <View style={styles.contextSmallCards}>
           <Image
-            resizeMode="contain"
+            resizeMode="fit"
             style={styles.contextSmallCardsImage}
             source={{uri: props.img}}
           />
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     width: scaledValue(131.25),
     height: scaledValue(131.25),
     borderRadius: scaledValue(4),
-  
+    marginVertical:scaledValue(10)
   },
   contextSC: {
     flexDirection: 'row',
