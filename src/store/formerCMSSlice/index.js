@@ -29,7 +29,7 @@ export const fetchFormerCMS = createAsyncThunk(
           SubCategoryCode: 491,
         },
       );
-      return response.data;
+      return response.data.Data.Data;
     } catch (error) {
       return rejectWithValue(error.response?.data || 'Failed to fetch data');
     }
@@ -52,7 +52,7 @@ const formerCMSSlice = createSlice({
       })
       .addCase(fetchFormerCMS.fulfilled, (state, action) => {
         state.loading = false;
-        state.cms = action.payload;
+        state.cms = action.payload|| [];
       })
       .addCase(fetchFormerCMS.rejected, (state, action) => {
         state.loading = false;

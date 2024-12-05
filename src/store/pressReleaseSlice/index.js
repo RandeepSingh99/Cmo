@@ -46,7 +46,7 @@ const pressReleaseSlice = createSlice({
       })
       .addCase(fetchPressReleases.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.pressRelease = action.payload;
+        state.pressRelease = action.payload|| [];
       })
       .addCase(fetchPressReleases.rejected, (state, action) => {
         state.status = 'failed';

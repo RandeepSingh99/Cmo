@@ -1,10 +1,10 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import axios from 'axios';
-import { BASE_URL } from '../../utils/constants/uri';
+import {BASE_URL} from '../../utils/constants/uri';
 
 export const fetchEvents = createAsyncThunk(
   'events/fetch',
-  async (_, { rejectWithValue }) => {
+  async (_, {rejectWithValue}) => {
     try {
       const response = await axios.post(
         `${BASE_URL}/GetAchievementListBySearchFilter?isRequiredAttachImages=true`,
@@ -25,13 +25,13 @@ export const fetchEvents = createAsyncThunk(
           LookupCode: 0,
           IsCMUpcomingEvt: true,
           CategoryCode: 133,
-        }
+        },
       );
       return response.data.Data.Data;
     } catch (error) {
       return rejectWithValue(error.response?.data || 'Something went wrong');
     }
-  }
+  },
 );
 
 const eventsSlice = createSlice({
@@ -42,14 +42,14 @@ const eventsSlice = createSlice({
     error: null,
   },
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(fetchEvents.pending, (state) => {
+      .addCase(fetchEvents.pending, state => {
         state.status = 'loading';
       })
       .addCase(fetchEvents.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.events = action.payload;
+        state.events = action.payload || [];
       })
       .addCase(fetchEvents.rejected, (state, action) => {
         state.status = 'failed';

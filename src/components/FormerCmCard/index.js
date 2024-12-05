@@ -1,15 +1,15 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {scaledValue} from '../../utils/designUtils';
-import { appColors } from '../../utils/constants/colors';
+import {appColors} from '../../utils/constants/colors';
 import Spacer from '../Spacer';
 
-const FormerCm = () => {
+const FormerCm = props => {
   return (
-    <TouchableOpacity  style={styles.card}>
-        <Image source={{uri: 'https://via.placeholder.com/300'}} style={styles.icon} />
-        <Spacer height={scaledValue(12)}/>
-      <Text style={styles.cardText}> Smt. Vasundhara Raje</Text>
+    <TouchableOpacity onPress={props.onPress} style={styles.card}>
+      <Image source={{uri: props.img}} style={styles.icon} />
+      <Spacer height={scaledValue(12)} />
+      <Text style={styles.cardText}>{props.title}</Text>
     </TouchableOpacity>
   );
 };
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     width: scaledValue(85),
     height: scaledValue(85),
     resizeMode: 'contain',
-    borderRadius:200
+    borderRadius: 200,
   },
   cardText: {
     fontSize: scaledValue(14),
@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: appColors.black,
     width: scaledValue(148), // Adjust to fit 2 cards per row with some spacing
-
   },
 });
 

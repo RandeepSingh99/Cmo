@@ -22,7 +22,7 @@ export const fetchDepartmentContactDetails = createAsyncThunk(
       );
       return response.data.Data.Data;
     } catch (error) {
-      console.log('error', error)
+      console.log('error', error);
     }
   },
 );
@@ -43,7 +43,7 @@ const departmentContactSlice = createSlice({
       })
       .addCase(fetchDepartmentContactDetails.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.data = action.payload;
+        state.data = action.payload || [];
       })
       .addCase(fetchDepartmentContactDetails.rejected, (state, action) => {
         state.status = 'failed';

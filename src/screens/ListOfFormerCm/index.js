@@ -1,13 +1,21 @@
-import {FlatList, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import {FlatList, Linking, StyleSheet, Text, View} from 'react-native';
+import React, {useEffect} from 'react';
 import Header from '../../components/Header';
 import Spacer from '../../components/Spacer';
 import FormerCm from '../../components/FormerCmCard';
 import {appColors} from '../../utils/constants/colors';
 import {appRoutes} from '../../utils/constants/routeNames';
 import {scaledValue} from '../../utils/designUtils';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchFormerCMS} from '../../store/formerCMSSlice';
 
 const ListOfCm = () => {
+  const cms = useSelector(state => state.formerCM.cms);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchFormerCMS());
+  }, []);
+  console.log('cms', cms);
   return (
     <View style={styles.container}>
       <Header title={appRoutes.listOfCms} />
@@ -16,8 +24,14 @@ const ListOfCm = () => {
         numColumns={2}
         contentContainerStyle={{alignItems: 'center'}}
         showsVerticalScrollIndicator={false}
-        data={[{}, {}, {}, {}]}
-        renderItem={() => <FormerCm />}
+        data={cms}
+        renderItem={({item}) => (
+          <FormerCm
+            onPress={() => Linking.openURL(item.Url)}
+            title={item.Achievement}
+            img={item.ImagePath}
+          />
+        )}
       />
       <Spacer height={scaledValue(12)} />
     </View>

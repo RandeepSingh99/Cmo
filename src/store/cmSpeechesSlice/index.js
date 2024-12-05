@@ -1,10 +1,10 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import axios from 'axios';
-import { BASE_URL } from '../../utils/constants/uri';
+import {BASE_URL} from '../../utils/constants/uri';
 
 export const fetchCMSpeeches = createAsyncThunk(
   'cmSpeeches/fetch',
-  async (_, { rejectWithValue }) => {
+  async (_, {rejectWithValue}) => {
     try {
       const response = await axios.post(`${BASE_URL}/GetVideoList`, {
         AdvanceSearchModel: {
@@ -23,9 +23,11 @@ export const fetchCMSpeeches = createAsyncThunk(
       });
       return response.data.Data.Data;
     } catch (error) {
-      return rejectWithValue(error.response?.data || 'Failed to fetch CM speeches');
+      return rejectWithValue(
+        error.response?.data || 'Failed to fetch CM speeches',
+      );
     }
-  }
+  },
 );
 
 const cmSpeechesSlice = createSlice({
@@ -36,14 +38,14 @@ const cmSpeechesSlice = createSlice({
     error: null,
   },
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(fetchCMSpeeches.pending, (state) => {
+      .addCase(fetchCMSpeeches.pending, state => {
         state.status = 'loading';
       })
       .addCase(fetchCMSpeeches.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.videos = action.payload;
+        state.videos = action.payload || [];
       })
       .addCase(fetchCMSpeeches.rejected, (state, action) => {
         state.status = 'failed';

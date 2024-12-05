@@ -52,7 +52,7 @@ const successStoriesSlice = createSlice({
       })
       .addCase(fetchSuccessStories.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.stories = action.payload;
+        state.stories = action.payload || [];
       })
       .addCase(fetchSuccessStories.rejected, (state, action) => {
         state.status = 'failed';

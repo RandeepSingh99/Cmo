@@ -53,7 +53,7 @@ const megaEventsSlice = createSlice({
       })
       .addCase(fetchMegaEvents.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.megaEvents = action.payload;
+        state.megaEvents = action.payload || [];
       })
       .addCase(fetchMegaEvents.rejected, (state, action) => {
         state.status = 'failed';

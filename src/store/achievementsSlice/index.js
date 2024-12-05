@@ -56,7 +56,7 @@ const achievementsSlice = createSlice({
       })
       .addCase(fetchAchievementList.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.data = action.payload;
+        state.data = action.payload || [];
       })
       .addCase(fetchAchievementList.rejected, (state, action) => {
         state.status = 'failed';

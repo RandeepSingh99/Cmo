@@ -58,7 +58,7 @@ const importantLinksSlice = createSlice({
       })
       .addCase(fetchImportantLinks.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.links = action.payload;
+        state.links = action.payload || [];
       })
       .addCase(fetchImportantLinks.rejected, (state, action) => {
         state.status = 'failed';

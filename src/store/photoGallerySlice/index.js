@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const BASE_URL =
   'https://jankalyanfrontwebapi.rajasthan.gov.in/PublicPortal/DepartmentWebsite';
-  
+
 export const fetchPhotoGallery = createAsyncThunk(
   'photoGallery/fetch',
   async (_, {rejectWithValue}) => {
@@ -55,7 +55,7 @@ const photoGallerySlice = createSlice({
       })
       .addCase(fetchPhotoGallery.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.gallery = action.payload;
+        state.gallery = action.payload || [];
       })
       .addCase(fetchPhotoGallery.rejected, (state, action) => {
         state.status = 'failed';
