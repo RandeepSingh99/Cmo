@@ -6,68 +6,73 @@ import {scaledValue} from '../../utils/designUtils';
 import calenderIcon from '../../../assets/images/calenderIcon.png';
 import {appColors} from '../../utils/constants/colors';
 
-const GalleryDetailCard = (props) => {
+const GalleryDetailCard = props => {
   return (
     <View style={styles.outerContextCard}>
-    <View style={styles.contextCard}>
-      <Image
-        resizeMode="cover"
-        style={styles.contextPhoto}
-        source={{uri: props.img}}
-      />
-      <View style={styles.outerContextCardText}>
-        <Text  allowFontScaling={false}numberOfLines={2} style={styles.contextCardText}>
-          {props.title}
-        </Text>
+      <View style={styles.contextCard}>
+        <Image
+          resizeMode="cover"
+          style={styles.contextPhoto}
+          source={{uri: props.img}}
+        />
+        <View style={styles.outerContextCardText}>
+          <Text
+            allowFontScaling={false}
+            numberOfLines={props.numberOfLines || 2}
+            style={styles.contextCardText}>
+            {props.title}
+          </Text>
+        </View>
+        <View style={styles.outerContextCardCalenderDate}>
+          <View style={styles.contextCardCalenderDate}>
+            <Image
+              resizeMode="contain"
+              style={styles.contextCardCalenderIcon}
+              source={calenderIcon}
+            />
+            <Text allowFontScaling={false} style={styles.contextCardDate}>
+              {props.date}
+            </Text>
+          </View>
+          <View>
+            <Image
+              resizeMode="contain"
+              style={styles.shareIcon}
+              source={shareIcon}
+            />
+          </View>
+        </View>
+        <View style={styles.contextSC}>
+          <View style={styles.contextSmallCards}>
+            <Image
+              resizeMode="fit"
+              style={styles.contextSmallCardsImage}
+              source={{uri: props.img}}
+            />
+          </View>
+          <View style={styles.contextSmallCards}>
+            <Image
+              resizeMode="fit"
+              style={styles.contextSmallCardsImage}
+              source={{uri: props.img}}
+            />
+          </View>
+          <View style={styles.contextSmallCards}>
+            <Image
+              resizeMode="fit"
+              style={styles.contextSmallCardsImage}
+              source={{uri: props.img}}
+            />
+          </View>
+          <View style={styles.contextSmallCards}>
+            <Image
+              resizeMode="fit"
+              style={styles.contextSmallCardsImage}
+              source={{uri: props.img}}
+            />
+          </View>
+        </View>
       </View>
-      <View style={styles.outerContextCardCalenderDate}>
-        <View style={styles.contextCardCalenderDate}>
-          <Image
-            resizeMode="contain"
-            style={styles.contextCardCalenderIcon}
-            source={calenderIcon}
-          />
-          <Text  allowFontScaling={false}style={styles.contextCardDate}>{props.date}</Text>
-        </View>
-        <View>
-          <Image
-            resizeMode="contain"
-            style={styles.shareIcon}
-            source={shareIcon}
-          />
-        </View>
-      </View>
-      <View style={styles.contextSC}>
-        <View style={styles.contextSmallCards}>
-          <Image
-            resizeMode="fit"
-            style={styles.contextSmallCardsImage}
-            source={{uri: props.img}}
-          />
-        </View>
-        <View style={styles.contextSmallCards}>
-          <Image
-            resizeMode="fit"
-            style={styles.contextSmallCardsImage}
-            source={{uri: props.img}}
-          />
-        </View>
-        <View style={styles.contextSmallCards}>
-          <Image
-            resizeMode="fit"
-            style={styles.contextSmallCardsImage}
-            source={{uri: props.img}}
-          />
-        </View>
-        <View style={styles.contextSmallCards}>
-          <Image
-            resizeMode="fit"
-            style={styles.contextSmallCardsImage}
-            source={{uri: props.img}}
-          />
-        </View>
-      </View>
-    </View>
     </View>
   );
 };
@@ -75,7 +80,7 @@ const GalleryDetailCard = (props) => {
 export default GalleryDetailCard;
 
 const styles = StyleSheet.create({
-  outerContextCard:{ alignItems: 'center',},
+  outerContextCard: {alignItems: 'center'},
   contextCard: {
     width: scaledValue(345),
     padding: scaledValue(10),
@@ -89,7 +94,6 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 3,
     marginVertical: scaledValue(8),
-    
   },
   contextPhoto: {
     height: scaledValue(199),
@@ -139,14 +143,14 @@ const styles = StyleSheet.create({
     borderRadius: scaledValue(4),
     backgroundColor: appColors.lightPink,
     alignItems: 'center',
-    marginHorizontal:scaledValue(5),
-    marginVertical:scaledValue(5)
+    marginHorizontal: scaledValue(5),
+    marginVertical: scaledValue(5),
   },
   contextSmallCardsImage: {
     width: scaledValue(131.25),
     height: scaledValue(131.25),
     borderRadius: scaledValue(4),
-    marginVertical:scaledValue(10)
+    marginVertical: scaledValue(10),
   },
   contextSC: {
     flexDirection: 'row',

@@ -5,7 +5,7 @@ import {appColors} from '../../utils/constants/colors';
 import Button from '../Button';
 import msgToChief from '../../../assets/images/msgToChief.png';
 
-const MessageToChief = () => {
+const MessageToChief = (props) => {
   return (
     <View style={styles.messageToChief}>
       <View style={styles.outerMessageToChiefText}>
@@ -16,6 +16,7 @@ const MessageToChief = () => {
           Share Your Concerns with the Chief Minister
         </Text>
         <Button
+        onPress={props.onPress}
           color={appColors.blue}
           width={192}
           height={49}
@@ -42,7 +43,6 @@ const styles = StyleSheet.create({
     height: scaledValue(157),
     borderRadius: 4,
     backgroundColor: appColors.white,
-    marginLeft: scaledValue(16),
     marginTop: scaledValue(16),
     flexDirection: 'row',
     justifyContent: 'space-evenly',
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     elevation: 3,
     borderWidth: 1,
     borderColor: appColors.border,
+    alignSelf:'center'
   },
   messageToChiefText: {
     fontFamily: 'Roboto',

@@ -4,16 +4,19 @@ import {scaledValue} from '../../utils/designUtils';
 import {appColors} from '../../utils/constants/colors';
 import Button from '../Button';
 
-const ContributionClickHere = () => {
+const ContributionClickHere = props => {
   return (
     <View style={styles.contributionClickHere}>
-      <Text  allowFontScaling={false}style={styles.contributionClickHereText}>
+      <Text allowFontScaling={false} style={styles.contributionClickHereText}>
         Contribute to Disaster Relief and support to Rajasthan
       </Text>
-      <Text  allowFontScaling={false}style={styles.contributionClickHereDonateText}>
+      <Text
+        allowFontScaling={false}
+        style={styles.contributionClickHereDonateText}>
         Donate to Rajasthan Chief Minister Relief Fund
       </Text>
       <Button
+        onPress={props.onPress}
         color={appColors.blue}
         width={192}
         height={49}
@@ -30,7 +33,6 @@ const styles = StyleSheet.create({
   contributionClickHere: {
     height: scaledValue(196),
     width: scaledValue(351),
-    margin: scaledValue(10),
     borderRadius: 4,
     flexDirection: 'column',
     alignItems: 'center',
@@ -42,6 +44,9 @@ const styles = StyleSheet.create({
     elevation: 3,
     borderWidth: 1,
     borderColor: appColors.border,
+    alignSelf: 'center',
+    marginTop: scaledValue(16),
+
   },
   contributionClickHereText: {
     fontFamily: 'Roboto',

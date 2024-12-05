@@ -1,11 +1,11 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {scaledValue} from '../../utils/designUtils';
-import {appColors} from '../../utils/constants/colors';
 
 const Button = props => {
   return (
-    <View
+    <TouchableOpacity
+    onPress={props.onPress}
       style={[
         styles.contributionClickHereButton,
         {
@@ -19,7 +19,7 @@ const Button = props => {
       <Text allowFontScaling={false} style={[, {color: props.titleColor}]}>
         {props.title}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

@@ -200,7 +200,9 @@ const Home = () => {
           />
         )}
       />
-      <ContributionClickHere />
+      <ContributionClickHere
+        onPress={() => navigation.navigate(appRoutes.cmReliefFund)}
+      />
       <View ref={cmQuotesRef} />
       <ContextHeader
         onPress={() => navigation.navigate(appRoutes.cmQuotes)}
@@ -242,7 +244,9 @@ const Home = () => {
           />
         )}
       />
-      <MessageToChief />
+      <MessageToChief
+        onPress={() => navigation.navigate(appRoutes.writeToCm)}
+      />
       <View ref={pressReleaseRef} />
       <ContextHeader
         onPress={() => navigation.navigate(appRoutes.pressRelease)}
