@@ -6,7 +6,7 @@ import {appColors} from '../../utils/constants/colors';
 const ViewButton = props => {
   return (
     <TouchableOpacity onPress={props.onPress} style={styles.BorderViewButton}>
-      <Text style={styles.viewButtonText}>View All</Text>
+      <Text  allowFontScaling={false}style={styles.viewButtonText}>View All</Text>
     </TouchableOpacity>
   );
 };

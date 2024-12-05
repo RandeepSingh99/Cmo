@@ -20,7 +20,7 @@ const Splash = () => {
   return (
     <View style={styles.splash}>
       <Image style={styles.splashImage} source={splashImage} />
-      <Text style={styles.splashText}>CMO Rajasthan</Text>
+      <Text  allowFontScaling={false}style={styles.splashText}>CMO Rajasthan</Text>
       <Image resizeMode='contain' style={styles.splashBImage} source={splashBImage} />
     </View>
   );

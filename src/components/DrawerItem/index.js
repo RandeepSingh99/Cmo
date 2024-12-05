@@ -6,7 +6,7 @@ import minusCircle from '../../../assets/images/minusCircle.png';
 const DrawerItem = props => {
   return (
     <TouchableOpacity style={styles.itemView} onPress={props.onPress}>
-      <Text style={styles.itemText}>{props.title}</Text>
+      <Text  allowFontScaling={false}style={styles.itemText}>{props.title}</Text>
       {props.showMinus && (
         <Image resizeMode="contain" style={styles.minus} source={minusCircle} />
       )}

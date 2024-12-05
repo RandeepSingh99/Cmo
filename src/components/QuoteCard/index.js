@@ -13,7 +13,7 @@ const QuoteCard = props => {
     <TouchableOpacity style={styles.QuoteCard} onPress={props.onPress}>
       <View style={styles.QuoteCardDetail}>
         <Image style={styles.QuoteCardDetailImage} source={{uri: props.img}} />
-        <Text style={styles.QuoteCardDetailText}>{props.title}</Text>
+        <Text  allowFontScaling={false}style={styles.QuoteCardDetailText}>{props.title}</Text>
         <View style={styles.titleView}>
           <View style={styles.dateView}>
             <Image
@@ -21,7 +21,7 @@ const QuoteCard = props => {
               style={styles.contextCardCalenderIcon}
               source={calenderIcon}
             />
-            <Text style={styles.date}>{props.date}</Text>
+            <Text  allowFontScaling={false}style={styles.date}>{props.date}</Text>
           </View>
 
           <View style={styles.socialView}>

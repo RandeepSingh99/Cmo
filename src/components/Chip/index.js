@@ -14,7 +14,7 @@ const Chip = props => {
             props.selected === props.title ? scaledValue(2) : 0,
         },
       ]}>
-      <Text style={styles.title}>{props.title}</Text>
+      <Text  allowFontScaling={false}style={styles.title}>{props.title}</Text>
     </TouchableOpacity>
   );
 };

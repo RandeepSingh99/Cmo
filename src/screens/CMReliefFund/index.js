@@ -24,7 +24,7 @@ const CmReliefFund = () => {
       <View style={styles.paddingContainer}>
         <View style={styles.cmReliefFundDonateForm}>
           <View style={styles.outerCmReliefFundText}>
-            <Text style={styles.cmReliefFundText}>
+            <Text  allowFontScaling={false}style={styles.cmReliefFundText}>
               Individual/Institution Donation Form
             </Text>
           </View>
@@ -112,52 +112,52 @@ const CmReliefFund = () => {
         </View>
         <Spacer height={scaledValue(24)} />
         <View style={styles.offlinePaymentDetail}>
-          <Text style={styles.offlinePaymentDetailHText}>
+          <Text  allowFontScaling={false}style={styles.offlinePaymentDetailHText}>
             Offline Payment Detail
           </Text>
           <View style={styles.outerOfflinePaymentDetailText}>
             <View style={styles.offlinePaymentDetailText}>
-              <Text style={styles.offlinePaymentDetailNameText}>Name - </Text>
-              <Text style={styles.offlinePaymentDetailNameTextDetail}>
+              <Text  allowFontScaling={false}style={styles.offlinePaymentDetailNameText}>Name - </Text>
+              <Text  allowFontScaling={false}style={styles.offlinePaymentDetailNameTextDetail}>
                 Rajasthan Chief Minister Relief Fund
               </Text>
             </View>
             <View style={styles.offlinePaymentDetailText}>
-              <Text style={styles.offlinePaymentDetailNameText}>
+              <Text  allowFontScaling={false}style={styles.offlinePaymentDetailNameText}>
                 Account No.-{' '}
               </Text>
-              <Text style={styles.offlinePaymentDetailNameTextDetail}>
+              <Text  allowFontScaling={false}style={styles.offlinePaymentDetailNameTextDetail}>
                 51088903513
               </Text>
             </View>
             <View style={styles.offlinePaymentDetailText}>
-              <Text style={styles.offlinePaymentDetailNameText}>
+              <Text  allowFontScaling={false}style={styles.offlinePaymentDetailNameText}>
                 Type of Account:{' '}
               </Text>
-              <Text style={styles.offlinePaymentDetailNameTextDetail}>
+              <Text  allowFontScaling={false}style={styles.offlinePaymentDetailNameTextDetail}>
                 Saving Account
               </Text>
             </View>
             <View style={styles.offlinePaymentDetailText}>
-              <Text style={styles.offlinePaymentDetailNameText}>
+              <Text  allowFontScaling={false}style={styles.offlinePaymentDetailNameText}>
                 IFSC Code -{' '}
               </Text>
-              <Text style={styles.offlinePaymentDetailNameTextDetail}>
+              <Text  allowFontScaling={false}style={styles.offlinePaymentDetailNameTextDetail}>
                 {' '}
                 SBIN0031031
               </Text>
             </View>
             <View style={styles.offlinePaymentDetailText}>
-              <Text style={styles.offlinePaymentDetailNameText}>
+              <Text  allowFontScaling={false}style={styles.offlinePaymentDetailNameText}>
                 Branch Name -{' '}
               </Text>
-              <Text style={styles.offlinePaymentDetailNameTextDetail}>
+              <Text  allowFontScaling={false}style={styles.offlinePaymentDetailNameTextDetail}>
                 State Bank of India Secretariat Jaipur.
               </Text>
             </View>
             <View style={styles.offlinePaymentDetailText}>
-              <Text style={styles.offlinePaymentDetailNameText}>UPI Id - </Text>
-              <Text style={styles.offlinePaymentDetailNameTextDetail}>
+              <Text  allowFontScaling={false}style={styles.offlinePaymentDetailNameText}>UPI Id - </Text>
+              <Text  allowFontScaling={false}style={styles.offlinePaymentDetailNameTextDetail}>
                 51088903513@SBI
               </Text>
             </View>

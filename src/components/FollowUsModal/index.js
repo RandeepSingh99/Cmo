@@ -31,7 +31,7 @@ const SocialMediaModal = () => {
         <View style={styles.modalContainer}>
           <View style={styles.header}>
             <View style={styles.line} />
-            <Text style={styles.title}>Follow Us</Text>
+            <Text  allowFontScaling={false}style={styles.title}>Follow Us</Text>
             <View style={styles.line} />
           </View>
           <View style={styles.iconContainer}>

@@ -8,7 +8,7 @@ const ContextHeader = (props) => {
   return (
     <View ref={props.ref} style={styles.contextHeader}>
       <View style={styles.contextText}>
-        <Text style={styles.contextText}>{props.title}</Text>
+        <Text  allowFontScaling={false}style={styles.contextText}>{props.title}</Text>
       </View>
         <ViewButton onPress={props.onPress} />
     </View>

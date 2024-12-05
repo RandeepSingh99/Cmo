@@ -44,7 +44,7 @@ const ListItem = props => {
           !expendable ? styles.allCornerRound : styles.upperCornerRound,
         ]}
         onPress={() => setExpendable(!expendable)}>
-        <Text style={styles.title}>{props.title}</Text>
+        <Text  allowFontScaling={false}style={styles.title}>{props.title}</Text>
         <Image
           resizeMode="contain"
           source={rightArrow}
@@ -68,8 +68,8 @@ const ListItem = props => {
                       </View>
                     )}
                     <View>
-                      <Text style={styles.governorName}>{item?.name}</Text>
-                      <Text style={styles.governorPostName}>{item?.post}</Text>
+                      <Text  allowFontScaling={false}style={styles.governorName}>{item?.name}</Text>
+                      <Text  allowFontScaling={false}style={styles.governorPostName}>{item?.post}</Text>
                     </View>
                     <View style={styles.socialView}>
                       {item?.social?.fb && (
@@ -91,21 +91,21 @@ const ListItem = props => {
                   <View style={styles.governorDescription}>
                     {item?.dob && (
                       <View style={styles.governorDescriptionDOB}>
-                        <Text style={styles.governorDescriptionDateOfBirth}>
+                        <Text  allowFontScaling={false}style={styles.governorDescriptionDateOfBirth}>
                           Date of Birth :{' '}
                         </Text>
 
-                        <Text style={styles.governorDescriptionDOBName}>
+                        <Text  allowFontScaling={false}style={styles.governorDescriptionDOBName}>
                           {item?.dob}
                         </Text>
                       </View>
                     )}
                     {item?.homeTown && (
                       <View style={styles.governorDescriptionHomeTown}>
-                        <Text style={styles.governorDescriptionHT}>
+                        <Text  allowFontScaling={false}style={styles.governorDescriptionHT}>
                           Home Town :{' '}
                         </Text>
-                        <Text style={styles.governorDescriptionHTName}>
+                        <Text  allowFontScaling={false}style={styles.governorDescriptionHTName}>
                           {item?.homeTown}
                         </Text>
                       </View>
@@ -113,20 +113,20 @@ const ListItem = props => {
                     <View style={styles.governorDescriptionSocialMediaApp}>
                       {item?.social.twitter && (
                         <View>
-                          <Text style={styles.governorDescriptionSMT}>
+                          <Text  allowFontScaling={false}style={styles.governorDescriptionSMT}>
                             Social Media Twitter
                           </Text>
-                          <Text style={styles.governorDescriptionSMTid}>
+                          <Text  allowFontScaling={false}style={styles.governorDescriptionSMTid}>
                             {item?.social.twitter}
                           </Text>
                         </View>
                       )}
                       {item?.social.fb && (
                         <View>
-                          <Text style={styles.governorDescriptionSMT}>
+                          <Text  allowFontScaling={false}style={styles.governorDescriptionSMT}>
                             Facebook
                           </Text>
-                          <Text style={styles.governorDescriptionSMTid}>
+                          <Text  allowFontScaling={false}style={styles.governorDescriptionSMTid}>
                             {item?.social.fb}
                           </Text>
                         </View>
@@ -134,30 +134,30 @@ const ListItem = props => {
                     </View>
                     {item?.contact && (
                       <View style={styles.governorDescriptionContactDetails}>
-                        <Text style={styles.governorDescriptionCD}>
+                        <Text  allowFontScaling={false}style={styles.governorDescriptionCD}>
                           Contacts Details
                         </Text>
-                        <Text style={styles.governorDescriptionCDName}>
+                        <Text  allowFontScaling={false}style={styles.governorDescriptionCDName}>
                           {item?.contact}
                         </Text>
                       </View>
                     )}
                     {item?.exec && (
                       <View style={styles.governorDescriptionExecutivePosition}>
-                        <Text style={styles.governorDescriptionELP}>
+                        <Text  allowFontScaling={false}style={styles.governorDescriptionELP}>
                           Executive & Legislative Positions
                         </Text>
-                        <Text style={styles.governorDescriptionELPName}>
+                        <Text  allowFontScaling={false}style={styles.governorDescriptionELPName}>
                           {item?.exec}
                         </Text>
                       </View>
                     )}
                     {item?.atPresent && (
                       <View style={styles.governorDescriptionAtPresent}>
-                        <Text style={styles.governorDescriptionAT}>
+                        <Text  allowFontScaling={false}style={styles.governorDescriptionAT}>
                           At Present
                         </Text>
-                        <Text style={styles.governorDescriptionATName}>
+                        <Text  allowFontScaling={false}style={styles.governorDescriptionATName}>
                           {item?.atPresent}
                         </Text>
                       </View>
@@ -177,12 +177,12 @@ const ListItem = props => {
                     <View style={styles.outerCabinetMinisterText}>
                       <View>
                         {item?.name && (
-                          <Text style={styles.cabinetMinisterText}>
+                          <Text  allowFontScaling={false}style={styles.cabinetMinisterText}>
                             {item?.name}
                           </Text>
                         )}
                         {item?.post && (
-                          <Text style={styles.cabinetMinisterTextName}>
+                          <Text  allowFontScaling={false}style={styles.cabinetMinisterTextName}>
                             {item?.post}
                           </Text>
                         )}
@@ -190,17 +190,17 @@ const ListItem = props => {
                       {item?.phnNumber && (
                         <View style={styles.cabinetMinisterPhoneNo}>
                           <Image style={styles.phoneCall} source={phoneCall} />
-                          <Text style={styles.cabinetMinisterPhoneNoName}>
+                          <Text  allowFontScaling={false}style={styles.cabinetMinisterPhoneNoName}>
                             {item?.phnNumber}
                           </Text>
                         </View>
                       )}
                       {item?.assembly && (
                         <View>
-                          <Text style={styles.cabinetMinisterAssemblyC}>
+                          <Text  allowFontScaling={false}style={styles.cabinetMinisterAssemblyC}>
                             Assembly Constituency
                           </Text>
-                          <Text style={styles.cabinetMinisterAC}>
+                          <Text  allowFontScaling={false}style={styles.cabinetMinisterAC}>
                             {item?.assembly}
                           </Text>
                         </View>
@@ -211,7 +211,7 @@ const ListItem = props => {
                 {renderDepartments() && (
                   <View style={styles.outerDeputyChiefMinister}>
                     <View style={styles.innerDeputyChiefMinister}>
-                      <Text style={styles.deputyChiefMinisterD}>
+                      <Text  allowFontScaling={false}style={styles.deputyChiefMinisterD}>
                         Department
                       </Text>
                       {item?.department.map(text => (
@@ -222,10 +222,10 @@ const ListItem = props => {
                         </Text>
                       ))}
 
-                      <Text style={styles.deputyChiefMinisterAC}>
+                      <Text  allowFontScaling={false}style={styles.deputyChiefMinisterAC}>
                         Assembly Constituency
                       </Text>
-                      <Text style={styles.deputyChiefMinisterACC}>
+                      <Text  allowFontScaling={false}style={styles.deputyChiefMinisterACC}>
                         {item?.assembly}
                       </Text>
                     </View>

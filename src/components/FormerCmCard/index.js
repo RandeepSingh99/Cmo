@@ -9,7 +9,7 @@ const FormerCm = props => {
     <TouchableOpacity onPress={props.onPress} style={styles.card}>
       <Image source={{uri: props.img}} style={styles.icon} />
       <Spacer height={scaledValue(12)} />
-      <Text style={styles.cardText}>{props.title}</Text>
+      <Text  allowFontScaling={false}style={styles.cardText}>{props.title}</Text>
     </TouchableOpacity>
   );
 };

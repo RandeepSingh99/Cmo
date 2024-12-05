@@ -7,10 +7,10 @@ import Button from '../Button';
 const ContributionClickHere = () => {
   return (
     <View style={styles.contributionClickHere}>
-      <Text style={styles.contributionClickHereText}>
+      <Text  allowFontScaling={false}style={styles.contributionClickHereText}>
         Contribute to Disaster Relief and support to Rajasthan
       </Text>
-      <Text style={styles.contributionClickHereDonateText}>
+      <Text  allowFontScaling={false}style={styles.contributionClickHereDonateText}>
         Donate to Rajasthan Chief Minister Relief Fund
       </Text>
       <Button

@@ -26,7 +26,7 @@ const DetailPage = () => {
       <Header title={appRoutes.successStories} />
       <Spacer height={scaledValue(12)} />
       <View style={styles.card}>
-        <Text style={styles.title}>
+        <Text  allowFontScaling={false}style={styles.title}>
           Rajasthan Advancing Towards Solar Energy Revolution
         </Text>
         <View style={styles.titleView}>
@@ -36,7 +36,7 @@ const DetailPage = () => {
               style={styles.contextCardCalenderIcon}
               source={calenderIcon}
             />
-            <Text style={styles.date}>05 July 2024</Text>
+            <Text  allowFontScaling={false}style={styles.date}>05 July 2024</Text>
           </View>
 
           <View style={styles.socialView}>
@@ -68,7 +68,7 @@ const DetailPage = () => {
             )}
           />
         </View>
-        <Text style={styles.description}>
+        <Text  allowFontScaling={false}style={styles.description}>
           The Swami Vivekananda Scholarship for Academic Excellence (SVSAE) in
           Rajasthan stands as a beacon of hope and opportunity for economically
           disadvantaged students. By sponsoring the education of students
@@ -76,7 +76,7 @@ const DetailPage = () => {
           demonstrates making a powerful statement about its commitment to
           education and social equity.
         </Text>
-        <Text style={styles.description}>
+        <Text  allowFontScaling={false}style={styles.description}>
           Inspired by the visionary teachings of Swami Vivekananda, this
           scholarship program embodies his belief in the transformative power of
           education. As Swami Vivekananda wisely said, "Education is not the
@@ -84,24 +84,24 @@ const DetailPage = () => {
           undigested, all your life. We must have life-building, man-making,
           character-making assimilation of ideas.”
         </Text>
-        <Text style={styles.description}>
+        <Text  allowFontScaling={false}style={styles.description}>
           Under the visionary leadership of Chief Minister Shri [Name], the
           SVSAE Program continues to transform lives, making Rajasthan a hub of
           education, innovation, and dreams for the future.
         </Text>
         <View style={styles.authorNameView}>
-          <Text style={styles.postedByText}>Posted By : </Text>
-          <Text style={styles.postedByNameText}>Anushka</Text>
+          <Text  allowFontScaling={false}style={styles.postedByText}>Posted By : </Text>
+          <Text  allowFontScaling={false}style={styles.postedByNameText}>Anushka</Text>
         </View>
         <View style={styles.relatedVideo}>
-          <Text style={styles.relatedVideoText}>Related Video</Text>
+          <Text  allowFontScaling={false}style={styles.relatedVideoText}>Related Video</Text>
           <Image
             source={{uri: 'https://via.placeholder.com/100'}}
             style={styles.relatedVideoImage}
           />
         </View>
       </View>
-      <Text style={styles.storyTitle}>Latest Success Stories</Text>
+      <Text  allowFontScaling={false}style={styles.storyTitle}>Latest Success Stories</Text>
       <FlatList
         horizontal
         data={[{}, {}, {}]}

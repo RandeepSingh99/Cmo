@@ -35,7 +35,7 @@ const WriteToCm = () => {
             onChangeText={setMobileNumber}
             keyboardType="phone-pad"
           />
-          <Text style={styles.verifyText}>VERIFY</Text>
+          <Text  allowFontScaling={false}style={styles.verifyText}>VERIFY</Text>
         </View>
         <Spacer height={scaledValue(24)} />
 
@@ -69,10 +69,10 @@ const WriteToCm = () => {
             onChangeText={setMobileNumber}
             placeholderTextColor={appColors.placeholderText}
           />
-          <Text style={styles.verifyText}>CHOOSE FILE</Text>
+          <Text  allowFontScaling={false}style={styles.verifyText}>CHOOSE FILE</Text>
         </View>
         <Spacer height={scaledValue(24)} />
-        <Text style={styles.fileUploadNote}>
+        <Text  allowFontScaling={false}style={styles.fileUploadNote}>
           ( PDF / JPG / JPEG / WinRAR / WinZip / MP3 / MP4 format, max limit
           25MB )
         </Text>
@@ -82,7 +82,7 @@ const WriteToCm = () => {
             status={isChecked ? 'checked' : 'unchecked'}
             onPress={() => setIsChecked(!isChecked)}
           />
-          <Text style={styles.checkboxText}>I'm not a robot</Text>
+          <Text  allowFontScaling={false}style={styles.checkboxText}>I'm not a robot</Text>
         </View>
         <Spacer height={scaledValue(24)} />
 

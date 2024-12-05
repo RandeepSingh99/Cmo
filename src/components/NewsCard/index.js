@@ -14,7 +14,7 @@ const NewsCard = props => {
         source={{uri: props.img || pressReleaseImageUri}}
       />
       <View style={styles.outerContextCardText}>
-        <Text numberOfLines={3} style={styles.contextCardText}>
+        <Text  allowFontScaling={false}numberOfLines={3} style={styles.contextCardText}>
           {props.title}
         </Text>
       </View>
@@ -24,7 +24,7 @@ const NewsCard = props => {
           style={styles.contextCardCalenderIcon}
           source={calenderIcon}
         />
-        <Text style={styles.contextCardDate}>{props.date}</Text>
+        <Text  allowFontScaling={false}style={styles.contextCardDate}>{props.date}</Text>
       </View>
     </TouchableOpacity>
   );

@@ -12,7 +12,7 @@ const Header = props => {
   const navigation = useNavigation();
   return (
     <View style={styles.header}>
-      <Text style={styles.headerTitleText}>{props.title}</Text>
+      <Text  allowFontScaling={false}style={styles.headerTitleText}>{props.title}</Text>
       <View style={styles.imgsView}>
         <Image style={styles.actionButtonIcons} source={liveImg} />
         <RoundButton

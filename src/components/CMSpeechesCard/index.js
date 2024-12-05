@@ -18,7 +18,7 @@ const CMSpeechesCard = props => {
           source={{uri: props.img}}
         />
       </View>
-      <Text style={styles.cmSpeechesCardText}>{props.title}</Text>
+      <Text  allowFontScaling={false}style={styles.cmSpeechesCardText}>{props.title}</Text>
     </TouchableOpacity>
   );
 };

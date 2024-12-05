@@ -6,7 +6,7 @@ import {scaledValue} from '../../utils/designUtils';
 const ImageUploader = props => {
   return (
     <View style={styles.uploaderView}>
-      <Text style={styles.text}>Add Image</Text>
+      <Text  allowFontScaling={false}style={styles.text}>Add Image</Text>
     </View>
   );
 };

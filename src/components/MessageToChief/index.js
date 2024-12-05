@@ -9,10 +9,10 @@ const MessageToChief = () => {
   return (
     <View style={styles.messageToChief}>
       <View style={styles.outerMessageToChiefText}>
-        <Text style={styles.messageToChiefText}>
+        <Text  allowFontScaling={false}style={styles.messageToChiefText}>
           Write to the Chief Minister
         </Text>
-        <Text style={styles.messageToChiefTexts}>
+        <Text  allowFontScaling={false}style={styles.messageToChiefTexts}>
           Share Your Concerns with the Chief Minister
         </Text>
         <Button

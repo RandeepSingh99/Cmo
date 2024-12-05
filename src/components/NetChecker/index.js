@@ -19,7 +19,7 @@ const NetworkStatus = () => {
 
   return (
     <View style={styles.banner}>
-      <Text style={styles.text}>No internet connection. Please check your network.</Text>
+      <Text  allowFontScaling={false}style={styles.text}>No internet connection. Please check your network.</Text>
     </View>
   );
 };

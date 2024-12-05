@@ -23,7 +23,7 @@ import {
         </TouchableOpacity>
         <View>
           <View style={styles.titleView}>
-            <Text style={styles.title}>CMO Rajasthan</Text>
+            <Text  allowFontScaling={false}style={styles.title}>CMO Rajasthan</Text>
             <Image
               resizeMode="contain"
               tintColor={appColors.white}
@@ -31,7 +31,7 @@ import {
               source={share}
             />
           </View>
-          <Text style={styles.lastAppUpdateTime}>
+          <Text  allowFontScaling={false}style={styles.lastAppUpdateTime}>
              Last update : 04-Aug-2024, 9:31 PM
           </Text>
         </View>

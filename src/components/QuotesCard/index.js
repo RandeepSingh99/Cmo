@@ -13,7 +13,7 @@ const QuotesCard = props => {
         source={{uri: props.img}}
       />
       <View style={styles.outerContextSmallCardTextDate}>
-        <Text numberOfLines={2} style={styles.contextSmallCardText}>
+        <Text  allowFontScaling={false}numberOfLines={2} style={styles.contextSmallCardText}>
           {props.title}
         </Text>
         <View style={styles.contextCardCalenderDate}>
@@ -22,7 +22,7 @@ const QuotesCard = props => {
             style={styles.contextCardCalenderIcon}
             source={calenderIcon}
           />
-          <Text style={styles.contextCardDate}>{props.date}</Text>
+          <Text  allowFontScaling={false}style={styles.contextCardDate}>{props.date}</Text>
         </View>
       </View>
     </TouchableOpacity>

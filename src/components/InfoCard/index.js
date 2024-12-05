@@ -8,15 +8,15 @@ import emailIcon from '../../../assets/images/mail.png'; // Replace with your ph
 const InfoCard = (props) => {
   return (
     <View style={styles.card}>
-      <Text style={styles.name}>{props.name}</Text>
-      <Text style={styles.designation}>{props.designation}</Text>
+      <Text  allowFontScaling={false}style={styles.name}>{props.name}</Text>
+      <Text  allowFontScaling={false}style={styles.designation}>{props.designation}</Text>
      {props.phnNumber&& <View style={styles.infoRow}>
         <Image source={phoneIcon} style={styles.icon} />
-        <Text style={styles.infoText}>{props.phnNumber}</Text>
+        <Text  allowFontScaling={false}style={styles.infoText}>{props.phnNumber}</Text>
       </View>}
      {props.email&& <View style={styles.infoRow}>
         <Image source={emailIcon} style={styles.icon} />
-        <Text style={styles.infoText}>{props.email}</Text>
+        <Text  allowFontScaling={false}style={styles.infoText}>{props.email}</Text>
       </View>}
     </View>
   );

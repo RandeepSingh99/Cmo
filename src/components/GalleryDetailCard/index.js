@@ -16,7 +16,7 @@ const GalleryDetailCard = (props) => {
         source={{uri: props.img}}
       />
       <View style={styles.outerContextCardText}>
-        <Text numberOfLines={2} style={styles.contextCardText}>
+        <Text  allowFontScaling={false}numberOfLines={2} style={styles.contextCardText}>
           {props.title}
         </Text>
       </View>
@@ -27,7 +27,7 @@ const GalleryDetailCard = (props) => {
             style={styles.contextCardCalenderIcon}
             source={calenderIcon}
           />
-          <Text style={styles.contextCardDate}>{props.date}</Text>
+          <Text  allowFontScaling={false}style={styles.contextCardDate}>{props.date}</Text>
         </View>
         <View>
           <Image

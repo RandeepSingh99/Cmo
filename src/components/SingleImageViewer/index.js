@@ -18,7 +18,7 @@ const SingleImageViewer = props => {
       onRequestClose={props.closeModal}>
       <View style={styles.modalContainer}>
         <TouchableOpacity style={styles.closeButton} onPress={props.closeModal}>
-          <Text style={styles.closeButtonText}>Close</Text>
+          <Text  allowFontScaling={false}style={styles.closeButtonText}>Close</Text>
         </TouchableOpacity>
         <Image
           source={{uri: props.selectedImage}}

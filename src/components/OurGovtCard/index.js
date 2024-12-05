@@ -9,7 +9,7 @@ const OurGovtCard = props => {
       <View style={styles.iconContainer}>
         <Image source={props.img} style={styles.icon} />
       </View>
-      <Text style={styles.cardText}>{props.title}</Text>
+      <Text  allowFontScaling={false}style={styles.cardText}>{props.title}</Text>
     </TouchableOpacity>
   );
 };

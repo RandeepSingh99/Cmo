@@ -6,7 +6,9 @@ import {appColors} from '../../utils/constants/colors';
 const BulletDrawerItem = props => {
   return (
     <TouchableOpacity onPress={props.onPress}>
-      <Text style={styles.itemText}>• {props.title}</Text>
+      <Text allowFontScaling={false} style={styles.itemText}>
+        • {props.title}
+      </Text>
     </TouchableOpacity>
   );
 };

@@ -12,11 +12,13 @@ const Button = props => {
           height: scaledValue(props.height),
           width: scaledValue(props.width),
           backgroundColor: props.color,
-          borderWidth: props.mode === 'contained' ? .5 : 0,
-          borderColor:props.titleColor
+          borderWidth: props.mode === 'contained' ? 0.5 : 0,
+          borderColor: props.titleColor,
         },
       ]}>
-      <Text style={[, {color: props.titleColor}]}>{props.title}</Text>
+      <Text allowFontScaling={false} style={[, {color: props.titleColor}]}>
+        {props.title}
+      </Text>
     </View>
   );
 };
