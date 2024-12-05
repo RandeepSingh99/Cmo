@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {FlatList, StyleSheet, Text, View,ScrollView} from 'react-native';
 import React from 'react';
 import GalleryDetailCard from '../../components/GalleryDetailCard';
 import {appRoutes} from '../../utils/constants/routeNames';
@@ -14,7 +14,7 @@ const GalleryDetail = ({route}) => {
     const gallery = useSelector(state => state.photoGallery.gallery);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Header title={appRoutes.gallery} />
       <Spacer height={scaledValue(12)} />
     
@@ -23,9 +23,7 @@ const GalleryDetail = ({route}) => {
             title={Description}
             date={PressReleaseDateHindi}
           />
-        
-       
-    </View>
+    </ScrollView>
   );
 };
 
@@ -35,7 +33,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: appColors.background,
-    alignItems:'center'
+    
   },
   flatList: {alignItems: 'center'},
 });

@@ -8,6 +8,7 @@ import {appColors} from '../../utils/constants/colors';
 
 const GalleryDetailCard = (props) => {
   return (
+    <View style={styles.outerContextCard}>
     <View style={styles.contextCard}>
       <Image
         resizeMode="cover"
@@ -67,12 +68,14 @@ const GalleryDetailCard = (props) => {
         </View>
       </View>
     </View>
+    </View>
   );
 };
 
 export default GalleryDetailCard;
 
 const styles = StyleSheet.create({
+  outerContextCard:{ alignItems: 'center',},
   contextCard: {
     width: scaledValue(345),
     padding: scaledValue(10),
