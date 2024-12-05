@@ -1,3 +1,16 @@
+import governorImage from '../../../assets/images/governorImage.png';
+import bhajanPhoto from '../../../assets/images/bhajanPhoto.png';
+import premDCMPhoto from '../../../assets/images/premDCMPhoto.png';
+import diyaPhoto from '../../../assets/images/diyaPhoto.png';
+import cabinetMinister from '../../../assets/images/cabinetMinister.png';
+import madanPhoto from '../../../assets/images/madanphoto.png';
+import rajRathorePhoto from '../../../assets/images/rajRathorePhoto.png';
+import sanjaySMPhoto from '../../../assets/images/sanjaySMPhoto.png';
+import gautamSMPhoto from '../../../assets/images/gautamSMPhoto.png';
+import otaRamPhoto from '../../../assets/images/otaRamPhoto.png';
+import manjuPhoto from '../../../assets/images/manjuPhoto.png';
+import bhajanSecondPhoto from '../../../assets/images/bhajanSecondPhoto.png';
+
 export const filterChip = [
   'All',
   'Event',
@@ -153,6 +166,7 @@ export const govData = {
         'Assumed the office of the Governor of Rajasthan on 31st July, 2024.',
       contact:
         'Governor’s secretariat, Raj Bhawan Jaipur EPABX: 0141-2228716-19, 2228722, 2228611, 2228612; FAX No: 0141-2221156',
+      img: governorImage,
     },
   ],
   'Chief Minister': [
@@ -170,6 +184,7 @@ export const govData = {
       mothersName: 'Gomti Devi',
       description:
         'Shri Bhajanlal Sharma, the current Chief Minister of Rajasthan, is a luminary in Indian politics, noted for his pragmatic leadership and deep-seated values rooted in Indian cultural ',
+      img: bhajanPhoto,
     },
   ],
   'Deputy Chief Minister': [
@@ -185,6 +200,7 @@ export const govData = {
         'Child Empowerment Department',
       ],
       assembly: 'Vidhyadhar Nagar',
+      img: diyaPhoto,
     },
     {
       name: 'Dr. Prem Chand Bairwa',
@@ -196,6 +212,7 @@ export const govData = {
         'Transport and Road Safety Department',
       ],
       assembly: 'Vidhyadhar Nagar',
+      img: premDCMPhoto,
     },
   ],
   'Cabinet Minister': [
@@ -211,6 +228,7 @@ export const govData = {
         'Public Prosecution Redressal Department',
       ],
       assembly: 'Sawai Madhopur',
+      img: cabinetMinister,
     },
     {
       name: 'Shri Madan Dilawar',
@@ -222,6 +240,7 @@ export const govData = {
         'Sanskrit Education Department',
       ],
       assembly: 'Ramganj Mandi (SC)',
+      img: madanPhoto,
     },
     {
       name: 'Col. Rajyavardhan Rathore',
@@ -235,6 +254,7 @@ export const govData = {
         'Department of Soldier Welfare',
       ],
       assembly: 'Jhotwara',
+      img: rajRathorePhoto,
     },
   ],
   'State Minister (Independent Charge)': [
@@ -247,6 +267,7 @@ export const govData = {
         'Medical and Health Services (ESI)',
       ],
       assembly: 'Jhotwara',
+      img: sanjaySMPhoto,
     },
     {
       name: 'Shri Gautam Kumar',
@@ -258,6 +279,7 @@ export const govData = {
         'Sanskrit Education Department',
       ],
       assembly: 'Ramganj Mandi (SC)',
+      img: gautamSMPhoto,
     },
   ],
   'State Minister': [
@@ -270,6 +292,7 @@ export const govData = {
         'Medical and Health Services (ESI)',
       ],
       assembly: 'Jhotwara',
+      img: otaRamPhoto,
     },
     {
       name: 'Dr. Manju Baghmar',
@@ -281,6 +304,7 @@ export const govData = {
         'Sanskrit Education Department',
       ],
       assembly: 'Ramganj Mandi (SC)',
+      img: manjuPhoto,
     },
   ],
   MLA: [
@@ -288,16 +312,19 @@ export const govData = {
       name: 'Sh. Bhajan Lal Sharma',
       post: 'Hon ble Chief Minister',
       assembly: 'Sanganer',
+      img: bhajanSecondPhoto,
     },
     {
       name: 'Smt Diya Kumari',
       post: 'Hon ble Chief Minister',
       assembly: 'Vidhadhar Nagar',
+      img: diyaPhoto,
     },
     {
       name: 'Dr. Premchand Bairwa',
       post: 'Hon ble Chief Minister',
       assembly: ' Dudu (SC)',
+      img: premDCMPhoto,
     },
   ],
 };
