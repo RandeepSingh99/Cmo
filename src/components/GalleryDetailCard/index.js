@@ -1,20 +1,18 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 import React from 'react';
+import {pressReleaseImageUri} from '../../utils/constants/uri';
+import shareIcon from '../../../assets/images/shareIcon.png';
 import {scaledValue} from '../../utils/designUtils';
 import calenderIcon from '../../../assets/images/calenderIcon.png';
 import {appColors} from '../../utils/constants/colors';
-import {useNavigation} from '@react-navigation/native';
-import {appRoutes} from '../../utils/constants/routeNames';
-import {pressReleaseImageUri} from '../../utils/constants/uri';
-import shareIcon from '../../../assets/images/shareIcon.png';
 
-const GalleryCard = props => {
+const GalleryDetailCard = (props) => {
   return (
-    <TouchableOpacity onPress={props.onPress} style={styles.contextCard}>
+    <View style={styles.contextCard}>
       <Image
         resizeMode="cover"
         style={styles.contextPhoto}
-        source={{uri: props.img || pressReleaseImageUri}}
+        source={{uri: props.img}}
       />
       <View style={styles.outerContextCardText}>
         <Text numberOfLines={2} style={styles.contextCardText}>
@@ -30,19 +28,49 @@ const GalleryCard = props => {
           />
           <Text style={styles.contextCardDate}>{props.date}</Text>
         </View>
-        <View> 
-        <Image
+        <View>
+          <Image
             resizeMode="contain"
             style={styles.shareIcon}
             source={shareIcon}
           />
         </View>
       </View>
-    </TouchableOpacity>
+      <View style={styles.contextSC}>
+        <View style={styles.contextSmallCards}>
+          <Image
+            resizeMode="contain"
+            style={styles.contextSmallCardsImage}
+            source={{uri: props.img}}
+          />
+        </View>
+        <View style={styles.contextSmallCards}>
+          <Image
+            resizeMode="contain"
+            style={styles.contextSmallCardsImage}
+            source={{uri: props.img}}
+          />
+        </View>
+        <View style={styles.contextSmallCards}>
+          <Image
+            resizeMode="contain"
+            style={styles.contextSmallCardsImage}
+            source={{uri: props.img}}
+          />
+        </View>
+        <View style={styles.contextSmallCards}>
+          <Image
+            resizeMode="contain"
+            style={styles.contextSmallCardsImage}
+            source={{uri: props.img}}
+          />
+        </View>
+      </View>
+    </View>
   );
 };
 
-export default GalleryCard;
+export default GalleryDetailCard;
 
 const styles = StyleSheet.create({
   contextCard: {
@@ -58,6 +86,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 3,
     marginVertical: scaledValue(8),
+    
   },
   contextPhoto: {
     height: scaledValue(199),
@@ -72,9 +101,9 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: scaledValue(16),
   },
-  outerContextCardCalenderDate:{
+  outerContextCardCalenderDate: {
     flexDirection: 'row',
-    justifyContent:'space-between',
+    justifyContent: 'space-between',
     alignItems: 'center',
     height: scaledValue(30),
   },
@@ -96,9 +125,29 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: scaledValue(12),
   },
-  shareIcon:{
+  shareIcon: {
     height: scaledValue(32),
     width: scaledValue(32),
     margin: scaledValue(5),
-  }
+  },
+  contextSmallCards: {
+    width: scaledValue(150),
+    height: scaledValue(150),
+    borderRadius: scaledValue(4),
+    backgroundColor: appColors.lightPink,
+    alignItems: 'center',
+    marginHorizontal:scaledValue(5),
+    marginVertical:scaledValue(5)
+  },
+  contextSmallCardsImage: {
+    width: scaledValue(131.25),
+    height: scaledValue(131.25),
+    borderRadius: scaledValue(4),
+  
+  },
+  contextSC: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignContent: 'center',
+  },
 });
