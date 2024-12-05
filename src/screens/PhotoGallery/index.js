@@ -9,12 +9,15 @@ import {scaledValue} from '../../utils/designUtils';
 import {fetchPhotoGallery} from '../../store/photoGallerySlice';
 import {useDispatch, useSelector} from 'react-redux';
 import SingleImageViewer from '../../components/SingleImageViewer';
+import {useNavigation} from '@react-navigation/native';
 
 const PhotoGallery = () => {
   const dispatch = useDispatch();
+  const navigation = useNavigation();
   const gallery = useSelector(state => state.photoGallery.gallery);
   const [imageViewer, setImageViewer] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
+ 
 
   const loadData = () => {
     dispatch(fetchPhotoGallery());
@@ -38,8 +41,13 @@ const PhotoGallery = () => {
         renderItem={({item}) => (
           <GalleryCard
             onPress={() => {
-              setSelectedImage(item.HomePageImageUrl);
-              setImageViewer(true);
+              navigation.navigate(appRoutes.galleryDetail, {
+                HomePageImageUrl: item.HomePageImageUrl,
+                Description: item.Description,
+                PressReleaseDateHindi: item.PressReleaseDateHindi,
+              })
+              // setSelectedImage(item.HomePageImageUrl);
+              // setImageViewer(true);
             }}
             img={item.HomePageImageUrl}
             title={item.Description}
