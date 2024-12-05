@@ -10,7 +10,7 @@ import Drawer from './src/drawer';
 const Stack = createNativeStackNavigator();
 import store from './src/store'
 import { Provider } from 'react-redux'
-import SocialMediaModal from './src/components/FollowUsModal';
+import NetworkStatus from './src/components/NetChecker';
 const App = () => {
   return (
     <Provider store={store}>
@@ -23,8 +23,8 @@ const App = () => {
             <Stack.Screen name={appRoutes.splash} component={Splash} />
             <Stack.Screen name={appRoutes.drawer} component={Drawer} />
           </Stack.Navigator>
+          <NetworkStatus />
         </NavigationContainer>
-      
       </SafeAreaView>
     </Provider>
   );

@@ -15,6 +15,7 @@ const ListItem = props => {
     if (props.activeListItem === props.title) {
       setExpendable(true);
     }
+    return () => setExpendable(false);
   }, [props.activeListItem]);
 
   const renderProfileCard = () =>
