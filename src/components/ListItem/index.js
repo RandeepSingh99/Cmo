@@ -1,17 +1,21 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, Pressable, Image, FlatList} from 'react-native';
 import rightArrow from '../../../assets/images/chevronRight.png'; // Replace with your right arrow icon path
 import {scaledValue} from '../../utils/designUtils';
 import {appColors} from '../../utils/constants/colors';
 import twitterIcon from '../../../assets/images/twitterIcon.png';
 import facebookIcon from '../../../assets/images/facebookIcon.png';
-import {appRoutes} from '../../utils/constants/routeNames';
-import cabinetMinisterI from '../../../assets/images/cabinetMinisterI.png';
 import phoneCall from '../../../assets/images/phoneCall.png';
 import {govData} from '../../utils/constants';
 
 const ListItem = props => {
   const [expendable, setExpendable] = useState(false);
+
+  useEffect(() => {
+    if (props.activeListItem === props.title) {
+      setExpendable(true);
+    }
+  }, [props.activeListItem]);
 
   const renderProfileCard = () =>
     props.title === 'Governor' ||
@@ -54,86 +58,106 @@ const ListItem = props => {
               <View>
                 {renderProfileCard() && (
                   <View style={styles.governorNameImage}>
-                    <View style={styles.outerGovernorImage}>
-                      <Image style={styles.governorImage} source={props.img} />
-                    </View>
+                    {item?.img && (
+                      <View style={styles.outerGovernorImage}>
+                        <Image
+                          style={styles.governorImage}
+                          source={item?.img}
+                        />
+                      </View>
+                    )}
                     <View>
-                      <Text style={styles.governorName}>{item.name}</Text>
-                      <Text style={styles.governorPostName}>{item.post}</Text>
+                      <Text style={styles.governorName}>{item?.name}</Text>
+                      <Text style={styles.governorPostName}>{item?.post}</Text>
                     </View>
                     <View style={styles.socialView}>
-                      <Image source={facebookIcon} style={styles.socialIcons} />
-                      <Image source={twitterIcon} style={styles.socialIcons} />
+                      {item?.social?.fb && (
+                        <Image
+                          source={facebookIcon}
+                          style={styles.socialIcons}
+                        />
+                      )}
+                      {item?.social?.twitter && (
+                        <Image
+                          source={twitterIcon}
+                          style={styles.socialIcons}
+                        />
+                      )}
                     </View>
                   </View>
                 )}
                 {renderDetailCard() && (
                   <View style={styles.governorDescription}>
-                    <View style={styles.governorDescriptionDOB}>
-                      <Text style={styles.governorDescriptionDateOfBirth}>
-                        Date of Birth :{' '}
-                      </Text>
-                      <Text style={styles.governorDescriptionDOBName}>
-                        {item.dob}
-                      </Text>
-                    </View>
-                    <View style={styles.governorDescriptionHomeTown}>
-                      <Text style={styles.governorDescriptionHT}>
-                        Home Town :{' '}
-                      </Text>
-                      <Text style={styles.governorDescriptionHTName}>
-                        {item.homeTown}
-                      </Text>
-                    </View>
+                    {item?.dob && (
+                      <View style={styles.governorDescriptionDOB}>
+                        <Text style={styles.governorDescriptionDateOfBirth}>
+                          Date of Birth :{' '}
+                        </Text>
+
+                        <Text style={styles.governorDescriptionDOBName}>
+                          {item?.dob}
+                        </Text>
+                      </View>
+                    )}
+                    {item?.homeTown && (
+                      <View style={styles.governorDescriptionHomeTown}>
+                        <Text style={styles.governorDescriptionHT}>
+                          Home Town :{' '}
+                        </Text>
+                        <Text style={styles.governorDescriptionHTName}>
+                          {item?.homeTown}
+                        </Text>
+                      </View>
+                    )}
                     <View style={styles.governorDescriptionSocialMediaApp}>
-                      {item.social.twitter && (
+                      {item?.social.twitter && (
                         <View>
                           <Text style={styles.governorDescriptionSMT}>
                             Social Media Twitter
                           </Text>
                           <Text style={styles.governorDescriptionSMTid}>
-                            {item.social.twitter}
+                            {item?.social.twitter}
                           </Text>
                         </View>
                       )}
-                      {item.social.fb && (
+                      {item?.social.fb && (
                         <View>
                           <Text style={styles.governorDescriptionSMT}>
                             Facebook
                           </Text>
                           <Text style={styles.governorDescriptionSMTid}>
-                            {item.social.fb}
+                            {item?.social.fb}
                           </Text>
                         </View>
                       )}
                     </View>
-                    {item.contact && (
+                    {item?.contact && (
                       <View style={styles.governorDescriptionContactDetails}>
                         <Text style={styles.governorDescriptionCD}>
                           Contacts Details
                         </Text>
                         <Text style={styles.governorDescriptionCDName}>
-                          {item.contact}
+                          {item?.contact}
                         </Text>
                       </View>
                     )}
-                    {item.exec && (
+                    {item?.exec && (
                       <View style={styles.governorDescriptionExecutivePosition}>
                         <Text style={styles.governorDescriptionELP}>
                           Executive & Legislative Positions
                         </Text>
                         <Text style={styles.governorDescriptionELPName}>
-                          {item.exec}
+                          {item?.exec}
                         </Text>
                       </View>
                     )}
-                    {item.atPresent && (
+                    {item?.atPresent && (
                       <View style={styles.governorDescriptionAtPresent}>
                         <Text style={styles.governorDescriptionAT}>
                           At Present
                         </Text>
                         <Text style={styles.governorDescriptionATName}>
-                          {item.atPresent}
+                          {item?.atPresent}
                         </Text>
                       </View>
                     )}
@@ -141,40 +165,45 @@ const ListItem = props => {
                 )}
                 {renderSmallGovProfileCard() && (
                   <View style={styles.outerCabinetMinister}>
-                    <View style={styles.cabinetMinisterImage}>
-                      <Image
-                        style={styles.cabinetMinisterI}
-                        source={cabinetMinisterI}
-                      />
-                    </View>
+                    {item?.img && (
+                      <View style={styles.cabinetMinisterImage}>
+                        <Image
+                          style={styles.cabinetMinisterI}
+                          source={item?.img}
+                        />
+                      </View>
+                    )}
                     <View style={styles.outerCabinetMinisterText}>
                       <View>
-                        <Text style={styles.cabinetMinisterText}>
-                          Shri Kirodi Lal
-                        </Text>
-                        <Text style={styles.cabinetMinisterTextName}>
-                          Cabinet Minister
-                        </Text>
+                        {item?.name && (
+                          <Text style={styles.cabinetMinisterText}>
+                            {item?.name}
+                          </Text>
+                        )}
+                        {item?.post && (
+                          <Text style={styles.cabinetMinisterTextName}>
+                            {item?.post}
+                          </Text>
+                        )}
                       </View>
-                      {
+                      {item?.phnNumber && (
                         <View style={styles.cabinetMinisterPhoneNo}>
                           <Image style={styles.phoneCall} source={phoneCall} />
                           <Text style={styles.cabinetMinisterPhoneNoName}>
-                            0141-2921023
+                            {item?.phnNumber}
                           </Text>
                         </View>
-                      }
-
-                      {
+                      )}
+                      {item?.assembly && (
                         <View>
                           <Text style={styles.cabinetMinisterAssemblyC}>
                             Assembly Constituency
                           </Text>
                           <Text style={styles.cabinetMinisterAC}>
-                            Vidhyadhar Nagar
+                            {item?.assembly}
                           </Text>
                         </View>
-                      }
+                      )}
                     </View>
                   </View>
                 )}
@@ -184,29 +213,19 @@ const ListItem = props => {
                       <Text style={styles.deputyChiefMinisterD}>
                         Department
                       </Text>
-
-                      <Text style={styles.deputyChiefMinisterDName}>
-                        • Finance Department
-                      </Text>
-                      <Text style={styles.deputyChiefMinisterDName}>
-                        • Tourism Department
-                      </Text>
-                      <Text style={styles.deputyChiefMinisterDName}>
-                        • Department of Art Literature Culture and Archeology
-                      </Text>
-                      <Text style={styles.deputyChiefMinisterDName}>• PWD</Text>
-                      <Text style={styles.deputyChiefMinisterDName}>
-                        • Women & Child Development Department
-                      </Text>
-                      <Text style={styles.deputyChiefMinisterDName}>
-                        • Child Empowerment Department
-                      </Text>
+                      {item?.department.map(text => (
+                        <Text
+                          numberOfLines={1}
+                          style={styles.deputyChiefMinisterDName}>
+                          • {text}
+                        </Text>
+                      ))}
 
                       <Text style={styles.deputyChiefMinisterAC}>
                         Assembly Constituency
                       </Text>
                       <Text style={styles.deputyChiefMinisterACC}>
-                        Vidhyadhar Nagar
+                        {item?.assembly}
                       </Text>
                     </View>
                   </View>

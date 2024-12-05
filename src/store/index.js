@@ -12,6 +12,7 @@ import successStoriesReducer from './successStoriesSlice';
 import cmSpeechesReducer from './cmSpeechesSlice';
 import importantLinksReducer from './importantLinksSlice';
 import uiSlice from './uiSlice';
+import formerCMSSlice from './formerCMSSlice';
 
 const store = configureStore({
   reducer: {
@@ -28,6 +29,7 @@ const store = configureStore({
     cmSpeeches: cmSpeechesReducer,
     importantLinks: importantLinksReducer,
     ui: uiSlice,
+    formerCM :formerCMSSlice
   },
 });
 

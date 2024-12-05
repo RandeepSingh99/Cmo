@@ -18,7 +18,7 @@ const StateGovernment = props => {
         contentContainerStyle={styles.flatList}
         showsVerticalScrollIndicator={false}
         data={sections[2].data}
-        renderItem={({item}) => <ListItem img={governorImage} title={item} />}
+        renderItem={({item}) => <ListItem activeListItem={params} title={item} />}
       />
       <Spacer height={12} />
     </View>

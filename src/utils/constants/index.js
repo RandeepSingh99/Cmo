@@ -2,8 +2,8 @@ import governorImage from '../../../assets/images/governorImage.png';
 import bhajanPhoto from '../../../assets/images/bhajanPhoto.png';
 import premDCMPhoto from '../../../assets/images/premDCMPhoto.png';
 import diyaPhoto from '../../../assets/images/diyaPhoto.png';
-import cabinetMinister from '../../../assets/images/cabinetMinister.png';
-import madanPhoto from '../../../assets/images/madanphoto.png';
+import cabMinister from '../../../assets/images/cabinetMinister.png';
+import madanPhoto from '../../../assets/images/madanPhoto.png';
 import rajRathorePhoto from '../../../assets/images/rajRathorePhoto.png';
 import sanjaySMPhoto from '../../../assets/images/sanjaySMPhoto.png';
 import gautamSMPhoto from '../../../assets/images/gautamSMPhoto.png';
@@ -228,7 +228,7 @@ export const govData = {
         'Public Prosecution Redressal Department',
       ],
       assembly: 'Sawai Madhopur',
-      img: cabinetMinister,
+      img: cabMinister,
     },
     {
       name: 'Shri Madan Dilawar',
