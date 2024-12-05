@@ -15,7 +15,7 @@ const ListOfCm = () => {
   useEffect(() => {
     dispatch(fetchFormerCMS());
   }, []);
-  console.log('cms', cms);
+  
   return (
     <View style={styles.container}>
       <Header title={appRoutes.listOfCms} />

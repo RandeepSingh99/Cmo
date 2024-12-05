@@ -172,7 +172,7 @@ const Home = () => {
         contentContainerStyle={styles.flatList}
         horizontal
         data={filterChip}
-        keyExtractor={i => i}
+        keyExtractor={i => i.Id}
         showsHorizontalScrollIndicator={false}
         renderItem={({item}) => (
           <Chip
@@ -192,8 +192,14 @@ const Home = () => {
         data={megaEvents}
         keyExtractor={i => i.Description}
         showsHorizontalScrollIndicator={false}
-        renderItem={({item}) => (
+        renderItem={({item, index}) => (
           <NewsCard
+            onPress={() =>
+              navigation.navigate(appRoutes.detail, {
+                header: appRoutes.events,
+                ...item,
+              })
+            }
             title={item.Description}
             img={item.HomePageImageUrl}
             date={item.PressReleaseDateHindi}
@@ -238,6 +244,12 @@ const Home = () => {
         showsHorizontalScrollIndicator={false}
         renderItem={({item}) => (
           <NewsCard
+            onPress={() =>
+              navigation.navigate(appRoutes.detail, {
+                header: appRoutes.successStories,
+                ...item,
+              })
+            }
             title={item.Description}
             img={item.HomePageImageUrl}
             date={item.PressReleaseDateHindi}
@@ -259,6 +271,12 @@ const Home = () => {
         showsHorizontalScrollIndicator={false}
         renderItem={({item}) => (
           <NewsCard
+            onPress={() =>
+              navigation.navigate(appRoutes.detail, {
+                header: appRoutes.pressRelease,
+                ...item,
+              })
+            }
             title={item.Description}
             img={item.HomePageImageUrl}
             date={item.PressReleaseDateHindi}

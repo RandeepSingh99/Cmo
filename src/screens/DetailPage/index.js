@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   FlatList,
+  Linking,
 } from 'react-native';
 import Header from '../../components/Header';
 import {appColors} from '../../utils/constants/colors';
@@ -19,15 +20,38 @@ import downloadingIcon from '../../../assets/images/downloadingIcon.png';
 import facebookIcon from '../../../assets/images/facebookIcon.png';
 import instagramIcon from '../../../assets/images/instagramIcon.png';
 import twitterIcon from '../../../assets/images/twitterIcon.png';
+import {useSelector} from 'react-redux';
+import youtubeIcon from '../../../assets/images/youtubeIcon.png';
+import {generateRandomNumber} from '../../utils';
+import { pressReleaseImageUri } from '../../utils/constants/uri';
 
-const DetailPage = () => {
+const DetailPage = props => {
+  const {params} = props.route;
+  const megaEvents = useSelector(state => state.megaEvents.megaEvents);
+  const cmSpeeches = useSelector(state => state.cmSpeeches.videos);
+  const successStories = useSelector(state => state.successStories.stories);
+  const pressRelease = useSelector(state => state.pressRelease.pressRelease);
+
+  const mapRelatedVideos = () => {
+    if (params.header === appRoutes.events) {
+      return megaEvents.filter(itm => itm.Id !== params?.Id) || [];
+    }
+    if (params.header === appRoutes.successStories) {
+      return successStories.filter(itm => itm.Id !== params?.Id) || [];
+    }
+    if (params.header === appRoutes.pressRelease) {
+      return pressRelease.filter(itm => itm.Id !== params?.Id) || [];
+    }
+  };
+
+  const randomNumber = generateRandomNumber(cmSpeeches.length);
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-      <Header title={appRoutes.successStories} />
+      <Header title={params?.header || ''} />
       <Spacer height={scaledValue(12)} />
       <View style={styles.card}>
-        <Text  allowFontScaling={false}style={styles.title}>
-          Rajasthan Advancing Towards Solar Energy Revolution
+        <Text numberOfLines={1} allowFontScaling={false} style={styles.title}>
+          {params?.Description}
         </Text>
         <View style={styles.titleView}>
           <View style={styles.dateView}>
@@ -36,78 +60,90 @@ const DetailPage = () => {
               style={styles.contextCardCalenderIcon}
               source={calenderIcon}
             />
-            <Text  allowFontScaling={false}style={styles.date}>05 July 2024</Text>
+            <Text allowFontScaling={false} style={styles.date}>
+              {params?.PressReleaseDateHindi}
+            </Text>
           </View>
 
-          <View style={styles.socialView}>
+          {/* <View style={styles.socialView}>
             <Image source={downloadingIcon} style={styles.socialIcons} />
-            <Image
-              source={facebookIcon}
-              style={styles.socialIcons}
-            />
+            <Image source={facebookIcon} style={styles.socialIcons} />
             <Image source={instagramIcon} style={styles.socialIcons} />
             <Image source={twitterIcon} style={styles.socialIcons} />
-          </View>
+          </View> */}
         </View>
 
         <Image
-          source={{uri: 'https://via.placeholder.com/325'}}
+          source={{uri: params?.HomePageImageUrl || pressReleaseImageUri}}
           style={styles.mainBanner}
         />
         <Spacer height={scaledValue(12)} />
         <View style={styles.imageGrid}>
           <FlatList
-            data={[{}, {}, {}, {}, {}]}
+            data={params?.ImageAttachments}
             horizontal
             showsHorizontalScrollIndicator={false}
-            renderItem={() => (
+            renderItem={({item}) => (
               <Image
-                source={{uri: 'https://via.placeholder.com/100'}}
+                resizeMode="fit"
+                source={{uri: item}}
                 style={styles.image}
               />
             )}
           />
         </View>
-        <Text  allowFontScaling={false}style={styles.description}>
-          The Swami Vivekananda Scholarship for Academic Excellence (SVSAE) in
-          Rajasthan stands as a beacon of hope and opportunity for economically
-          disadvantaged students. By sponsoring the education of students
-          studying in the top 50% across various fields, the SVSAE Program
-          demonstrates making a powerful statement about its commitment to
-          education and social equity.
+        <Text allowFontScaling={false} style={styles.description}>
+          {params?.Description}
         </Text>
-        <Text  allowFontScaling={false}style={styles.description}>
-          Inspired by the visionary teachings of Swami Vivekananda, this
-          scholarship program embodies his belief in the transformative power of
-          education. As Swami Vivekananda wisely said, "Education is not the
-          amount of information that is put into your brain and runs riot there,
-          undigested, all your life. We must have life-building, man-making,
-          character-making assimilation of ideas.”
-        </Text>
-        <Text  allowFontScaling={false}style={styles.description}>
-          Under the visionary leadership of Chief Minister Shri [Name], the
-          SVSAE Program continues to transform lives, making Rajasthan a hub of
-          education, innovation, and dreams for the future.
-        </Text>
-        <View style={styles.authorNameView}>
-          <Text  allowFontScaling={false}style={styles.postedByText}>Posted By : </Text>
-          <Text  allowFontScaling={false}style={styles.postedByNameText}>Anushka</Text>
-        </View>
+
+        {/* <View style={styles.authorNameView}>
+          <Text allowFontScaling={false} style={styles.postedByText}>
+            Posted By :{' '}
+          </Text>
+          <Text allowFontScaling={false} style={styles.postedByNameText}>
+            Anushka
+          </Text>
+        </View> */}
         <View style={styles.relatedVideo}>
-          <Text  allowFontScaling={false}style={styles.relatedVideoText}>Related Video</Text>
-          <Image
-            source={{uri: 'https://via.placeholder.com/100'}}
-            style={styles.relatedVideoImage}
-          />
+          <Text allowFontScaling={false} style={styles.relatedVideoText}>
+            CM Speech Video
+          </Text>
+          <TouchableOpacity
+            onPress={() => Linking.openURL(cmSpeeches[randomNumber].YoutubeURL)}
+            style={styles.ytView}>
+            <Image
+              resizeMode="contain"
+              source={youtubeIcon}
+              style={styles.ytIcon}
+            />
+            <Image
+              source={{uri: cmSpeeches[randomNumber].ImagePath}}
+              style={styles.relatedVideoImage}
+            />
+          </TouchableOpacity>
         </View>
       </View>
-      <Text  allowFontScaling={false}style={styles.storyTitle}>Latest Success Stories</Text>
+      <Text allowFontScaling={false} style={styles.storyTitle}>
+        Latest {params?.header}
+      </Text>
       <FlatList
         horizontal
-        data={[{}, {}, {}]}
-        keyExtractor={i => i}
+        data={mapRelatedVideos()}
+        keyExtractor={i => i.Id}
         showsHorizontalScrollIndicator={false}
-        renderItem={({item}) => <NewsCard />}
+        renderItem={({item}) => (
+          <NewsCard
+            onPress={() =>
+              props.navigation.navigate(appRoutes.detail, {
+                header: params.header,
+                ...item,
+              })
+            }
+            title={item.Description}
+            img={item.HomePageImageUrl}
+            date={item.PressReleaseDateHindi}
+          />
+        )}
       />
       <Spacer height={scaledValue(12)} />
     </ScrollView>
@@ -121,6 +157,7 @@ const styles = StyleSheet.create({
     margin: scaledValue(5),
     marginRight: scaledValue(8),
   },
+  ytView: {justifyContent: 'center', alignItems: 'center'},
   container: {
     flex: 1,
     backgroundColor: appColors.background,
@@ -141,6 +178,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 8,
+    width: scaledValue(324),
   },
   date: {
     fontSize: 14,
@@ -215,6 +253,12 @@ const styles = StyleSheet.create({
     width: scaledValue(325),
     height: scaledValue(199),
     borderRadius: scaledValue(8),
+  },
+  ytIcon: {
+    position: 'absolute',
+    zIndex: 2,
+    width: scaledValue(70),
+    height: scaledValue(70),
   },
   storyTitle: {
     marginLeft: scaledValue(14),

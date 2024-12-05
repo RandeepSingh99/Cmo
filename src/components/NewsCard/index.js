@@ -7,7 +7,7 @@ import {pressReleaseImageUri} from '../../utils/constants/uri';
 
 const NewsCard = props => {
   return (
-    <TouchableOpacity style={styles.contextCard}>
+    <TouchableOpacity onPress={props.onPress} style={styles.contextCard}>
       <Image
         resizeMode="cover"
         style={styles.contextPhoto}

@@ -17,7 +17,10 @@ const GalleryCard = props => {
         source={{uri: props.img || pressReleaseImageUri}}
       />
       <View style={styles.outerContextCardText}>
-        <Text  allowFontScaling={false}numberOfLines={2} style={styles.contextCardText}>
+        <Text
+          allowFontScaling={false}
+          numberOfLines={2}
+          style={styles.contextCardText}>
           {props.title}
         </Text>
       </View>
@@ -28,15 +31,17 @@ const GalleryCard = props => {
             style={styles.contextCardCalenderIcon}
             source={calenderIcon}
           />
-          <Text  allowFontScaling={false}style={styles.contextCardDate}>{props.date}</Text>
+          <Text allowFontScaling={false} style={styles.contextCardDate}>
+            {props.date}
+          </Text>
         </View>
-        <View> 
-        <Image
+        {/* <View>
+          <Image
             resizeMode="contain"
             style={styles.shareIcon}
             source={shareIcon}
           />
-        </View>
+        </View> */}
       </View>
     </TouchableOpacity>
   );
@@ -72,9 +77,9 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: scaledValue(16),
   },
-  outerContextCardCalenderDate:{
+  outerContextCardCalenderDate: {
     flexDirection: 'row',
-    justifyContent:'space-between',
+    justifyContent: 'space-between',
     alignItems: 'center',
     height: scaledValue(30),
   },
@@ -96,9 +101,9 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: scaledValue(12),
   },
-  shareIcon:{
+  shareIcon: {
     height: scaledValue(32),
     width: scaledValue(32),
     margin: scaledValue(5),
-  }
+  },
 });

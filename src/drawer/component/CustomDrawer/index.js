@@ -1,20 +1,15 @@
 import {
-  Image,
-  ImageBackground,
   Linking,
   SectionList,
   StyleSheet,
-  Text,
   View,
 } from 'react-native';
 
 import {scaledValue} from '../../../utils/designUtils';
-import {appColors} from '../../../utils/constants/colors';
 import DrawerItem from '../../../components/DrawerItem';
 import BulletDrawerItem from '../../../components/BulletDrawerItem';
 import {linkingStrings, sections, stateGovt} from '../../../utils/constants';
 import {useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
 import {appRoutes} from '../../../utils/constants/routeNames';
 import Header from '../Header';
 import Spacer from '../../../components/Spacer';

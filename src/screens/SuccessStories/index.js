@@ -20,9 +20,12 @@ const SuccessStories = props => {
         data={successStories}
         renderItem={({item}) => (
           <GalleryCard
-            onPress={() => {
-              props.navigation.navigate(appRoutes.detail);
-            }}
+            onPress={() =>
+              props.navigation.navigate(appRoutes.detail, {
+                header: appRoutes.successStories,
+                ...item,
+              })
+            }
             img={item.HomePageImageUrl}
             title={item.Description}
             date={item.PressReleaseDateHindi}
