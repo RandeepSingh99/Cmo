@@ -28,6 +28,7 @@ import {
   homeDepartment,
   infoAndPublic,
   planningDepartment,
+  policy,
   terms,
 } from '../../../utils/constants/uri';
 import {setFollowUsModal} from '../../../store/uiSlice';
@@ -103,6 +104,11 @@ const CustomDrawerContent = props => {
       Linking.openURL(terms);
       return;
     }
+    if (screen.includes(linkingStrings.policy)) {
+      Linking.openURL(policy);
+      return;
+    }
+    policy
     if (
       screen === appRoutes.keyOfficials ||
       screen === appRoutes.successStories ||

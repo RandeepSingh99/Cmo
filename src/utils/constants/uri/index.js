@@ -10,3 +10,4 @@ export const generalAdministrationDepartment = 'https://gad.rajasthan.gov.in/';
 export const infoAndPublic = 'https://dipr.rajasthan.gov.in/home';
 export const acb = 'https://home.rajasthan.gov.in/acb/';
 export const terms = 'https://cmo.rajasthan.gov.in/jankalyan-category-and-entry-type/0/51/88';
+export const policy = 'https://cmo.rajasthan.gov.in/pages/website-policies';

@@ -10,6 +10,7 @@ import gautamSMPhoto from '../../../assets/images/gautamSMPhoto.png';
 import otaRamPhoto from '../../../assets/images/otaRamPhoto.png';
 import manjuPhoto from '../../../assets/images/manjuPhoto.png';
 import bhajanSecondPhoto from '../../../assets/images/bhajanSecondPhoto.png';
+import { policy } from './uri';
 
 export const filterChip = [
   'All',
@@ -149,6 +150,7 @@ export const linkingStrings = {
   acb: 'ACB',
   terms: 'Terms',
   followUs: 'Follow Us',
+  policy: 'Privacy Policy',
 };
 export const govData = {
   Governor: [
