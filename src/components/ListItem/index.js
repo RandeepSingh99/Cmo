@@ -195,7 +195,7 @@ const ListItem = props => {
                           </Text>
                         </View>
                       )}
-                      {item?.assembly && (
+                      {props.title==='MLA' && (
                         <View>
                           <Text  allowFontScaling={false}style={styles.cabinetMinisterAssemblyC}>
                             Assembly Constituency
