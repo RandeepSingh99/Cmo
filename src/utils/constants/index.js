@@ -75,6 +75,10 @@ export const sections = [
     data: [],
   },
   {
+    title: 'Photo Booth',
+    data: [],
+  },
+  {
     title: 'Our Government',
     data: [],
   },

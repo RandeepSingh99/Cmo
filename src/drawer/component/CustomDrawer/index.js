@@ -116,6 +116,7 @@ const CustomDrawerContent = props => {
       screen === appRoutes.awards ||
       screen === appRoutes.pressRelease ||
       screen === appRoutes.megaEvents ||
+      screen === appRoutes.photoBooth ||
       screen === appRoutes.cmReliefFund
     ) {
       props.navigation.navigate(screen);

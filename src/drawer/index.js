@@ -20,6 +20,7 @@ import DetailPage from '../screens/DetailPage';
 import SuccessStories from '../screens/SuccessStories';
 import CmSpeeches from '../screens/CmSpeeches';
 import GalleryDetail from '../screens/GalleryDetail';
+import PhotoBooth from '../screens/PhotoBooth';
 
 const DrawerStack = createDrawerNavigator();
 
@@ -44,15 +45,12 @@ const Drawer = props => {
       <DrawerStack.Screen
         name={appRoutes.stateGovernment}
         component={StateGovernment}
-      /> 
-      <DrawerStack.Screen
-      name={appRoutes.successStories}
-      component={SuccessStories}
-    />
-      <DrawerStack.Screen
-        name={appRoutes.detail}
-        component={DetailPage}
       />
+      <DrawerStack.Screen
+        name={appRoutes.successStories}
+        component={SuccessStories}
+      />
+      <DrawerStack.Screen name={appRoutes.detail} component={DetailPage} />
       <DrawerStack.Screen name={appRoutes.ourGovernment} component={OurGovt} />
       <DrawerStack.Screen name={appRoutes.events} component={Events} />
       <DrawerStack.Screen name={appRoutes.gallery} component={PhotoGallery} />
@@ -65,11 +63,17 @@ const Drawer = props => {
         component={CmReliefFund}
       />
       <DrawerStack.Screen name={appRoutes.cmQuotes} component={CmQuotes} />
-      <DrawerStack.Screen name={appRoutes.pressRelease} component={PressRelease} />
+      <DrawerStack.Screen
+        name={appRoutes.pressRelease}
+        component={PressRelease}
+      />
       <DrawerStack.Screen name={appRoutes.megaEvents} component={MegaEvents} />
       <DrawerStack.Screen name={appRoutes.cmSpeeches} component={CmSpeeches} />
-      <DrawerStack.Screen name={appRoutes.galleryDetail} component={GalleryDetail} />
-
+      <DrawerStack.Screen
+        name={appRoutes.galleryDetail}
+        component={GalleryDetail}
+      />
+      <DrawerStack.Screen name={appRoutes.photoBooth} component={PhotoBooth} />
     </DrawerStack.Navigator>
   );
 };

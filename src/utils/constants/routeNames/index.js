@@ -20,5 +20,6 @@ export const appRoutes = {
   pressRelease: 'Press Releases',
   awards: 'Awards',
   megaEvents: 'Mega Events',
-  galleryDetail:'Gallery Detail'
+  galleryDetail:'Gallery Detail',
+  photoBooth:'Photo Booth'
 };
