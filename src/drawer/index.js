@@ -21,6 +21,7 @@ import SuccessStories from '../screens/SuccessStories';
 import CmSpeeches from '../screens/CmSpeeches';
 import GalleryDetail from '../screens/GalleryDetail';
 import PhotoBooth from '../screens/PhotoBooth';
+import PrivacyPolicy from '../screens/PrivacyPolicy';
 
 const DrawerStack = createDrawerNavigator();
 
@@ -74,6 +75,7 @@ const Drawer = props => {
         component={GalleryDetail}
       />
       <DrawerStack.Screen name={appRoutes.photoBooth} component={PhotoBooth} />
+      <DrawerStack.Screen name={appRoutes.privacyPolicy} component={PrivacyPolicy} />
     </DrawerStack.Navigator>
   );
 };

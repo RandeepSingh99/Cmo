@@ -95,15 +95,7 @@ const CustomDrawerContent = props => {
       Linking.openURL(acb);
       return;
     }
-    if (screen.includes(linkingStrings.terms)) {
-      Linking.openURL(terms);
-      return;
-    }
-    if (screen.includes(linkingStrings.policy)) {
-      Linking.openURL(policy);
-      return;
-    }
-    policy
+
     if (
       screen === appRoutes.keyOfficials ||
       screen === appRoutes.successStories ||
@@ -117,6 +109,8 @@ const CustomDrawerContent = props => {
       screen === appRoutes.pressRelease ||
       screen === appRoutes.megaEvents ||
       screen === appRoutes.photoBooth ||
+      screen === appRoutes.privacyPolicy ||
+      screen === appRoutes.terms ||
       screen === appRoutes.cmReliefFund
     ) {
       props.navigation.navigate(screen);

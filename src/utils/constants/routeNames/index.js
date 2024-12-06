@@ -4,7 +4,6 @@ export const appRoutes = {
   drawer: 'Drawer',
   drawer: 'Drawer',
   keyOfficials: 'Key Officials',
-
   stateGovernment: 'State Government',
   successStories: 'Success Stories',
   detail: 'Detail',
@@ -20,6 +19,8 @@ export const appRoutes = {
   pressRelease: 'Press Releases',
   awards: 'Awards',
   megaEvents: 'Mega Events',
-  galleryDetail:'Gallery Detail',
-  photoBooth:'Photo Booth'
+  galleryDetail: 'Gallery Detail',
+  photoBooth: 'Photo Booth',
+  privacyPolicy: 'Privacy Policy',
+  terms: 'Terms & Conditions',
 };
