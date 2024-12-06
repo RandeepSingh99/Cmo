@@ -35,6 +35,7 @@ import QuoteCard from '../../components/QuoteCard';
 import {fetchMegaEvents} from '../../store/megaEventsSlice';
 import {fetchSuccessStories} from '../../store/successStoriesSlice';
 import {fetchCMSpeeches} from '../../store/cmSpeechesSlice';
+import {setLanguage} from '../../store/uiSlice';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -55,10 +56,7 @@ const Home = () => {
   const megaEvents = useSelector(state => state.megaEvents.megaEvents);
   const successStories = useSelector(state => state.successStories.stories);
   const cmSpeeches = useSelector(state => state.cmSpeeches.videos);
-
-console.log('megaEvents', megaEvents[0]?.Id)
-console.log('cmSpeeches', cmSpeeches[0]?.Id)
-
+  
   const onViewableItemsChanged = useRef(({viewableItems}) => {
     if (viewableItems.length > 0) {
       setCurrentIndex(viewableItems[0].index);

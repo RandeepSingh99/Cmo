@@ -27,10 +27,11 @@ import {
   terms,
 } from '../../../utils/constants/uri';
 import {setFollowUsModal} from '../../../store/uiSlice';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 const CustomDrawerContent = props => {
   const dispatch = useDispatch();
   const [expandedSections, setExpandedSections] = useState({});
+
 
   const toggleSection = title => {
     setExpandedSections(prevState => ({
