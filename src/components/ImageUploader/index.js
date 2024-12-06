@@ -4,10 +4,12 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Image,
 } from 'react-native';
 import React from 'react';
 import {appColors} from '../../utils/constants/colors';
 import {scaledValue} from '../../utils/designUtils';
+import addImageIconText from '../../../assets/images/addImageIconText.png';
 
 const ImageUploader = props => {
   return (
@@ -17,9 +19,7 @@ const ImageUploader = props => {
         source={{uri: props.img}}
         style={styles.uploaderView}>
         {!props.img && (
-          <Text allowFontScaling={false} style={styles.text}>
-            Add Image
-          </Text>
+          <Image source={addImageIconText} style={styles.addImageIconText} />
         )}
       </ImageBackground>
     </TouchableOpacity>
@@ -39,10 +39,11 @@ const styles = StyleSheet.create({
     borderRadius: scaledValue(8),
     backgroundColor: appColors.white,
   },
-  text: {
-    color: appColors.placeholderText,
-    fontSize: scaledValue(14),
-    fontWeight: '400',
-  },
   touch: {overflow: 'hidden', borderRadius: scaledValue(8)},
+  addImageIconText: {
+    alignItems: 'center',
+    height: scaledValue(61),
+    width: scaledValue(85),
+    backgroundColor: appColors.background,
+  },
 });
