@@ -45,10 +45,8 @@ const FeedBack = () => {
         setImage(null);
         setDescription('');
         Alert.alert('Success', 'Feedback submitted successfully!');
-        console.log(response.data); // Log the response for debugging
       } else {
         Alert.alert('Error', `Request failed with status: ${response.status}`);
-        console.error(response.data);
       }
     } catch (error) {
       Alert.alert('Error', 'An unexpected error occurred.');

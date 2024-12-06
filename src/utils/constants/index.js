@@ -90,18 +90,18 @@ export const sections = [
     title: 'Terms & Condition',
     data: [],
   },
-  {
-    title: 'Articles',
-    data: [],
-  },
-  {
-    title: 'Schemes',
-    data: [],
-  },
-  {
-    title: 'FAQ’s',
-    data: [],
-  },
+  // {
+  //   title: 'Articles',
+  //   data: [],
+  // },
+  // {
+  //   title: 'Schemes',
+  //   data: [],
+  // },
+  // {
+  //   title: 'FAQ’s',
+  //   data: [],
+  // },
   {
     title: 'Feedback & Suggestion',
     data: [],
@@ -110,10 +110,10 @@ export const sections = [
     title: 'Follow Us',
     data: [],
   },
-  {
-    title: 'Help Desk',
-    data: [],
-  },
+  // {
+  //   title: 'Help Desk',
+  //   data: [],
+  // },
   {
     title: 'Language',
     data: [],
