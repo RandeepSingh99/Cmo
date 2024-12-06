@@ -22,6 +22,7 @@ import CmSpeeches from '../screens/CmSpeeches';
 import GalleryDetail from '../screens/GalleryDetail';
 import PhotoBooth from '../screens/PhotoBooth';
 import PrivacyPolicy from '../screens/PrivacyPolicy';
+import TermsCondition from '../screens/TermsCondition';
 
 const DrawerStack = createDrawerNavigator();
 
@@ -76,6 +77,8 @@ const Drawer = props => {
       />
       <DrawerStack.Screen name={appRoutes.photoBooth} component={PhotoBooth} />
       <DrawerStack.Screen name={appRoutes.privacyPolicy} component={PrivacyPolicy} />
+      <DrawerStack.Screen name={appRoutes.termsCondition} component={TermsCondition} />
+
     </DrawerStack.Navigator>
   );
 };
