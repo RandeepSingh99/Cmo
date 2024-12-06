@@ -18,5 +18,7 @@ export const appColors = {
   lightPink:"#EEECFF",
   unActiveDot:'#FFCC00',
   activeDot:'#FF4A02',
+  orange: "#FF5C01",
+
 
 };

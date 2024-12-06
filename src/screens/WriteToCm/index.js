@@ -8,6 +8,7 @@ import {
   ScrollView,
   Pressable,
   Alert,
+  Image,
 } from 'react-native';
 import {Checkbox} from 'react-native-paper';
 import Header from '../../components/Header';
@@ -20,6 +21,7 @@ import DocumentPicker, {types} from 'react-native-document-picker';
 import RNFS from 'react-native-fs';
 import axios from 'axios';
 import {writeToCm} from '../../utils/constants/uri';
+import reCaptcha from '../../../assets/images/reCaptcha.png';
 
 const WriteToCm = props => {
   const [mobileNumber, setMobileNumber] = useState('');
@@ -108,7 +110,7 @@ const WriteToCm = props => {
             maxLength={10}
             style={styles.input}
             placeholder="Mobile No*"
-            placeholderTextColor={appColors.placeholderText}
+            placeholderTextColor={appColors.lightGray}
             value={mobileNumber}
             onChangeText={setMobileNumber}
             keyboardType="numeric"
@@ -123,7 +125,7 @@ const WriteToCm = props => {
           <TextInput
             style={styles.input}
             placeholder="Name*"
-            placeholderTextColor={appColors.placeholderText}
+            placeholderTextColor={appColors.gray}
             value={name}
             onChangeText={setName}
           />
@@ -135,7 +137,7 @@ const WriteToCm = props => {
           placeholder="Description"
           value={description}
           onChangeText={setDescription}
-          placeholderTextColor={appColors.placeholderText}
+          placeholderTextColor={appColors.gray}
           multiline={true}
         />
         <Spacer height={scaledValue(24)} />
@@ -147,7 +149,7 @@ const WriteToCm = props => {
             placeholder="upload document"
             value={file?.name || ''}
             onChangeText={setMobileNumber}
-            placeholderTextColor={appColors.placeholderText}
+            placeholderTextColor={appColors.gray}
           />
           <Text allowFontScaling={false} style={styles.verifyText}>
             CHOOSE FILE
@@ -160,13 +162,19 @@ const WriteToCm = props => {
         </Text>
         <Spacer height={scaledValue(24)} />
         <View style={styles.checkboxContainer}>
-          <Checkbox
-            status={isChecked ? 'checked' : 'unchecked'}
-            onPress={() => setIsChecked(!isChecked)}
-          />
-          <Text allowFontScaling={false} style={styles.checkboxText}>
-            I'm not a robot
-          </Text>
+          <View style={styles.checkboxContainerTextIcon}>
+            <Checkbox
+              status={isChecked ? 'checked' : 'unchecked'}
+              onPress={() => setIsChecked(!isChecked)}
+              color={appColors.darkBlue}
+            />
+            <Text allowFontScaling={false} style={styles.checkboxText}>
+              I'm not a robot
+            </Text>
+          </View>
+          <View>
+            <Image source={reCaptcha} style={styles.checkboxContainerIcon} />
+          </View>
         </View>
         <Spacer height={scaledValue(24)} />
 
@@ -195,10 +203,13 @@ const WriteToCm = props => {
 };
 
 const styles = StyleSheet.create({
-  paddingContainer: {flex: 1, paddingHorizontal: scaledValue(16)},
+  paddingContainer: {flex: 1, paddingHorizontal: scaledValue(16), paddingVertical: scaledValue(25),backgroundColor: appColors.white,
+    height:scaledValue(690)
+  },
   container: {
     flex: 1,
     backgroundColor: appColors.background,
+  
   },
   inputWrapper: {
     flexDirection: 'row',
@@ -237,14 +248,26 @@ const styles = StyleSheet.create({
   },
   checkboxContainer: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
     borderColor: appColors.inputBorder,
     borderWidth: 1,
     borderRadius: 8,
     paddingVertical: scaledValue(8),
   },
+  checkboxContainerTextIcon: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  checkboxContainerIcon: {
+    height: scaledValue(59),
+    width: scaledValue(56),
+    alignItems: 'center',
+   marginHorizontal:scaledValue(10)
+  },
   checkboxText: {
-    fontSize: 16,
+    fontSize: 14,
+    fontWeight:600,
     color: appColors.black,
   },
   buttonContainer: {

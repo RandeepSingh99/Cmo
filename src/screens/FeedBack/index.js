@@ -30,7 +30,7 @@ const FeedBack = () => {
         </View>
         <Spacer height={32} />
         <Button
-          width={335}
+          width={340}
           height={49}
           title="Submit"
           color={appColors.blue}
