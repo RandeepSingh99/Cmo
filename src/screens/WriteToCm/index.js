@@ -16,7 +16,7 @@ import {scaledValue} from '../../utils/designUtils';
 import Spacer from '../../components/Spacer';
 import {appRoutes} from '../../utils/constants/routeNames';
 import Button from '../../components/Button';
-import DocumentPicker, {types} from 'react-native-document-picker';
+import DocumentPicker from 'react-native-document-picker';
 import RNFS from 'react-native-fs';
 import axios from 'axios';
 import {writeToCm} from '../../utils/constants/uri';
