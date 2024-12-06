@@ -56,6 +56,9 @@ const Home = () => {
   const successStories = useSelector(state => state.successStories.stories);
   const cmSpeeches = useSelector(state => state.cmSpeeches.videos);
 
+console.log('megaEvents', megaEvents[0]?.Id)
+console.log('cmSpeeches', cmSpeeches[0]?.Id)
+
   const onViewableItemsChanged = useRef(({viewableItems}) => {
     if (viewableItems.length > 0) {
       setCurrentIndex(viewableItems[0].index);
