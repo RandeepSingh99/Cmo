@@ -10,7 +10,6 @@ import gautamSMPhoto from '../../../assets/images/gautamSMPhoto.png';
 import otaRamPhoto from '../../../assets/images/otaRamPhoto.png';
 import manjuPhoto from '../../../assets/images/manjuPhoto.png';
 import bhajanSecondPhoto from '../../../assets/images/bhajanSecondPhoto.png';
-import chiefSecretaryImg from '../../../assets/images/secretaryRaj.png';
 import medicalCMFund from '../../../assets/images/medicalCMFund.png';
 import kargilCMFund from '../../../assets/images/kargilCMFund.png';
 import accidentCMFund from '../../../assets/images/accidentCMFund.png';
@@ -336,7 +335,7 @@ export const govData = {
   'Chief Secretary': [
     {
       name: 'Shri Sudhansh Pant',
-      img: chiefSecretaryImg,
+      img: 'https://jankalyanfile.rajasthan.gov.in//Content/UploadFolder/DepartmentMaster/409/2024/Jan/30409/4094001559c-1561-4a80-a9fd-c450c56df0c3.jpg',
       dob: '14 Feb 1967',
       homeTown: 'Lucknow',
       qualification: 'B.TECH.(HONS.)(EEC.)',

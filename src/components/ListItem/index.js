@@ -209,7 +209,11 @@ const ListItem = props => {
                       <View style={styles.cabinetMinisterImage}>
                         <Image
                           style={styles.cabinetMinisterI}
-                          source={item?.img}
+                          source={
+                             props.title === 'Chief Secretary'
+                              ? {uri: item?.img}
+                              : item?.img
+                          }
                         />
                       </View>
                     )}
