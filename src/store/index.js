@@ -17,6 +17,7 @@ import formerCMSSlice from './formerCMSSlice';
 import {persistReducer, persistStore} from 'redux-persist';
 import {reduxStorage} from '../storage';
 import cmEventsReducer from './cmEventsSlice';
+import lastUpdateSlice from './lastUpdateSlice';
 
 const persistConfig = {
   key: 'root',
@@ -41,6 +42,7 @@ const rootReducer = combineReducers({
   formerCM: formerCMSSlice,
   cmRelief: cmReliefSlice,
   cmEvents: cmEventsReducer,
+  lastUpdate: lastUpdateSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

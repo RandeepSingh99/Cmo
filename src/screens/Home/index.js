@@ -32,6 +32,7 @@ import {fetchMegaEvents} from '../../store/megaEventsSlice';
 import {fetchSuccessStories} from '../../store/successStoriesSlice';
 import {fetchCMSpeeches} from '../../store/cmSpeechesSlice';
 import {dateFormatter} from '../../utils';
+import { fetchLastUpdate } from '../../store/lastUpdateSlice';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -67,6 +68,7 @@ const Home = () => {
     dispatch(fetchMegaEvents());
     dispatch(fetchSuccessStories());
     dispatch(fetchCMSpeeches());
+    dispatch(fetchLastUpdate());
   };
 
   useEffect(() => {
