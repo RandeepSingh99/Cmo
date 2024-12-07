@@ -340,3 +340,9 @@ export const govData = {
     },
   ],
 };
+// export const reliefImg = {
+//   Medical: medical,
+//   Accident: accident,
+//   Kargil: kargil,
+//   'Grand Total': null,
+// };
