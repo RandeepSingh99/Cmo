@@ -17,7 +17,6 @@ import {useSelector} from 'react-redux';
 
 const Header = props => {
   const lastUpDate = useSelector(state => state.lastUpdate.lastUpdate);
-  console.log('lastUpDae', lastUpDate)
   return (
     <ImageBackground style={styles.drawerHeader} source={bgLinear}>
       <Image tintColor={appColors.white} style={styles.logo} source={logo} />

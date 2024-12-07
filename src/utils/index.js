@@ -11,18 +11,14 @@ export const dateFormatter = (dateStr = '') => {
   return formattedDate;
 };
 
- export function formatToIndianUnits(input) {
-  const number = parseFloat(input.replace(/,/g, ''));
-  
-    if (isNaN(number)) {
-        return "Invalid number";
-    }
-
-    if (number >= 10000000) { // 1 Crore
-        return (number / 10000000).toFixed(2) + " Cr+";
-    } else if (number >= 100000) { // 1 Lac
-        return (number / 100000).toFixed(2) + " Lac+";
-    } else {
-        return number.toString(); // Less than 1 Lac
-    }
+export const  formatToIndianUnits=(amount) =>{
+  amount = amount.split(',').join('');
+  amount = amount.replace('₹', '');
+  if (amount >= 10000000) {
+    return `₹${(amount / 10000000).toFixed(2)} Cr+`;
+  } else if (amount >= 100000) {
+    return `₹${(amount / 100000).toFixed(2)} Lac+`;
+  } else {
+    return `₹${amount.toLocaleString('en-IN')}`;
+  }
 }
