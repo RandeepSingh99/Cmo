@@ -23,10 +23,11 @@ import GalleryDetail from '../screens/GalleryDetail';
 import PhotoBooth from '../screens/PhotoBooth';
 import PrivacyPolicy from '../screens/PrivacyPolicy';
 import TermsCondition from '../screens/TermsCondition';
+import CmEvents from '../screens/CmEvents';
 
 const DrawerStack = createDrawerNavigator();
 
-const Drawer = props => {
+const Drawer = () => {
   return (
     <DrawerStack.Navigator
       drawerContent={props => <CustomDrawerContent {...props} />}
@@ -76,9 +77,15 @@ const Drawer = props => {
         component={GalleryDetail}
       />
       <DrawerStack.Screen name={appRoutes.photoBooth} component={PhotoBooth} />
-      <DrawerStack.Screen name={appRoutes.privacyPolicy} component={PrivacyPolicy} />
-      <DrawerStack.Screen name={appRoutes.termsCondition} component={TermsCondition} />
-
+      <DrawerStack.Screen
+        name={appRoutes.privacyPolicy}
+        component={PrivacyPolicy}
+      />
+      <DrawerStack.Screen
+        name={appRoutes.termsCondition}
+        component={TermsCondition}
+      />
+      <DrawerStack.Screen name={appRoutes.cmEvent} component={CmEvents} />
     </DrawerStack.Navigator>
   );
 };

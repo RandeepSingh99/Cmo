@@ -16,10 +16,12 @@ import uiSlice from './uiSlice';
 import formerCMSSlice from './formerCMSSlice';
 import {persistReducer, persistStore} from 'redux-persist';
 import {reduxStorage} from '../storage';
+import cmEventsReducer from './cmEventsSlice';
 
 const persistConfig = {
   key: 'root',
   storage: reduxStorage,
+  blacklist:['menuList']
 };
 
 const rootReducer = combineReducers({
@@ -37,7 +39,8 @@ const rootReducer = combineReducers({
   importantLinks: importantLinksReducer,
   ui: uiSlice,
   formerCM: formerCMSSlice,
-  cmRelief: cmReliefSlice
+  cmRelief: cmReliefSlice,
+  cmEvents: cmEventsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

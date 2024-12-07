@@ -31,10 +31,14 @@ const DetailPage = props => {
   const cmSpeeches = useSelector(state => state.cmSpeeches.videos);
   const successStories = useSelector(state => state.successStories.stories);
   const pressRelease = useSelector(state => state.pressRelease.pressRelease);
+  const cmEvents = useSelector(state => state.cmEvents.list);
   const {language} = useSelector(state => state.ui);
 
   const mapRelatedVideos = () => {
-    if (params.header === appRoutes.events||params.header === appRoutes.megaEvents) {
+    if (
+      params.header === appRoutes.events ||
+      params.header === appRoutes.megaEvents
+    ) {
       return megaEvents.filter(itm => itm.Id !== params?.Id) || [];
     }
     if (params.header === appRoutes.successStories) {
@@ -42,6 +46,9 @@ const DetailPage = props => {
     }
     if (params.header === appRoutes.pressRelease) {
       return pressRelease.filter(itm => itm.Id !== params?.Id) || [];
+    }
+    if (params.header === appRoutes.cmEvent) {
+      return cmEvents.filter(itm => itm.Id !== params?.Id) || [];
     }
   };
 
