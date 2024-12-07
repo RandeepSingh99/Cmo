@@ -10,7 +10,7 @@ import {
 import React, {useEffect} from 'react';
 import Header from '../../components/Header';
 import Spacer from '../../components/Spacer';
-import {reliefColors, reliefImg, scaledValue} from '../../utils/designUtils';
+import {reliefColors, scaledValue} from '../../utils/designUtils';
 import {appColors} from '../../utils/constants/colors';
 import {appRoutes} from '../../utils/constants/routeNames';
 import Button from '../../components/Button';
@@ -20,6 +20,7 @@ import qr from '../../../assets/images/qr.png';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchCMRelief} from '../../store/cmReliefSlice';
 import ReliefFundCard from '../../components/ReliefCard';
+import { reliefImg } from '../../utils/constants';
 
 const CmReliefFund = () => {
   const dispatch = useDispatch();
@@ -216,12 +217,11 @@ const CmReliefFund = () => {
                 totalCount={item['Total Count']}
                 totalAmount={item['Total Amount']}
                 color={reliefColors[item['Report Name']]}
-                // img={reliefImg[item['Report Name']]}
+                img={reliefImg[item['Report Name']]}
               />
             )}
             keyExtractor={item => item['Report Name']}
             numColumns={2} // Display cards in two columns
-            columnWrapperStyle={styles.row} // Style for rows
           />
         </View>
       </View>
