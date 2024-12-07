@@ -12,14 +12,14 @@ const PrivacyPolicy = () => {
       <ScrollView style={styles.outerPrivacyPolicyText}>
 
         <Text style={styles.ThanksHeadingPrivacy}>
-          Thanks for visiting our website.
+          Thanks for visiting our application.
         </Text>
 
         <Text style={styles.privacyPolicyText}>
-          As a general rule, this website does not collect personal Information
+          As a general rule, this application does not collect personal Information
           about you when you visit the site. You can generally visit the site
           without revealing Personal Information, unless you choose to provide
-          such information. This website does not record your visit and logs. We
+          such information. This application does not record your visit and logs. We
           do not identify users or their browsing activities.
         </Text>
 
@@ -28,7 +28,7 @@ const PrivacyPolicy = () => {
         </Text>
 
         <Text style={styles.privacyPolicyText}>
-        cookie is a piece of software code that an Internet website sends to your browser when you access information in that site. This site does not use cookies.
+        cookie is a piece of software code that an Internet application sends to your browser when you access information in that site. This site does not use cookies.
         </Text>
 
         <Text style={styles.privacyPolicyHeading}>

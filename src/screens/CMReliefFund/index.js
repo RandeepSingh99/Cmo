@@ -145,7 +145,7 @@ const CmReliefFund = () => {
               <Text
                 allowFontScaling={false}
                 style={styles.offlinePaymentDetailNameText}>
-                Account No.-{' '}
+                Account No.-
               </Text>
               <Text
                 allowFontScaling={false}
@@ -157,7 +157,7 @@ const CmReliefFund = () => {
               <Text
                 allowFontScaling={false}
                 style={styles.offlinePaymentDetailNameText}>
-                Type of Account:{' '}
+                Type of Account:
               </Text>
               <Text
                 allowFontScaling={false}
@@ -169,7 +169,7 @@ const CmReliefFund = () => {
               <Text
                 allowFontScaling={false}
                 style={styles.offlinePaymentDetailNameText}>
-                IFSC Code -{' '}
+                IFSC Code -
               </Text>
               <Text
                 allowFontScaling={false}
@@ -182,7 +182,7 @@ const CmReliefFund = () => {
               <Text
                 allowFontScaling={false}
                 style={styles.offlinePaymentDetailNameText}>
-                Branch Name -{' '}
+                Branch Name -
               </Text>
               <Text
                 allowFontScaling={false}
@@ -194,7 +194,7 @@ const CmReliefFund = () => {
               <Text
                 allowFontScaling={false}
                 style={styles.offlinePaymentDetailNameText}>
-                UPI Id -{' '}
+                UPI Id -
               </Text>
               <Text
                 allowFontScaling={false}
