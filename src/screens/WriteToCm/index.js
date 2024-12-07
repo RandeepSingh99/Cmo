@@ -263,7 +263,7 @@ const styles = StyleSheet.create({
     height: scaledValue(59),
     width: scaledValue(56),
     alignItems: 'center',
-   marginHorizontal:scaledValue(10)
+    marginHorizontal:scaledValue(10)
   },
   checkboxText: {
     fontSize: 14,

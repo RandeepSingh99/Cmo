@@ -2,17 +2,21 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {appColors} from '../../utils/constants/colors';
 import {scaledValue} from '../../utils/designUtils';
-
+import { formatToIndianUnits } from '../../utils';
 
 const ReliefFundCard = ({reportName, totalCount, totalAmount, color, img}) => (
   <View style={[styles.card, {backgroundColor: color}]}>
-    <Image
-      source={img} // Update with your icon path
-      style={styles.icon}
-    />
-    <Text style={styles.reportName}>{reportName}</Text>
-    <Text style={styles.count}>{totalCount} No. of beneficiaries</Text>
-    <Text style={styles.amount}>{totalAmount} Total amount granted</Text>
+    <View style={styles.outerReliefFundImageText}>
+      <Image
+        source={img} // Update with your icon path
+        style={styles.icon}
+      />
+      <Text style={styles.reportName}>{reportName}</Text>
+    </View>
+    <Text style={styles.countNo}>{totalCount}</Text>
+    <Text style={styles.countText}> No. of beneficiaries</Text>
+    <Text style={styles.amountNo} numberOfLines={1}>{formatToIndianUnits(totalAmount)}</Text>
+    <Text style={styles.amountText}>Total amount granted</Text>
   </View>
 );
 
@@ -20,31 +24,61 @@ export default ReliefFundCard;
 
 const styles = StyleSheet.create({
   card: {
-    width: scaledValue(150),
+    width: scaledValue(154),
     borderRadius: scaledValue(8),
-    padding: 16,
-    marginHorizontal: 8,
-    marginBottom: 16,
+    paddingVertical: scaledValue(16),
+    marginHorizontal: scaledValue(6),
+    marginBottom: scaledValue(14),
+    alignItems:'center'
   },
   icon: {
-    width: 24,
-    height: 24,
-    marginBottom: 8,
+    width: scaledValue(24),
+    height: scaledValue(24),
+    marginBottom:scaledValue( 8),
   },
   reportName: {
-    fontSize: 16,
+    fontSize: scaledValue(16),
     fontWeight: 'bold',
-    color: '#000',
-    marginBottom: 4,
+    color: appColors.black,
+    marginBottom: scaledValue(4),
+     textTransform: 'capitalize'
   },
-  count: {
-    fontSize: 14,
-    color: '#555',
-    marginBottom: 4,
+  countNo: {
+    fontSize: scaledValue(20),
+    color: appColors.black,
+    marginVertical: scaledValue(4),
+    fontFamily: 'Roboto',
+    fontWeight: '900',
+   
   },
-  amount: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: appColors.background,
+  countText: {
+    fontSize: scaledValue(13),
+    color: appColors.black,
+    marginBottom: scaledValue(4),
+    fontFamily: 'Roboto',
+    fontWeight: '300',
+  },
+  amountNo: {
+    fontSize:scaledValue(20),
+    color: appColors.black,
+    marginVertical:scaledValue( 4),
+    fontFamily: 'Roboto',
+    fontWeight: '900',
+    
+  },
+  amountText:{
+    fontSize: scaledValue(13),
+    color: appColors.black,
+    marginBottom: scaledValue(4),
+    fontFamily: 'Roboto',
+    fontWeight: '300',
+  },
+  outerReliefFundImageText: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width:scaledValue(154),
+    borderBottomWidth:scaledValue(0.4),
+    borderBottomColor:appColors.inputBorder,
+    paddingBottom:scaledValue(6)
   },
 });

@@ -11,6 +11,9 @@ import otaRamPhoto from '../../../assets/images/otaRamPhoto.png';
 import manjuPhoto from '../../../assets/images/manjuPhoto.png';
 import bhajanSecondPhoto from '../../../assets/images/bhajanSecondPhoto.png';
 import chiefSecretaryImg from '../../../assets/images/secretaryRaj.png';
+import medicalCMFund from '../../../assets/images/medicalCMFund.png';
+import kargilCMFund from '../../../assets/images/kargilCMFund.png';
+import accidentCMFund from '../../../assets/images/accidentCMFund.png';
 
 export const filterChip = [
   'All',
@@ -340,9 +343,9 @@ export const govData = {
     },
   ],
 };
-// export const reliefImg = {
-//   Medical: medical,
-//   Accident: accident,
-//   Kargil: kargil,
-//   'Grand Total': null,
-// };
+export const reliefImg = {
+  Medical: medicalCMFund,
+  Accident: accidentCMFund,
+  Kargil: kargilCMFund,
+  'Grand Total': null,
+};
