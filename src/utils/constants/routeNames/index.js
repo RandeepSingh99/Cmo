@@ -1,3 +1,5 @@
+
+
 export const appRoutes = {
   splash: 'Splash',
   home: 'Home',
@@ -22,5 +24,5 @@ export const appRoutes = {
   galleryDetail: 'Gallery Detail',
   photoBooth: 'Photo Booth',
   privacyPolicy: 'Privacy Policy',
-  terms: 'Terms & Conditions',
+  termsCondition: 'Terms & Conditions',
 };
