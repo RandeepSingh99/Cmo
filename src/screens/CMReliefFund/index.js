@@ -216,7 +216,7 @@ const CmReliefFund = () => {
                 totalCount={item['Total Count']}
                 totalAmount={item['Total Amount']}
                 color={reliefColors[item['Report Name']]}
-                img={reliefImg[item['Report Name']]}
+                // img={reliefImg[item['Report Name']]}
               />
             )}
             keyExtractor={item => item['Report Name']}

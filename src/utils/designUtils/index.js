@@ -11,9 +11,9 @@ export const reliefColors = {
   Kargil: '#FFF9EC',
   'Grand Total': '#E8FBF4',
 };
-export const reliefImg = {
-  Medical: medical,
-  Accident: accident,
-  Kargil: kargil,
-  'Grand Total': null,
-};
+// export const reliefImg = {
+//   Medical: medical,
+//   Accident: accident,
+//   Kargil: kargil,
+//   'Grand Total': null,
+// };

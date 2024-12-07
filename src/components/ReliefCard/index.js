@@ -5,10 +5,10 @@ import {scaledValue} from '../../utils/designUtils';
 
 const ReliefFundCard = ({reportName, totalCount, totalAmount, color, img}) => (
   <View style={[styles.card, {backgroundColor: color}]}>
-    <Image
+    {/* <Image
       source={img} // Update with your icon path
       style={styles.icon}
-    />
+    /> */}
     <Text style={styles.reportName}>{reportName}</Text>
     <Text style={styles.count}>{totalCount} No. of beneficiaries</Text>
     <Text style={styles.amount}>{totalAmount} Total amount granted</Text>
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     borderRadius: scaledValue(8),
     padding: 16,
     marginHorizontal: 8,
-    marginBottom: 8,
+    marginBottom: 16,
   },
   icon: {
     width: 24,
