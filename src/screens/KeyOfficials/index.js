@@ -9,6 +9,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {fetchDepartmentContactDetails} from '../../store/departmentContactSlice';
 
 const KeyOfficials = () => {
+  const {language} = useSelector(state => state.ui);
   const departmentContact = useSelector(
     state => state.departmentContactDetails.data,
   );
@@ -25,8 +26,16 @@ const KeyOfficials = () => {
         data={departmentContact}
         renderItem={({item}) => (
           <InfoCard
-            name={item.OfficerName}
-            designation={item.DesignationName}
+            name={
+              language === 'English'
+                ? item.OfficerName
+                : item.OfficerNameInHindi
+            }
+            designation={
+              language === 'English'
+                ? item.DesignationName
+                : item.DesignationNameHindi
+            }
             phnNumber={item.PhoneNo}
             email={item.Email}
           />

@@ -7,8 +7,10 @@ import QuotesCard from '../../components/QuotesCard';
 import SingleImageViewer from '../../components/SingleImageViewer';
 import {useSelector} from 'react-redux';
 import QuoteCard from '../../components/QuoteCard';
+import {dateFormatter} from '../../utils';
 
 const CmQuotes = () => {
+  const {language} = useSelector(state => state.ui);
   const quotes = useSelector(state => state.cmQuotes.quotes);
   const [imageViewer, setImageViewer] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
@@ -27,9 +29,15 @@ const CmQuotes = () => {
               setSelectedImage(item.ImagePath);
               setImageViewer(true);
             }}
-            title={item.Achievement}
+            title={
+              language === 'English' ? item.Achievement : item.AchievementHindi
+            }
             img={item.ThumbnailImagePath}
-            date={item.AchievementDateHindi}
+            date={
+              language === 'English'
+                ? dateFormatter(item.AchievementDate)
+                : item.AchievementDateHindi
+            }
           />
         )}
       />

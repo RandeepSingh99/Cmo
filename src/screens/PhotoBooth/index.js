@@ -1,4 +1,4 @@
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {StyleSheet, View, Text, Image, ScrollView} from 'react-native';
 import React from 'react';
 import {appColors} from '../../utils/constants/colors';
 import Header from '../../components/Header';
@@ -12,7 +12,10 @@ const PhotoBooth = () => {
   return (
     <View style={styles.photoBooth}>
       <Header title={appRoutes.photoBooth} />
-      <View style={styles.photoBoothContainer}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.photoBoothContain}
+        style={styles.photoBoothContainer}>
         <Text style={styles.photoBoothContentTextOne}>
           Welcome To CM Photo Booth
         </Text>
@@ -42,13 +45,14 @@ const PhotoBooth = () => {
             <Image source={arrowSign} style={styles.arrowSign} />
           </View>
         </View>
-        <View style={styles.footer}>
+      
+      </ScrollView>
+      <View style={styles.footer}>
           <Text style={styles.footerTextOne}>Disclaimer : </Text>
           <Text style={styles.footerTextSecond}>
-            Photos will be available to download withing 48 hours
+            Photos will be available to download with in 48 hours
           </Text>
         </View>
-      </View>
     </View>
   );
 };
@@ -81,29 +85,29 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   photoBoothContainer: {
-    height: scaledValue(701),
-    width: scaledValue(375),
-    backgroundColor: appColors.background,
-    alignItems: 'center',
+    flex: 1,
+  },
+  photoBoothContain: {
     justifyContent: 'center',
+    alignItems: 'center',
   },
   photoBoothContentTextOne: {
-    width: scaledValue(233.5),
+    width: scaledValue(260),
     height: scaledValue(96),
     fontFamily: 'Roboto',
     fontSize: scaledValue(32),
     fontWeight: '800',
     textAlign: 'center',
+    marginTop: scaledValue(36),
   },
   photoBoothContentTextSecond: {
     width: scaledValue(274),
     fontFamily: 'Roboto',
     fontWeight: '400',
     fontSize: scaledValue(20),
-    marginBottom: scaledValue(40),
+    marginBottom: scaledValue(28),
     textAlign: 'center',
     color: appColors.darkBlue,
-    lineHeight: scaledValue(31),
   },
   outerPhotoBoothImage: {
     backgroundColor: appColors.white,
@@ -112,6 +116,11 @@ const styles = StyleSheet.create({
     width: scaledValue(242),
     alignItems: 'center',
     justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
   innerPhotoBoothImage: {
     height: scaledValue(190),
@@ -138,7 +147,6 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     height: scaledValue(44),
     textAlign: 'center',
-    lineHeight: scaledValue(20),
   },
   photoBoothFourthText: {
     height: scaledValue(67),
@@ -148,11 +156,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: scaledValue(8),
     justifyContent: 'center',
+    marginBottom: scaledValue(24),
+
   },
   photoBoothThirdText: {
     height: scaledValue(46),
     width: scaledValue(220),
-    lineHeight: scaledValue(23),
     marginVertical: scaledValue(10),
     color: appColors.darkBlue,
     textAlign: 'center',
@@ -189,29 +198,30 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   footer: {
-    bottom: 0,
     height: scaledValue(53),
+    width: scaledValue(375),
     flexDirection: 'row',
     backgroundColor: appColors.white,
-    marginHorizontal:scaledValue(10),
-    alignItems: 'center',
-    justifyContent: 'center',
-   
+    paddingHorizontal: scaledValue(14),
+    paddingTop: scaledValue(7),
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
 
   footerTextOne: {
     color: appColors.darkBlue,
     fontFamily: 'Roboto',
-    fontWeight: 700,
+    fontWeight: '700',
     fontSize: scaledValue(15),
-    paddingLeft:scaledValue(10)
   },
   footerTextSecond: {
     color: appColors.darkBlue,
     fontFamily: 'Roboto',
-    fontWeight: 500,
+    fontWeight: '500',
     fontSize: scaledValue(15),
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: scaledValue(260),
   },
 });

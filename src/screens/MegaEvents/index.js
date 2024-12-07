@@ -6,9 +6,11 @@ import Header from '../../components/Header';
 import Spacer from '../../components/Spacer';
 import {useSelector} from 'react-redux';
 import GalleryCard from '../../components/GalleryCard';
+import {dateFormatter} from '../../utils';
 
-const MegaEvents = () => {
+const MegaEvents = props => {
   const megaEvents = useSelector(state => state.megaEvents.megaEvents);
+  const {language} = useSelector(state => state.ui);
 
   return (
     <View style={styles.megaEvents}>
@@ -20,10 +22,19 @@ const MegaEvents = () => {
         data={megaEvents}
         renderItem={({item}) => (
           <GalleryCard
-            onPress={() => {}}
+            onPress={() =>
+              props.navigation.navigate(appRoutes.detail, {
+                header: appRoutes.megaEvents,
+                ...item,
+              })
+            }
             img={item.HomePageImageUrl}
             title={item.Description}
-            date={item.PressReleaseDateHindi}
+            date={
+              language === 'English'
+                ? dateFormatter(item.PressreleaseDate)
+                : item.PressReleaseDateHindi
+            }
           />
         )}
       />

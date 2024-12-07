@@ -6,9 +6,11 @@ import Header from '../../components/Header';
 import Spacer from '../../components/Spacer';
 import {useSelector} from 'react-redux';
 import GalleryCard from '../../components/GalleryCard';
+import { dateFormatter } from '../../utils';
 
 const SuccessStories = props => {
   const successStories = useSelector(state => state.successStories.stories);
+  const {language} = useSelector(state => state.ui);
 
   return (
     <View style={styles.successStories}>
@@ -28,8 +30,11 @@ const SuccessStories = props => {
             }
             img={item.HomePageImageUrl}
             title={item.Description}
-            date={item.PressReleaseDateHindi}
-          />
+            date={
+              language === 'English'
+                ? dateFormatter(item.PressreleaseDate)
+                : item.PressReleaseDateHindi
+            }             />
         )}
       />
       <Spacer height={12} />
