@@ -22,8 +22,8 @@ import instagramIcon from '../../../assets/images/instagramIcon.png';
 import twitterIcon from '../../../assets/images/twitterIcon.png';
 import {useSelector} from 'react-redux';
 import youtubeIcon from '../../../assets/images/youtubeIcon.png';
-import {generateRandomNumber} from '../../utils';
-import { pressReleaseImageUri } from '../../utils/constants/uri';
+import {dateFormatter, generateRandomNumber} from '../../utils';
+import {pressReleaseImageUri} from '../../utils/constants/uri';
 
 const DetailPage = props => {
   const {params} = props.route;
@@ -31,9 +31,10 @@ const DetailPage = props => {
   const cmSpeeches = useSelector(state => state.cmSpeeches.videos);
   const successStories = useSelector(state => state.successStories.stories);
   const pressRelease = useSelector(state => state.pressRelease.pressRelease);
+  const {language} = useSelector(state => state.ui);
 
   const mapRelatedVideos = () => {
-    if (params.header === appRoutes.events) {
+    if (params.header === appRoutes.events||params.header === appRoutes.megaEvents) {
       return megaEvents.filter(itm => itm.Id !== params?.Id) || [];
     }
     if (params.header === appRoutes.successStories) {
@@ -61,7 +62,9 @@ const DetailPage = props => {
               source={calenderIcon}
             />
             <Text allowFontScaling={false} style={styles.date}>
-              {params?.PressReleaseDateHindi}
+              {language === 'English'
+                ? dateFormatter(params?.PressreleaseDate)
+                : params?.PressReleaseDateHindi}
             </Text>
           </View>
 
@@ -141,7 +144,11 @@ const DetailPage = props => {
             }
             title={item.Description}
             img={item.HomePageImageUrl}
-            date={item.PressReleaseDateHindi}
+            date={
+              language === 'English'
+                ? dateFormatter(item.PressreleaseDate)
+                : item.PressReleaseDateHindi
+            }
           />
         )}
       />

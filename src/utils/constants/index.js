@@ -20,6 +20,7 @@ export const filterChip = [
   'Speeches',
   'Press Releases',
 ];
+
 export const sections = [
   {
     title: 'About CMO',

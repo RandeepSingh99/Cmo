@@ -13,6 +13,7 @@ import gov from '../../../assets/images/gov.png';
 import tm from '../../../assets/images/tm.png';
 
 const OurGovt = () => {
+  const {language} = useSelector(state => state.ui);
   const links = useSelector(state => state.importantLinks.links);
   const dispatch = useDispatch();
 
@@ -50,7 +51,9 @@ const OurGovt = () => {
         renderItem={({item}) => (
           <OurGovtCard
             onPress={() => Linking.openURL(item.Url)}
-            title={item.Achievement}
+            title={
+              language === 'English' ? item.Achievement : item.AchievementHindi
+            }
             img={renderImg(item.Achievement)}
           />
         )}

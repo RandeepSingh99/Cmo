@@ -10,12 +10,13 @@ import {useDispatch, useSelector} from 'react-redux';
 import {fetchFormerCMS} from '../../store/formerCMSSlice';
 
 const ListOfCm = () => {
+  const {language} = useSelector(state => state.ui);
   const cms = useSelector(state => state.formerCM.cms);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchFormerCMS());
   }, []);
-  
+
   return (
     <View style={styles.container}>
       <Header title={appRoutes.listOfCms} />
@@ -28,7 +29,9 @@ const ListOfCm = () => {
         renderItem={({item}) => (
           <FormerCm
             onPress={() => Linking.openURL(item.Url)}
-            title={item.Achievement}
+            title={
+              language === 'English' ? item.Achievement : item.AchievementHindi
+            }
             img={item.ImagePath}
           />
         )}

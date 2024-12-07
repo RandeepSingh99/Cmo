@@ -2,14 +2,12 @@ import {
   FlatList,
   Image,
   StyleSheet,
-  Text,
   View,
   ScrollView,
   Linking,
 } from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 import Header from '../../components/Header';
-import banner from '../../../assets/images/banner.png';
 import {scaledValue} from '../../utils/designUtils';
 import Chip from '../../components/Chip';
 import {filterChip} from '../../utils/constants';
@@ -25,17 +23,15 @@ import SocialMediaModal from '../../components/FollowUsModal';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchAchievementList} from '../../store/achievementsSlice';
 import {appRoutes} from '../../utils/constants/routeNames';
-import ListItem from '../../components/ListItem';
 import {fetchEvents} from '../../store/eventsSlice';
 import {fetchCMQuotes} from '../../store/cmQuotesSlice';
 import {useNavigation} from '@react-navigation/native';
 import SingleImageViewer from '../../components/SingleImageViewer';
 import {fetchPressReleases} from '../../store/pressReleaseSlice';
-import QuoteCard from '../../components/QuoteCard';
 import {fetchMegaEvents} from '../../store/megaEventsSlice';
 import {fetchSuccessStories} from '../../store/successStoriesSlice';
 import {fetchCMSpeeches} from '../../store/cmSpeechesSlice';
-import {setLanguage} from '../../store/uiSlice';
+import {dateFormatter} from '../../utils';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -50,13 +46,13 @@ const Home = () => {
   const [imageViewer, setImageViewer] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
   const bannerData = useSelector(state => state.achievements);
-  // const upComingEventList = useSelector(state => state.eventList);
   const quotes = useSelector(state => state.cmQuotes.quotes);
   const pressRelease = useSelector(state => state.pressRelease.pressRelease);
   const megaEvents = useSelector(state => state.megaEvents.megaEvents);
   const successStories = useSelector(state => state.successStories.stories);
   const cmSpeeches = useSelector(state => state.cmSpeeches.videos);
-  
+  const {language} = useSelector(state => state.ui);
+
   const onViewableItemsChanged = useRef(({viewableItems}) => {
     if (viewableItems.length > 0) {
       setCurrentIndex(viewableItems[0].index);
@@ -203,7 +199,11 @@ const Home = () => {
             }
             title={item.Description}
             img={item.HomePageImageUrl}
-            date={item.PressReleaseDateHindi}
+            date={
+              language === 'English'
+                ? dateFormatter(item.PressreleaseDate)
+                : item.PressReleaseDateHindi
+            }
           />
         )}
       />
@@ -226,9 +226,15 @@ const Home = () => {
               setSelectedImage(item.ImagePath);
               setImageViewer(true);
             }}
-            title={item.Achievement}
+            title={
+              language === 'English' ? item.Achievement : item.AchievementHindi
+            }
             img={item.ThumbnailImagePath}
-            date={item.AchievementDateHindi}
+            date={
+              language === 'English'
+                ? dateFormatter(item.AchievementDate)
+                : item.AchievementDateHindi
+            }
           />
         )}
       />
@@ -253,7 +259,11 @@ const Home = () => {
             }
             title={item.Description}
             img={item.HomePageImageUrl}
-            date={item.PressReleaseDateHindi}
+            date={
+              language === 'English'
+                ? dateFormatter(item.PressreleaseDate)
+                : item.PressReleaseDateHindi
+            }
           />
         )}
       />
@@ -280,7 +290,11 @@ const Home = () => {
             }
             title={item.Description}
             img={item.HomePageImageUrl}
-            date={item.PressReleaseDateHindi}
+            date={
+              language === 'English'
+                ? dateFormatter(item.PressreleaseDate)
+                : item.PressReleaseDateHindi
+            }
           />
         )}
       />
@@ -299,7 +313,9 @@ const Home = () => {
         renderItem={({item}) => (
           <CMSpeechesCard
             onPress={() => Linking.openURL(item.YoutubeURL)}
-            title={item.Achievement}
+            title={
+              language === 'English' ? item.Achievement : item.AchievementHindi
+            }
             img={item.ImagePath}
           />
         )}

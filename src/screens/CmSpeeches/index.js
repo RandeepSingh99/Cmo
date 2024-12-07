@@ -8,6 +8,7 @@ import CMSpeechesCard from '../../components/CMSpeechesCard';
 import {scaledValue} from '../../utils/designUtils';
 
 const CmSpeeches = () => {
+  const {language} = useSelector(state => state.ui);
   const cmSpeeches = useSelector(state => state.cmSpeeches.videos);
   return (
     <View style={styles.cmSpeeches}>
@@ -21,7 +22,9 @@ const CmSpeeches = () => {
         renderItem={({item}) => (
           <CMSpeechesCard
             onPress={() => Linking.openURL(item.YoutubeURL)}
-            title={item.Achievement}
+            title={
+              language === 'English' ? item.Achievement : item.AchievementHindi
+            }
             img={item.ImagePath}
           />
         )}

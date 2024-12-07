@@ -1,16 +1,16 @@
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 import React, {useEffect} from 'react';
 import Header from '../../components/Header';
 import {appColors} from '../../utils/constants/colors';
 import {appRoutes} from '../../utils/constants/routeNames';
-import OurGovtCard from '../../components/OurGovtCard';
 import QuotesCard from '../../components/QuotesCard';
 import {useDispatch, useSelector} from 'react-redux';
-import {fetchAchievementList} from '../../store/achievementsSlice';
 import {fetchAwards} from '../../store/awardsSlice';
+import {dateFormatter} from '../../utils';
 
 const Awards = () => {
   const dispatch = useDispatch();
+  const {language} = useSelector(state => state.ui);
   const awardList = useSelector(state => state.awards.awardList);
   const loadData = () => {
     dispatch(fetchAwards());
@@ -29,9 +29,15 @@ const Awards = () => {
         renderItem={({item}) => (
           <QuotesCard
             onPress={() => {}}
-            title={item.Achievement}
             img={item.ImagePath}
-            date={item.AchievementDateHindi}
+            title={
+              language === 'English' ? item.Achievement : item.AchievementHindi
+            }
+            date={
+              language === 'English'
+                ? dateFormatter(item.AchievementDate)
+                : item.AchievementDateHindi
+            }
           />
         )}
       />
