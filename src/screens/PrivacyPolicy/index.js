@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
           Thanks for visiting our website.
         </Text>
 
-        <Text style={styles.privacyPolicyText}>
+        <Text style={styles.privacyPolicyText}>j
           As a general rule, this website does not collect personal Information
           about you when you visit the site. You can generally visit the site
           without revealing Personal Information, unless you choose to provide

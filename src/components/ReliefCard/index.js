@@ -3,12 +3,13 @@ import React from 'react';
 import {appColors} from '../../utils/constants/colors';
 import {scaledValue} from '../../utils/designUtils';
 
+
 const ReliefFundCard = ({reportName, totalCount, totalAmount, color, img}) => (
   <View style={[styles.card, {backgroundColor: color}]}>
-    {/* <Image
+    <Image
       source={img} // Update with your icon path
       style={styles.icon}
-    /> */}
+    />
     <Text style={styles.reportName}>{reportName}</Text>
     <Text style={styles.count}>{totalCount} No. of beneficiaries</Text>
     <Text style={styles.amount}>{totalAmount} Total amount granted</Text>

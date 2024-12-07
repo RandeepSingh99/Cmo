@@ -211,7 +211,7 @@ export const govData = {
       department: [
         'Technical Education Department',
         'Higher Education Department',
-        'Ayurveda Yoga and Naturopathy Unani Siddha and Homeopathy (AYUSH) Department',
+        'Ayurveda Yoga and Naturopathy UnaniSiddha and Homeopathy (AYUSH) Department',
         'Transport and Road Safety Department',
       ],
       assembly: 'Vidhyadhar Nagar',
