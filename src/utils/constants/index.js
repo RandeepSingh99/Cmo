@@ -10,7 +10,7 @@ import gautamSMPhoto from '../../../assets/images/gautamSMPhoto.png';
 import otaRamPhoto from '../../../assets/images/otaRamPhoto.png';
 import manjuPhoto from '../../../assets/images/manjuPhoto.png';
 import bhajanSecondPhoto from '../../../assets/images/bhajanSecondPhoto.png';
-import { policy } from './uri';
+import chiefSecretaryImg from '../../../assets/images/secretaryRaj.png';
 
 export const filterChip = [
   'All',
@@ -84,10 +84,6 @@ export const sections = [
   },
   {
     title: 'List of former CMs',
-    data: [],
-  },
-  {
-    title: 'Terms & Condition',
     data: [],
   },
   // {
@@ -331,6 +327,15 @@ export const govData = {
       post: 'Hon ble Chief Minister',
       assembly: ' Dudu (SC)',
       img: premDCMPhoto,
+    },
+  ],
+  'Chief Secretary': [
+    {
+      name: 'Shri Sudhansh Pant',
+      img: chiefSecretaryImg,
+      dob: '14 Feb 1967',
+      homeTown: 'Lucknow',
+      qualification: 'B.TECH.(HONS.)(EEC.)',
     },
   ],
 };

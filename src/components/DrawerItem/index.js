@@ -4,6 +4,7 @@ import {appColors} from '../../utils/constants/colors';
 import {scaledValue} from '../../utils/designUtils';
 import minusCircle from '../../../assets/images/minusCircle.png';
 import LanguageToggle from '../LanguageToggle';
+import Feather from 'react-native-vector-icons/Feather';
 const DrawerItem = props => {
   return (
     <TouchableOpacity style={styles.itemView} onPress={props.onPress}>
@@ -11,7 +12,11 @@ const DrawerItem = props => {
         {props.title}
       </Text>
       {props.showMinus && (
-        <Image resizeMode="contain" style={styles.minus} source={minusCircle} />
+        <Feather
+          name={props.expanded ? 'plus-circle' : 'minus-circle'}
+          size={scaledValue(20)}
+          color={appColors.darkBlue}
+        />
       )}
       {props.title === 'Language' && <LanguageToggle />}
     </TouchableOpacity>
@@ -27,8 +32,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems:'center',
-    height:scaledValue(52)
+    alignItems: 'center',
+    height: scaledValue(52),
   },
   itemText: {
     fontSize: scaledValue(16),

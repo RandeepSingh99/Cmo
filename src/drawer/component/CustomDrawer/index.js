@@ -1,9 +1,4 @@
-import {
-  Linking,
-  SectionList,
-  StyleSheet,
-  View,
-} from 'react-native';
+import {Linking, SectionList, StyleSheet, View} from 'react-native';
 
 import {scaledValue} from '../../../utils/designUtils';
 import DrawerItem from '../../../components/DrawerItem';
@@ -32,7 +27,6 @@ const CustomDrawerContent = props => {
   const dispatch = useDispatch();
   const [expandedSections, setExpandedSections] = useState({});
 
-
   const toggleSection = title => {
     setExpandedSections(prevState => ({
       ...prevState,
@@ -55,8 +49,8 @@ const CustomDrawerContent = props => {
       return;
     }
     if (screen === linkingStrings.followUs) {
-      props.navigation.closeDrawer()
-      props.navigation.navigate(appRoutes.home)
+      props.navigation.closeDrawer();
+      props.navigation.navigate(appRoutes.home);
       dispatch(setFollowUsModal(true));
       return;
     }
@@ -135,6 +129,7 @@ const CustomDrawerContent = props => {
         )}
         renderSectionHeader={({section}) => (
           <DrawerItem
+            expanded={expandedSections[section.title]}
             onPress={() => toggleSection(section.title)}
             title={section.title}
             showMinus={section.data.length > 0}
