@@ -11,6 +11,7 @@ import megaEventsReducer from './megaEventsSlice';
 import successStoriesReducer from './successStoriesSlice';
 import cmSpeechesReducer from './cmSpeechesSlice';
 import importantLinksReducer from './importantLinksSlice';
+import cmReliefSlice from './cmReliefSlice';
 import uiSlice from './uiSlice';
 import formerCMSSlice from './formerCMSSlice';
 import {persistReducer, persistStore} from 'redux-persist';
@@ -36,6 +37,7 @@ const rootReducer = combineReducers({
   importantLinks: importantLinksReducer,
   ui: uiSlice,
   formerCM: formerCMSSlice,
+  cmRelief: cmReliefSlice
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
