@@ -22,3 +22,6 @@ export const  formatToIndianUnits=(amount) =>{
     return `₹${amount.toLocaleString('en-IN')}`;
   }
 }
+export const fixUrl=(url)=> {
+  return url.replace(/\\/g, '/');
+}

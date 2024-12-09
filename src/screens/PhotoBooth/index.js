@@ -23,6 +23,8 @@ import {fetchSearchImgEventList} from '../../store/searchImgEventListSlice';
 import Button from '../../components/Button';
 import Spacer from '../../components/Spacer';
 import axios from 'axios';
+import MultiImagePreViewer from '../../components/MultiImagePreViewer';
+import {boothImgUri} from '../../utils/constants/uri';
 
 const PhotoBooth = () => {
   const dispatch = useDispatch();
@@ -31,6 +33,7 @@ const PhotoBooth = () => {
   const [loading, setLoading] = useState(false);
   const [eventImages, setEventImages] = useState([]);
   const [event, setEvent] = useState('Select Event');
+  const [showImageViewer, setShowImageViewer] = useState(false);
   const listOfEvents = useSelector(state => state.searchImgEventList.events);
 
   const handlePress = () => setExpanded(!expanded);
@@ -84,9 +87,8 @@ const PhotoBooth = () => {
         type: userImage?.mime, // Ensure the correct MIME type
       });
 
-      // Sending the POST request
       const response = await axios.post(
-        'https://momentswithcm.rajasthan.gov.in/search_faces/',
+        boothImgUri + 'search_faces/',
         formData,
         {
           headers: {
@@ -100,6 +102,7 @@ const PhotoBooth = () => {
           return;
         }
         setEventImages(response?.data?.matched_images);
+        setShowImageViewer(true);
       } else {
         Alert.alert('Error uploading image:', response?.data?.error);
       }
@@ -109,6 +112,8 @@ const PhotoBooth = () => {
       setLoading(false);
     }
   };
+
+
 
   useEffect(() => {
     dispatch(fetchSearchImgEventList());
@@ -156,12 +161,7 @@ const PhotoBooth = () => {
 
         <List.Accordion
           style={styles.accordion}
-          titleStyle={{
-            color: appColors.black,
-            fontFamily: 'Roboto',
-            fontSize: scaledValue(16),
-            fontWeight: '700',
-          }}
+          titleStyle={styles.titleOfAccordion}
           title={event}
           expanded={expanded}
           onPress={handlePress}>
@@ -206,6 +206,11 @@ const PhotoBooth = () => {
           Photos will be available to download with in 48 hours
         </Text>
       </View>
+      <MultiImagePreViewer
+        visible={showImageViewer}
+        data={eventImages}
+        closeModal={() => setShowImageViewer(false)}
+      />
     </View>
   );
 };
@@ -267,6 +272,12 @@ const styles = StyleSheet.create({
   },
   photoBoothContainer: {
     flex: 1,
+  },
+  titleOfAccordion: {
+    color: appColors.black,
+    fontFamily: 'Roboto',
+    fontSize: scaledValue(16),
+    fontWeight: '700',
   },
   photoBoothContain: {
     justifyContent: 'center',
