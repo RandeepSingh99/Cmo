@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   View,
   Dimensions,
+  Platform,
 } from 'react-native';
 import React, {useRef, useState, useEffect} from 'react';
 import {appColors} from '../../utils/constants/colors';
@@ -14,6 +15,11 @@ import {fixUrl} from '../../utils';
 import {boothImgUri} from '../../utils/constants/uri';
 import {scaledValue} from '../../utils/designUtils';
 import Spacer from '../Spacer';
+import {
+  downloadFile,
+  getDownloadPermissionAndroid,
+} from '../../storage/downloadFiles';
+import RNFetchBlob from 'rn-fetch-blob';
 
 const {width, height} = Dimensions.get('window');
 
@@ -25,6 +31,25 @@ const MultiImagePreViewer = props => {
     setSelectedIndex(index);
   };
 
+  const onDownload = () => {
+    props.closeModal();
+    const fileUrl =boothImgUri + fixUrl(props?.data[selectedIndex]);
+    console.log('fileUrl', fileUrl)
+    // return
+    if (Platform.OS === 'android') {
+      getDownloadPermissionAndroid().then(granted => {
+        console.log('granted', granted)
+        if (granted) {
+          downloadFile(fileUrl);
+        }
+      });
+    } else {
+      downloadFile(fileUrl).then(res => {
+        console.log('res', res.path())
+        RNFetchBlob.ios.previewDocument(res.path());
+      });
+    }
+  };
   // Handle when the visible image changes on scroll (swiping)
   const onViewableItemsChanged = useRef(({viewableItems}) => {
     if (viewableItems.length > 0) {
@@ -53,9 +78,14 @@ const MultiImagePreViewer = props => {
       animationType="fade"
       onRequestClose={props.closeModal}>
       <View style={styles.modalContainer}>
-        <TouchableOpacity style={styles.closeButton} onPress={props.closeModal}>
+        {/* <TouchableOpacity style={styles.closeButton} onPress={props.closeModal}>
           <Text allowFontScaling={false} style={styles.closeButtonText}>
             Close
+          </Text>
+        </TouchableOpacity> */}
+        <TouchableOpacity style={styles.closeButton} onPress={onDownload}>
+          <Text allowFontScaling={false} style={styles.closeButtonText}>
+            Download
           </Text>
         </TouchableOpacity>
 

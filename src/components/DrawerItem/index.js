@@ -13,7 +13,7 @@ const DrawerItem = props => {
       </Text>
       {props.showMinus && (
         <Feather
-          name={props.expanded ? 'plus-circle' : 'minus-circle'}
+          name={props.expanded ? 'minus-circle' : 'plus-circle'}
           size={scaledValue(20)}
           color={appColors.darkBlue}
         />
