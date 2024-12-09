@@ -1,14 +1,119 @@
-import {StyleSheet, View, Text, Image, ScrollView} from 'react-native';
-import React from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  FlatList,
+  Alert,
+  Platform,
+} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import {appColors} from '../../utils/constants/colors';
 import Header from '../../components/Header';
 import {appRoutes} from '../../utils/constants/routeNames';
 import faceScanner from '../../../assets/images/faceScanner.png';
 import {scaledValue} from '../../utils/designUtils';
 import arrowSign from '../../../assets/images/arrowSign.png';
-import babelConfig from '../../../babel.config';
+import ImagePicker from 'react-native-image-crop-picker';
+import {List} from 'react-native-paper';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchSearchImgEventList} from '../../store/searchImgEventListSlice';
+import Button from '../../components/Button';
+import Spacer from '../../components/Spacer';
+import axios from 'axios';
 
 const PhotoBooth = () => {
+  const dispatch = useDispatch();
+  const [userImage, setUserImage] = useState(null);
+  const [expanded, setExpanded] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [eventImages, setEventImages] = useState([]);
+  const [event, setEvent] = useState('Select Event');
+  const listOfEvents = useSelector(state => state.searchImgEventList.events);
+
+  const handlePress = () => setExpanded(!expanded);
+  const clickUserImg = () => {
+    ImagePicker.openCamera({
+      width: scaledValue(242),
+      height: scaledValue(209),
+      cropping: true,
+    })
+      .then(image => {
+        setUserImage(image);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  const openUserGallery = () => {
+    ImagePicker.openPicker({
+      width: scaledValue(242),
+      height: scaledValue(209),
+      cropping: true,
+    })
+      .then(image => {
+        setUserImage(image);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  const search = async () => {
+    if (userImage === null) {
+      Alert.alert('Please upload your image!');
+      return;
+    }
+    if (event === 'Select Event') {
+      Alert.alert('Please select the event!');
+      return;
+    }
+    try {
+      setLoading(true);
+      const formData = new FormData();
+      formData.append('event_name', event);
+      formData.append('file', {
+        uri:
+          Platform.OS === 'ios'
+            ? userImage?.path?.replace('file://', '')
+            : userImage?.path,
+        name: userImage?.filename, // Adjust the name as needed
+        type: userImage?.mime, // Ensure the correct MIME type
+      });
+
+      // Sending the POST request
+      const response = await axios.post(
+        'https://momentswithcm.rajasthan.gov.in/search_faces/',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        },
+      );
+      if (response?.data?.matched_images) {
+        if (response?.data?.matched_images?.length === 0) {
+          Alert.alert('No image in event!');
+          return;
+        }
+        setEventImages(response?.data?.matched_images);
+      } else {
+        Alert.alert('Error uploading image:', response?.data?.error);
+      }
+    } catch (error) {
+      Alert.alert('Error uploading image:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    dispatch(fetchSearchImgEventList());
+  }, []);
+
   return (
     <View style={styles.photoBooth}>
       <Header title={appRoutes.photoBooth} />
@@ -22,21 +127,61 @@ const PhotoBooth = () => {
         <Text style={styles.photoBoothContentTextSecond}>
           Download Your Photographs Taken With Your CM
         </Text>
-        <View style={styles.outerPhotoBoothImage}>
-          <View style={styles.innerPhotoBoothImage}>
-            <Image
-              style={styles.photoBoothFaceScannerImage}
-              source={faceScanner}
-            />
-            <Text style={styles.photoBoothFaceScannerImageText}>
-              click here to scan your face
-            </Text>
-          </View>
-        </View>
+        {userImage === null && (
+          <TouchableOpacity
+            onPress={clickUserImg}
+            style={styles.outerPhotoBoothImage}>
+            <View style={styles.innerPhotoBoothImage}>
+              <Image
+                style={styles.photoBoothFaceScannerImage}
+                source={faceScanner}
+              />
+              <Text style={styles.photoBoothFaceScannerImageText}>
+                click here to scan your face
+              </Text>
+            </View>
+          </TouchableOpacity>
+        )}
+        {userImage !== null && (
+          <TouchableOpacity
+            onPress={clickUserImg}
+            style={styles.outerPhotoBoothImage}>
+            <Image style={styles.userImg} source={{uri: userImage?.path}} />
+          </TouchableOpacity>
+        )}
+
         <Text style={styles.photoBoothThirdText}>
           Scan your face using your device's front-facing camera
         </Text>
-        <View style={styles.photoBoothFourthText}>
+
+        <List.Accordion
+          style={styles.accordion}
+          titleStyle={{
+            color: appColors.black,
+            fontFamily: 'Roboto',
+            fontSize: scaledValue(16),
+            fontWeight: '700',
+          }}
+          title={event}
+          expanded={expanded}
+          onPress={handlePress}>
+          {listOfEvents?.map(item => (
+            <List.Item
+              key={item}
+              titleStyle={styles.listItemText}
+              style={styles.listItem}
+              title={item}
+              onPress={() => {
+                handlePress();
+                setEvent(item);
+              }}
+            />
+          ))}
+        </List.Accordion>
+
+        <TouchableOpacity
+          onPress={openUserGallery}
+          style={styles.photoBoothFourthText}>
           <Text style={styles.photoBoothFourthTextOne}>
             Want to upload an image?
           </Text>
@@ -44,15 +189,23 @@ const PhotoBooth = () => {
             <Text style={styles.photoBoothFourthTextSecond}>Click Here</Text>
             <Image source={arrowSign} style={styles.arrowSign} />
           </View>
-        </View>
-      
+        </TouchableOpacity>
+        <Button
+          onPress={search}
+          color={appColors.blue}
+          width={335}
+          height={52}
+          title={loading ? 'Searching...' : 'Search'}
+          titleColor={appColors.white}
+        />
+        <Spacer height={scaledValue(24)} />
       </ScrollView>
       <View style={styles.footer}>
-          <Text style={styles.footerTextOne}>Disclaimer : </Text>
-          <Text style={styles.footerTextSecond}>
-            Photos will be available to download with in 48 hours
-          </Text>
-        </View>
+        <Text style={styles.footerTextOne}>Disclaimer : </Text>
+        <Text style={styles.footerTextSecond}>
+          Photos will be available to download with in 48 hours
+        </Text>
+      </View>
     </View>
   );
 };
@@ -66,6 +219,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   paddingContainer: {flex: 1, paddingHorizontal: scaledValue(16)},
+  listItemText: {
+    color: appColors.black,
+    fontFamily: 'Roboto',
+    fontSize: scaledValue(15),
+    fontWeight: '600',
+  },
+  listItem: {
+    width: scaledValue(338),
+    height: scaledValue(58),
+    backgroundColor: appColors.white,
+    borderWidth: 1,
+    borderRadius: scaledValue(8),
+    borderColor: appColors.background,
+    marginTop: scaledValue(2),
+  },
   input: {
     borderWidth: 1,
     borderColor: appColors.inputBorder,
@@ -80,6 +248,19 @@ const styles = StyleSheet.create({
     height: scaledValue(133),
     textAlignVertical: 'top',
   },
+  userImg: {
+    width: scaledValue(242),
+    height: scaledValue(209),
+    borderRadius: scaledValue(8),
+  },
+  accordion: {
+    height: scaledValue(64),
+    width: scaledValue(339),
+    borderColor: appColors.gray,
+    borderWidth: 1,
+    borderRadius: scaledValue(8),
+    backgroundColor: appColors.background,
+  },
   addImgView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -92,20 +273,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   photoBoothContentTextOne: {
-    width: scaledValue(260),
-    height: scaledValue(96),
+    width: scaledValue(220),
     fontFamily: 'Roboto',
-    fontSize: scaledValue(32),
+    fontSize: scaledValue(24),
     fontWeight: '800',
     textAlign: 'center',
-    marginTop: scaledValue(36),
+    marginTop: scaledValue(20),
+    marginBottom: scaledValue(16),
   },
   photoBoothContentTextSecond: {
-    width: scaledValue(274),
+    width: scaledValue(204),
     fontFamily: 'Roboto',
     fontWeight: '400',
-    fontSize: scaledValue(20),
-    marginBottom: scaledValue(28),
+    fontSize: scaledValue(14),
+    marginBottom: scaledValue(16),
     textAlign: 'center',
     color: appColors.darkBlue,
   },
@@ -155,9 +336,8 @@ const styles = StyleSheet.create({
     borderColor: appColors.gray,
     borderWidth: 1,
     borderRadius: scaledValue(8),
+    marginVertical: scaledValue(24),
     justifyContent: 'center',
-    marginBottom: scaledValue(24),
-
   },
   photoBoothThirdText: {
     height: scaledValue(46),
@@ -171,8 +351,8 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     justifyContent: 'center',
     alignItems: 'center',
-    color: appColors.black,
     textAlign: 'center',
+    color: appColors.black,
     fontFamily: 'Roboto',
     fontSize: scaledValue(16),
     fontWeight: '700',

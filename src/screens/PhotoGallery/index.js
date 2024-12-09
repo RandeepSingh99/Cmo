@@ -10,7 +10,7 @@ import {fetchPhotoGallery} from '../../store/photoGallerySlice';
 import {useDispatch, useSelector} from 'react-redux';
 import SingleImageViewer from '../../components/SingleImageViewer';
 import {useNavigation} from '@react-navigation/native';
-import { dateFormatter } from '../../utils';
+import {dateFormatter} from '../../utils';
 
 const PhotoGallery = () => {
   const dispatch = useDispatch();

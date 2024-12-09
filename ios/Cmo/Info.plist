@@ -34,6 +34,12 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need access to your photo library to select pictures.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need access to your camera to take photos.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>We need access to your photo library to save pictures.</string>
 	<key>NSDocumentsUsageDescription</key>
 	<string>We need access to your documents to allow file uploads.</string>
 	<key>UILaunchStoryboardName</key>

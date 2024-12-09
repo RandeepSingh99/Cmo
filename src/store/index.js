@@ -18,11 +18,12 @@ import {persistReducer, persistStore} from 'redux-persist';
 import {reduxStorage} from '../storage';
 import cmEventsReducer from './cmEventsSlice';
 import lastUpdateSlice from './lastUpdateSlice';
+import searchImgEventListReducer from './searchImgEventListSlice';
 
 const persistConfig = {
   key: 'root',
   storage: reduxStorage,
-  blacklist:['menuList']
+  blacklist: ['menuList'],
 };
 
 const rootReducer = combineReducers({
@@ -43,6 +44,7 @@ const rootReducer = combineReducers({
   cmRelief: cmReliefSlice,
   cmEvents: cmEventsReducer,
   lastUpdate: lastUpdateSlice,
+  searchImgEventList: searchImgEventListReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
