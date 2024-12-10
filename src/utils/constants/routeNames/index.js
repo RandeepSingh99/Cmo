@@ -25,5 +25,6 @@ export const appRoutes = {
   photoBooth: 'Photo Booth',
   privacyPolicy: 'Privacy Policy',
   termsCondition: 'Terms & Conditions',
-  cmEvent:'CM Event'
+  cmEvent:'CM Event',
+  aboutApp:'About App'
 };

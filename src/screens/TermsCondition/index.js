@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontFamily: 'Roboto',
     fontSize: scaledValue(14),
-    fontWeight: '700',
+    fontWeight: '400',
     marginVertical: scaledValue(5),
   },
   termsCondition: {

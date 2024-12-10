@@ -24,6 +24,7 @@ import PhotoBooth from '../screens/PhotoBooth';
 import PrivacyPolicy from '../screens/PrivacyPolicy';
 import TermsCondition from '../screens/TermsCondition';
 import CmEvents from '../screens/CmEvents';
+import AboutApp from '../screens/AboutApp';
 
 const DrawerStack = createDrawerNavigator();
 
@@ -86,6 +87,7 @@ const Drawer = () => {
         component={TermsCondition}
       />
       <DrawerStack.Screen name={appRoutes.cmEvent} component={CmEvents} />
+      <DrawerStack.Screen name={appRoutes.aboutApp} component={AboutApp} />
     </DrawerStack.Navigator>
   );
 };

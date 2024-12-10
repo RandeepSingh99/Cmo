@@ -107,6 +107,7 @@ const CustomDrawerContent = props => {
       screen === appRoutes.privacyPolicy ||
       screen === appRoutes.termsCondition ||
       screen === appRoutes.cmEvent ||
+      screen === appRoutes.aboutApp ||
       screen === appRoutes.cmReliefFund
     ) {
       props.navigation.navigate(screen);
