@@ -8,13 +8,14 @@ export const getDownloadPermissionAndroid = async () => {
     }
     const permission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
     const hasPermission = await PermissionsAndroid.check(permission);
-    console.log('hasPermission', hasPermission)
+    console.log('hasPermission', hasPermission);
     if (hasPermission) {
       return true;
     }
     const status = await PermissionsAndroid.request(permission);
-    console.log('status', status)
-    return status === 'granted';
+    if (status) {
+      return true;
+    }
   } catch (err) {
     console.log('err', err);
   }
