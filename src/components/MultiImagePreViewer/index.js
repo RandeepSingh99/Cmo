@@ -35,7 +35,6 @@ const MultiImagePreViewer = props => {
   const onDownload = () => {
     props.closeModal();
     const fileUrl = boothImgUri + fixUrl(props?.data[selectedIndex]);
-    // return
     if (Platform.OS === 'android') {
       getDownloadPermissionAndroid().then(granted => {
         if (granted) {
@@ -48,7 +47,7 @@ const MultiImagePreViewer = props => {
       });
     }
   };
-  // Handle when the visible image changes on scroll (swiping)
+  
   const onViewableItemsChanged = useRef(({viewableItems}) => {
     if (viewableItems.length > 0) {
       const currentIndex = viewableItems[0].index;
