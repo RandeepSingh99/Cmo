@@ -39,9 +39,9 @@ const MultiImagePreViewer = props => {
     if (Platform.OS === 'android') {
       getDownloadPermissionAndroid().then(granted => {
         console.log('granted', granted)
-        if (granted) {
+        // if (granted) {
           downloadFile(fileUrl);
-        }
+        // }
       });
     } else {
       downloadFile(fileUrl).then(res => {
