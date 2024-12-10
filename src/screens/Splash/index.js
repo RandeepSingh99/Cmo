@@ -13,7 +13,7 @@ const Splash = () => {
   useEffect(() => {
     const id = setTimeout(() => {
       navigation.replace(appRoutes.drawer);
-    }, 3000);
+    }, 2000);
     return () => clearTimeout(id);
   }, []);
 

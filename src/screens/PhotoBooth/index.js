@@ -25,6 +25,7 @@ import Spacer from '../../components/Spacer';
 import axios from 'axios';
 import MultiImagePreViewer from '../../components/MultiImagePreViewer';
 import {boothImgUri} from '../../utils/constants/uri';
+import {PERMISSIONS, request} from 'react-native-permissions';
 
 const PhotoBooth = () => {
   const dispatch = useDispatch();
@@ -113,9 +114,8 @@ const PhotoBooth = () => {
     }
   };
 
-
-
   useEffect(() => {
+    request(PERMISSIONS.ANDROID.WRITE_EXTERNAL_STORAGE);
     dispatch(fetchSearchImgEventList());
   }, []);
 
