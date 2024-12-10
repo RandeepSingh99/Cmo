@@ -33,19 +33,16 @@ const MultiImagePreViewer = props => {
 
   const onDownload = () => {
     props.closeModal();
-    const fileUrl =boothImgUri + fixUrl(props?.data[selectedIndex]);
-    console.log('fileUrl', fileUrl)
+    const fileUrl = boothImgUri + fixUrl(props?.data[selectedIndex]);
     // return
     if (Platform.OS === 'android') {
       getDownloadPermissionAndroid().then(granted => {
-        console.log('granted', granted)
         if (granted) {
           downloadFile(fileUrl);
         }
       });
     } else {
       downloadFile(fileUrl).then(res => {
-        console.log('res', res.path())
         RNFetchBlob.ios.previewDocument(res.path());
       });
     }

@@ -1,13 +1,22 @@
 import RNFetchBlob from 'rn-fetch-blob';
-import {Platform} from 'react-native';
-import {check, PERMISSIONS} from 'react-native-permissions';
+import {PermissionsAndroid, Platform} from 'react-native';
 
 /// grant permission in android
 export const getDownloadPermissionAndroid = async () => {
   try {
-    const granted = await check(PERMISSIONS.ANDROID.WRITE_EXTERNAL_STORAGE);
-    console.log('granted', granted);
-    if (granted === PERMISSIONS.ANDROID.WRITE_EXTERNAL_STORAGE) return true;
+    if (Number(Platform.Version) >= 33) {
+      return true;
+    }
+
+    const permission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
+
+    const hasPermission = await PermissionsAndroid.check(permission);
+    if (hasPermission) {
+      return true;
+    }
+
+    const status = await PermissionsAndroid.request(permission);
+    return status === 'granted';
   } catch (err) {
     console.log('err', err);
   }
