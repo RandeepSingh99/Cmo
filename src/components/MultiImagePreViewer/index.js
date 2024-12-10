@@ -20,7 +20,8 @@ import {
   getDownloadPermissionAndroid,
 } from '../../storage/downloadFiles';
 import RNFetchBlob from 'rn-fetch-blob';
-
+import Feather from 'react-native-vector-icons/Feather';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 const {width, height} = Dimensions.get('window');
 
 const MultiImagePreViewer = props => {
@@ -75,15 +76,11 @@ const MultiImagePreViewer = props => {
       animationType="fade"
       onRequestClose={props.closeModal}>
       <View style={styles.modalContainer}>
-        {/* <TouchableOpacity style={styles.closeButton} onPress={props.closeModal}>
-          <Text allowFontScaling={false} style={styles.closeButtonText}>
-            Close
-          </Text>
-        </TouchableOpacity> */}
-        <TouchableOpacity style={styles.closeButton} onPress={onDownload}>
-          <Text allowFontScaling={false} style={styles.closeButtonText}>
-            Download
-          </Text>
+        <TouchableOpacity style={styles.closeButton} onPress={props.closeModal}>
+          <Ionicons name="close" size={26} color={appColors.white} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.downloadButton} onPress={onDownload}>
+          <Feather name="download" size={24} color={appColors.white} />
         </TouchableOpacity>
 
         <FlatList
@@ -149,6 +146,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 40,
     right: 20,
+    borderRadius: 20,
+    padding: 10,
+    zIndex: 1,
+  },
+  downloadButton: {
+    position: 'absolute',
+    top: 40,
+    left: 20,
     borderRadius: 20,
     padding: 10,
     zIndex: 1,
